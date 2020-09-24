@@ -12,10 +12,10 @@
 		B692CEF0251CF9A700A2943B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B692CEEE251CF9A700A2943B /* Main.storyboard */; };
 		B692CEF2251CF9A900A2943B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B692CEF1251CF9A900A2943B /* Assets.xcassets */; };
 		B692CEF5251CF9A900A2943B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B692CEF3251CF9A900A2943B /* LaunchScreen.storyboard */; };
-		B692CF00251D021000A2943B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B692CEFF251D021000A2943B /* HomeViewController.swift */; };
 		B692CF02251D023F00A2943B /* BasketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B692CF01251D023F00A2943B /* BasketViewController.swift */; };
 		B692CF04251D026100A2943B /* WhishListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B692CF03251D026100A2943B /* WhishListViewController.swift */; };
 		B692CF06251D027D00A2943B /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B692CF05251D027D00A2943B /* AccountViewController.swift */; };
+		B692CF08251D0B9500A2943B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B692CF07251D0B9500A2943B /* HomeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,10 +26,10 @@
 		B692CEF1251CF9A900A2943B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B692CEF4251CF9A900A2943B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B692CEF6251CF9A900A2943B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B692CEFF251D021000A2943B /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		B692CF01251D023F00A2943B /* BasketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketViewController.swift; sourceTree = "<group>"; };
 		B692CF03251D026100A2943B /* WhishListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhishListViewController.swift; sourceTree = "<group>"; };
 		B692CF05251D027D00A2943B /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
+		B692CF07251D0B9500A2943B /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,10 +76,10 @@
 		B692CEFC251CF9CE00A2943B /* CONTROLLER */ = {
 			isa = PBXGroup;
 			children = (
-				B692CEFF251D021000A2943B /* HomeViewController.swift */,
 				B692CF01251D023F00A2943B /* BasketViewController.swift */,
 				B692CF03251D026100A2943B /* WhishListViewController.swift */,
 				B692CF05251D027D00A2943B /* AccountViewController.swift */,
+				B692CF07251D0B9500A2943B /* HomeViewController.swift */,
 			);
 			path = CONTROLLER;
 			sourceTree = "<group>";
@@ -176,7 +176,7 @@
 				B692CF06251D027D00A2943B /* AccountViewController.swift in Sources */,
 				B692CEEB251CF9A700A2943B /* SceneDelegate.swift in Sources */,
 				B692CF02251D023F00A2943B /* BasketViewController.swift in Sources */,
-				B692CF00251D021000A2943B /* HomeViewController.swift in Sources */,
+				B692CF08251D0B9500A2943B /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
