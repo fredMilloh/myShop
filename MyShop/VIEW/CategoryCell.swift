@@ -1,5 +1,5 @@
 //
-//  ComZoneCell.swift
+//  CategoryCell.swift
 //  MyShop
 //
 //  Created by fred on 26/09/2020.
@@ -9,8 +9,9 @@
 import Foundation
 import UIKit
 
-class ComZoneCell: UIView {
+class CategoryCell: UIView {
     
-    @IBOutlet var comView: UIView!
+    @IBOutlet var categoryView: UIView!
+    @IBOutlet var categoryLabel: UILabel!
     
 }

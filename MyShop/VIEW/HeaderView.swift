@@ -11,4 +11,7 @@ import UIKit
 
 class HeaderView: UIView {
     
+    @IBOutlet var myShopLabel: UILabel!
+    @IBOutlet var searchTextField: UITextField!
+    
 }

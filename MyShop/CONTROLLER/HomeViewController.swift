@@ -19,6 +19,7 @@ class HomeViewController: UIViewController {
     }
 
 }
+/*
 extension HomeViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -34,3 +35,4 @@ extension HomeViewController: UITableViewDataSource {
     
     
 }
+*/
