@@ -147,10 +147,59 @@
                                             <outlet property="comView" destination="eHu-pK-QTD" id="F0m-vl-Cx7"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CategoryCell" rowHeight="50" id="6vV-VY-rfK" customClass="ComZoneCell">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="AddCategoryCell" rowHeight="50" id="2Z2-tt-XXZ" userLabel="AddCategoryCell" customClass="ComZoneCell">
                                         <rect key="frame" x="0.0" y="278" width="414" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6vV-VY-rfK" id="Mu2-wK-fu6">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2Z2-tt-XXZ" id="8H4-dL-PM3">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lYa-kL-v2g" userLabel="AddCategoryView">
+                                                    <rect key="frame" x="3" y="3" width="408" height="44"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Catégories" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5DI-Il-wF0">
+                                                            <rect key="frame" x="25" y="10" width="363" height="24"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UL3-Un-uUC">
+                                                            <rect key="frame" x="363" y="5" width="40" height="34"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="40" id="mQU-BC-IW7"/>
+                                                            </constraints>
+                                                            <connections>
+                                                                <action selector="addCategoryButton:" destination="QZy-G7-kjo" eventType="touchUpInside" id="MtH-WJ-xfY"/>
+                                                            </connections>
+                                                        </button>
+                                                    </subviews>
+                                                    <color key="backgroundColor" red="0.57741088460000001" green="0.62461904469999996" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <constraints>
+                                                        <constraint firstItem="5DI-Il-wF0" firstAttribute="leading" secondItem="lYa-kL-v2g" secondAttribute="leading" constant="25" id="N1h-Uz-XbE"/>
+                                                        <constraint firstItem="UL3-Un-uUC" firstAttribute="top" secondItem="lYa-kL-v2g" secondAttribute="top" constant="5" id="N4H-0H-1yi"/>
+                                                        <constraint firstAttribute="trailing" secondItem="5DI-Il-wF0" secondAttribute="trailing" constant="20" symbolic="YES" id="WVh-qn-iLf"/>
+                                                        <constraint firstAttribute="bottom" secondItem="UL3-Un-uUC" secondAttribute="bottom" constant="5" id="WnI-Hw-tu3"/>
+                                                        <constraint firstAttribute="trailing" secondItem="UL3-Un-uUC" secondAttribute="trailing" constant="5" id="ZaE-Ga-fYT"/>
+                                                        <constraint firstAttribute="bottom" secondItem="5DI-Il-wF0" secondAttribute="bottom" constant="10" id="kur-Fe-X1I"/>
+                                                        <constraint firstItem="5DI-Il-wF0" firstAttribute="top" secondItem="lYa-kL-v2g" secondAttribute="top" constant="10" id="nzZ-5s-eTY"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstItem="lYa-kL-v2g" firstAttribute="leading" secondItem="8H4-dL-PM3" secondAttribute="leading" constant="3" id="3qs-Gb-cw1"/>
+                                                <constraint firstAttribute="bottom" secondItem="lYa-kL-v2g" secondAttribute="bottom" constant="3" id="ETO-bK-8zc"/>
+                                                <constraint firstItem="lYa-kL-v2g" firstAttribute="top" secondItem="8H4-dL-PM3" secondAttribute="top" constant="3" id="wLs-tT-LwR"/>
+                                                <constraint firstAttribute="trailing" secondItem="lYa-kL-v2g" secondAttribute="trailing" constant="3" id="zSx-29-5Jr"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CategoryCell" rowHeight="50" id="6vV-VY-rfK" customClass="ComZoneCell">
+                                        <rect key="frame" x="0.0" y="328" width="414" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6vV-VY-rfK" id="Mu2-wK-fu6" customClass="CategoryCell" customModule="MyShop" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
