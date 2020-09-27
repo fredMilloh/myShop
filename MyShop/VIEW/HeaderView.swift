@@ -13,5 +13,6 @@ class HeaderView: UIView {
     
     @IBOutlet var myShopLabel: UILabel!
     @IBOutlet var searchTextField: UITextField!
+    @IBOutlet var comImage: UIImageView!
     
 }
