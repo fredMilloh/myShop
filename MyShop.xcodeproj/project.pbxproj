@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B6314D022523A38F00AE15C8 /* AllCategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6314D012523A38F00AE15C8 /* AllCategoriesViewController.swift */; };
+		B6314D062523A5B900AE15C8 /* AllCategoriesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6314D052523A5B900AE15C8 /* AllCategoriesCell.swift */; };
 		B66D2AE2251F92C600DBDD90 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66D2AE1251F92C600DBDD90 /* HeaderView.swift */; };
 		B66D2AFD251FB35E00DBDD90 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66D2AFC251FB35E00DBDD90 /* CategoryCell.swift */; };
 		B66D2B06252111DC00DBDD90 /* Items.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66D2B05252111DC00DBDD90 /* Items.swift */; };
@@ -23,6 +25,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B6314D012523A38F00AE15C8 /* AllCategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllCategoriesViewController.swift; sourceTree = "<group>"; };
+		B6314D052523A5B900AE15C8 /* AllCategoriesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllCategoriesCell.swift; sourceTree = "<group>"; };
 		B66D2AE1251F92C600DBDD90 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		B66D2AFC251FB35E00DBDD90 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 		B66D2B05252111DC00DBDD90 /* Items.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Items.swift; sourceTree = "<group>"; };
@@ -85,6 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				B692CF07251D0B9500A2943B /* HomeViewController.swift */,
+				B6314D012523A38F00AE15C8 /* AllCategoriesViewController.swift */,
 				B692CF01251D023F00A2943B /* BasketViewController.swift */,
 				B692CF03251D026100A2943B /* WhishListViewController.swift */,
 				B692CF05251D027D00A2943B /* AccountViewController.swift */,
@@ -99,6 +104,7 @@
 				B692CEF3251CF9A900A2943B /* LaunchScreen.storyboard */,
 				B66D2AE1251F92C600DBDD90 /* HeaderView.swift */,
 				B66D2AFC251FB35E00DBDD90 /* CategoryCell.swift */,
+				B6314D052523A5B900AE15C8 /* AllCategoriesCell.swift */,
 			);
 			path = VIEW;
 			sourceTree = "<group>";
@@ -184,11 +190,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				B692CEE9251CF9A700A2943B /* AppDelegate.swift in Sources */,
+				B6314D062523A5B900AE15C8 /* AllCategoriesCell.swift in Sources */,
 				B692CF04251D026100A2943B /* WhishListViewController.swift in Sources */,
 				B66D2B092521128E00DBDD90 /* ItemsService.swift in Sources */,
 				B692CF06251D027D00A2943B /* AccountViewController.swift in Sources */,
 				B692CEEB251CF9A700A2943B /* SceneDelegate.swift in Sources */,
 				B66D2B06252111DC00DBDD90 /* Items.swift in Sources */,
+				B6314D022523A38F00AE15C8 /* AllCategoriesViewController.swift in Sources */,
 				B66D2AFD251FB35E00DBDD90 /* CategoryCell.swift in Sources */,
 				B692CF02251D023F00A2943B /* BasketViewController.swift in Sources */,
 				B692CF08251D0B9500A2943B /* HomeViewController.swift in Sources */,

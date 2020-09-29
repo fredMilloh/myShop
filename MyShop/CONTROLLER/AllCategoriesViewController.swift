@@ -1,45 +1,42 @@
 //
-//  HomeViewController.swift
+//  AllCategoriesViewController.swift
 //  MyShop
 //
-//  Created by fred on 24/09/2020.
+//  Created by fred on 29/09/2020.
 //  Copyright © 2020 fred. All rights reserved.
 //
 
 import UIKit
 
-class HomeViewController: UIViewController {
-
-    @IBOutlet weak var HomeTableView: UITableView!
+class AllCategoriesViewController: UIViewController {
     
+    @IBOutlet weak var AllCategoriesTableView: UITableView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-    }
-    // button to show AllCategoriesViewController
-    @IBAction func toutVoirButton(_ sender: UIButton) {
+        // Do any additional setup after loading the view.
     }
 
 }
 
-extension HomeViewController: UITableViewDataSource {
+extension AllCategoriesViewController: UITableViewDataSource {
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return ItemsService.shared.AllCategories.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        guard let cell = HomeTableView.dequeueReusableCell(withIdentifier: "categoryCell", for: indexPath) as? CategoryCell else { return UITableViewCell() }
+    
+        guard let cell = AllCategoriesTableView.dequeueReusableCell(withIdentifier: "allCategoriesCell", for: indexPath) as? AllCategoriesCell else { return UITableViewCell() }
         let item = ItemsService.shared.AllCategories[indexPath.row]
-        cell.categoryLabel.text = item
+        cell.allCategoryLabel.text = item
         
             return cell
     }
     
     
 }
-
