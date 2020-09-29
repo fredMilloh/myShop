@@ -29,14 +29,14 @@ extension HomeViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return ItemsService.shared.pastry.count
+        return ItemsService.shared.AllCategories.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         guard let cell = HomeTableView.dequeueReusableCell(withIdentifier: "categoryCell", for: indexPath) as? CategoryCell else { return UITableViewCell() }
-        let item = ItemsService.shared.pastry[indexPath.row]
-        cell.categoryLabel.text = item.categorie
+        let item = ItemsService.shared.AllCategories[indexPath.row]
+        cell.categoryLabel.text = item
         
             return cell
     }
