@@ -9,9 +9,16 @@
 import Foundation
 
 struct Items {
-    var categories: [Category]
+    var items: [(Item)]
 }
 
-struct Category {
-    var category: String
+struct Item {
+    var auteur: String
+    var nom: String
+    var categorie: String
+    var prix: String
+    var description: String
+    var allergens: String
+    var photo: String
+    var siteWeb: String
 }
