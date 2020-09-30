@@ -33,9 +33,16 @@ extension ItemsViewController: UICollectionViewDataSource {
         let item = ItemsService.shared.pastry[indexPath.row]
         
         cell.ItemsCollectionName.text = item.nom
-        
+        cell.ItemsCollectionAuthor.text = item.auteur
+        cell.ItemsCollectionDescription.text = item.description
+        cell.ItemsCollectionImage.image = UIImage(named: item.photo)
         return cell
     }
-    
-    
 }
+/*
+extension ItemsViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 180.00, height: 175.00)
+    }
+}
+*/
