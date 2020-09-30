@@ -21,6 +21,7 @@ struct Item {
     var allergens: String
     var photo: String
     var siteWeb: String
+    var promo: Bool
 }
 
 enum Categories {
