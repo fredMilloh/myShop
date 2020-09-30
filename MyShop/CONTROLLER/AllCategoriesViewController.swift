@@ -37,6 +37,10 @@ extension AllCategoriesViewController: UITableViewDataSource {
         
             return cell
     }
-    
-    
+}
+extension AllCategoriesViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let itemsCollection = self.storyboard?.instantiateViewController(withIdentifier: "itemsCollection") as! ItemsViewController
+        self.navigationController?.pushViewController(itemsCollection, animated: true)
+    }
 }
