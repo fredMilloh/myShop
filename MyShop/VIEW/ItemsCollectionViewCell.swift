@@ -16,4 +16,16 @@ class ItemsCollectionViewCell: UICollectionViewCell {
     @IBOutlet var ItemsCollectionAuthor: UILabel!
     @IBOutlet var ItemsCollectionDescription: UILabel!
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        addShadow()
+    }
+    
+    private func addShadow() {
+        ItemsCollectionView.layer.shadowColor = UIColor.systemPink.cgColor
+        ItemsCollectionView.layer.shadowRadius = 2.0
+        ItemsCollectionView.layer.shadowOffset = CGSize(width: 2.0, height: 2.0)
+        ItemsCollectionView.layer.shadowOpacity = 2.0
+    }
+    
 }
