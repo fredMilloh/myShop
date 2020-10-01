@@ -109,10 +109,19 @@
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits"/>
                                         </textField>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="info promo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BXt-tz-cN9">
+                                            <rect key="frame" x="20" y="43" width="329" height="50"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="50" id="wFc-Sa-6w3"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <color key="textColor" red="0.57741088460000001" green="0.62461904469999996" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="jjf-87-GvR">
                                             <rect key="frame" x="29.5" y="105" width="310" height="140"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vgb-a2-XlK" userLabel="LeftView" customClass="HeaderView" customModule="MyShop" customModuleProvider="target">
+                                                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vgb-a2-XlK" userLabel="HomeLeftView" customClass="HeaderView" customModule="MyShop" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="0.0" width="140" height="140"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Xa-Pd-3Q3">
@@ -176,7 +185,10 @@
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                             </subviews>
-                                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <accessibility key="accessibilityConfiguration">
+                                                                <accessibilityTraits key="traits" allowsDirectInteraction="YES"/>
+                                                            </accessibility>
                                                             <constraints>
                                                                 <constraint firstItem="oLv-UA-nG3" firstAttribute="top" secondItem="83g-GG-xbv" secondAttribute="bottom" constant="15" id="5Vt-ue-fhJ"/>
                                                                 <constraint firstItem="oLv-UA-nG3" firstAttribute="leading" secondItem="lCA-lQ-b6P" secondAttribute="trailing" constant="5" id="6u0-pd-2XP"/>
@@ -199,9 +211,14 @@
                                                                 <constraint firstItem="lCA-lQ-b6P" firstAttribute="leading" secondItem="3Xa-Pd-3Q3" secondAttribute="leading" constant="5" id="ufX-6L-ysY"/>
                                                                 <constraint firstItem="z1a-oc-zmH" firstAttribute="top" secondItem="A49-bV-gFF" secondAttribute="bottom" constant="2" id="wlO-Cm-ckM"/>
                                                             </constraints>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                    <integer key="value" value="10"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
                                                         </view>
                                                     </subviews>
-                                                    <color key="backgroundColor" systemColor="systemGray3Color"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstItem="3Xa-Pd-3Q3" firstAttribute="top" secondItem="Vgb-a2-XlK" secondAttribute="top" constant="2" id="2pN-pv-f0U"/>
                                                         <constraint firstAttribute="width" constant="140" id="9bE-x0-WKA"/>
@@ -210,8 +227,13 @@
                                                         <constraint firstItem="3Xa-Pd-3Q3" firstAttribute="leading" secondItem="Vgb-a2-XlK" secondAttribute="leading" constant="2" id="Zgi-nH-uYE"/>
                                                         <constraint firstAttribute="bottom" secondItem="3Xa-Pd-3Q3" secondAttribute="bottom" constant="2" id="iQZ-KH-Esm"/>
                                                     </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="10"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
                                                 </view>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bxe-md-kPp" userLabel="RightView" customClass="HeaderView" customModule="MyShop" customModuleProvider="target">
+                                                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bxe-md-kPp" userLabel="HomeRightView" customClass="HeaderView" customModule="MyShop" customModuleProvider="target">
                                                     <rect key="frame" x="170" y="0.0" width="140" height="140"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4L6-8i-vh4">
@@ -275,7 +297,7 @@
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                             </subviews>
-                                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
                                                                 <constraint firstItem="5C6-vO-wsY" firstAttribute="top" secondItem="KWp-6e-uda" secondAttribute="bottom" constant="12" id="0cc-1q-wMw"/>
                                                                 <constraint firstItem="RMO-1y-MUm" firstAttribute="top" secondItem="KWp-6e-uda" secondAttribute="bottom" constant="5" id="1Gr-C8-V2U"/>
@@ -298,9 +320,14 @@
                                                                 <constraint firstAttribute="trailing" secondItem="sZT-bB-vlb" secondAttribute="trailing" constant="5" id="gNr-gD-Uzu"/>
                                                                 <constraint firstItem="KWp-6e-uda" firstAttribute="leading" secondItem="4L6-8i-vh4" secondAttribute="leading" constant="5" id="zqu-jE-vTe"/>
                                                             </constraints>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                    <integer key="value" value="10"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
                                                         </view>
                                                     </subviews>
-                                                    <color key="backgroundColor" systemColor="systemOrangeColor"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="bottom" secondItem="4L6-8i-vh4" secondAttribute="bottom" constant="2" id="CZb-pF-mMB"/>
                                                         <constraint firstItem="4L6-8i-vh4" firstAttribute="leading" secondItem="bxe-md-kPp" secondAttribute="leading" constant="2" id="DFN-OJ-yvp"/>
@@ -309,6 +336,11 @@
                                                         <constraint firstItem="4L6-8i-vh4" firstAttribute="top" secondItem="bxe-md-kPp" secondAttribute="top" constant="2" id="qC8-M1-ahK"/>
                                                         <constraint firstAttribute="width" constant="140" id="y0M-NH-vlK"/>
                                                     </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="10"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
                                                 </view>
                                             </subviews>
                                         </stackView>
@@ -351,15 +383,6 @@
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                         </view>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="info promo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BXt-tz-cN9">
-                                            <rect key="frame" x="20" y="43" width="329" height="50"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="50" id="wFc-Sa-6w3"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <color key="textColor" red="0.57741088460000001" green="0.62461904469999996" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
                                     </subviews>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <constraints>
@@ -380,12 +403,11 @@
                                         <outlet property="HomeItemLeftDescription" destination="9s1-A7-dSd" id="nXH-8u-oJs"/>
                                         <outlet property="HomeItemLeftImage" destination="lCA-lQ-b6P" id="uzE-dy-1UR"/>
                                         <outlet property="HomeItemLeftName" destination="A49-bV-gFF" id="tlz-aW-mgf"/>
-                                        <outlet property="HomeItemLeftView" destination="3Xa-Pd-3Q3" id="Q7k-wf-YFh"/>
                                         <outlet property="HomeItemRightAuthor" destination="KWp-6e-uda" id="E0W-1F-kTq"/>
                                         <outlet property="HomeItemRightDescription" destination="sZT-bB-vlb" id="kxj-aS-4sQ"/>
                                         <outlet property="HomeItemRightImage" destination="RMO-1y-MUm" id="LXk-TJ-6IN"/>
                                         <outlet property="HomeItemRightName" destination="CQN-mu-BTE" id="1eN-IV-N5o"/>
-                                        <outlet property="HomeItemRightView" destination="4L6-8i-vh4" id="QTh-Bh-2T4"/>
+                                        <outlet property="InfoPromo" destination="BXt-tz-cN9" id="NED-KQ-C97"/>
                                         <outlet property="searchTextField" destination="dq8-w6-lGl" id="7Kl-Jb-o8J"/>
                                     </connections>
                                 </view>
@@ -474,6 +496,8 @@
                     </navigationItem>
                     <connections>
                         <outlet property="HeaderView" destination="2HN-3p-hCC" id="sb7-uL-Zjb"/>
+                        <outlet property="HomeItemLeftView" destination="3Xa-Pd-3Q3" id="b7J-Rf-6xt"/>
+                        <outlet property="HomeItemRightView" destination="4L6-8i-vh4" id="oEc-6m-XdR"/>
                         <outlet property="HomeTableView" destination="oUT-pH-fA1" id="Qtp-rb-pm2"/>
                     </connections>
                 </viewController>
@@ -695,6 +719,11 @@
                                                         <constraint firstAttribute="trailing" secondItem="Ice-U7-UoA" secondAttribute="trailing" constant="5" id="s0Z-uv-Aqn"/>
                                                         <constraint firstItem="Q5p-5u-Ndp" firstAttribute="top" secondItem="djA-di-lIn" secondAttribute="bottom" constant="12" id="wnU-xe-0QU"/>
                                                     </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="10"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
                                                 </view>
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -704,6 +733,11 @@
                                                 <constraint firstAttribute="trailing" secondItem="iew-wo-Zqr" secondAttribute="trailing" constant="2" id="nGB-ZF-fbM"/>
                                                 <constraint firstAttribute="bottom" secondItem="iew-wo-Zqr" secondAttribute="bottom" constant="2" id="oaq-Vh-n9Z"/>
                                             </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                    <integer key="value" value="10"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
                                         </collectionViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <size key="customSize" width="180" height="175"/>
@@ -768,14 +802,8 @@
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
-        <systemColor name="systemGray3Color">
-            <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
         <systemColor name="systemGray5Color">
             <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemOrangeColor">
-            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemPinkColor">
             <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
