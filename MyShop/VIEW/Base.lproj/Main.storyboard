@@ -93,7 +93,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="oUT-pH-fA1">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="oUT-pH-fA1">
                                 <rect key="frame" x="3" y="0.0" width="369" height="617"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="2HN-3p-hCC" userLabel="HeaderView" customClass="HeaderView" customModule="MyShop" customModuleProvider="target">
@@ -421,10 +421,10 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MRP-4V-reN">
-                                                    <rect key="frame" x="1" y="1" width="367" height="24"/>
+                                                    <rect key="frame" x="1" y="1" width="367" height="23"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="catégorie" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ynj-bj-6eI">
-                                                            <rect key="frame" x="5" y="2" width="357" height="20"/>
+                                                            <rect key="frame" x="5" y="2" width="357" height="19"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                             <color key="textColor" red="0.57741088460000001" green="0.62461904469999996" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                             <nil key="highlightedColor"/>
@@ -440,7 +440,7 @@
                                                 </view>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="MRP-4V-reN" secondAttribute="bottom" id="66c-pK-VcG"/>
+                                                <constraint firstAttribute="bottom" secondItem="MRP-4V-reN" secondAttribute="bottom" constant="1" id="66c-pK-VcG"/>
                                                 <constraint firstItem="MRP-4V-reN" firstAttribute="top" secondItem="lYh-Kp-cxS" secondAttribute="top" constant="1" id="8jr-99-VVl"/>
                                                 <constraint firstItem="MRP-4V-reN" firstAttribute="leading" secondItem="lYh-Kp-cxS" secondAttribute="leading" constant="1" id="dib-hD-scT"/>
                                                 <constraint firstAttribute="trailing" secondItem="MRP-4V-reN" secondAttribute="trailing" constant="1" id="kPA-nl-zFZ"/>
@@ -489,7 +489,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="rWu-RK-13R">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsMultipleSelection="YES" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="rWu-RK-13R">
                                 <rect key="frame" x="3" y="44" width="369" height="574"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="nkc-Au-z0b" userLabel="HeaderView">

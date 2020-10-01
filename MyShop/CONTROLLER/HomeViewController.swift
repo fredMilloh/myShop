@@ -31,13 +31,11 @@ class HomeViewController: UIViewController {
     }
     
     func promoHomeItems() {
-       
         for pastry in ItemsService.shared.pastries {
             if pastry.promo == true {
                Promo.append(pastry)
            }
        }
-        print(Promo)
    }
     
     // button to show AllCategoriesViewController
@@ -54,7 +52,7 @@ extension HomeViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 6
+        return ItemsService.shared.AllCategories.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -66,6 +64,12 @@ extension HomeViewController: UITableViewDataSource {
             return cell
     }
     
-    
 }
 
+extension HomeViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let itemsCollection = self.storyboard?.instantiateViewController(withIdentifier: "itemsCollection") as! ItemsViewController
+        self.navigationController?.pushViewController(itemsCollection, animated: true)
+    }
+}
