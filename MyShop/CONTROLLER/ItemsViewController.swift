@@ -25,12 +25,12 @@ extension ItemsViewController: UICollectionViewDataSource {
         return 1
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return ItemsService.shared.pastry.count
+        return ItemsService.shared.pastries.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = CollectionView.dequeueReusableCell(withReuseIdentifier: "itemsCollectionCell", for: indexPath) as? ItemsCollectionViewCell else { return UICollectionViewCell() }
-        let item = ItemsService.shared.pastry[indexPath.row]
+        let item = ItemsService.shared.pastries[indexPath.row]
         
         cell.ItemsCollectionName.text = item.nom
         cell.ItemsCollectionAuthor.text = item.auteur
