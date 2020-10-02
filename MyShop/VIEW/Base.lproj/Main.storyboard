@@ -101,7 +101,7 @@
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="un article, une marque,..." borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="dq8-w6-lGl">
-                                            <rect key="frame" x="5" y="5" width="359" height="30"/>
+                                            <rect key="frame" x="5" y="15" width="359" height="30"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="30" id="4zH-JV-M7x"/>
                                             </constraints>
@@ -110,9 +110,9 @@
                                             <textInputTraits key="textInputTraits"/>
                                         </textField>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="info promo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BXt-tz-cN9">
-                                            <rect key="frame" x="20" y="43" width="329" height="50"/>
+                                            <rect key="frame" x="20" y="53" width="329" height="40"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="50" id="wFc-Sa-6w3"/>
+                                                <constraint firstAttribute="height" constant="40" id="wFc-Sa-6w3"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <color key="textColor" red="0.57741088460000001" green="0.62461904469999996" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -298,6 +298,7 @@
                                                                 </label>
                                                             </subviews>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <gestureRecognizers/>
                                                             <constraints>
                                                                 <constraint firstItem="5C6-vO-wsY" firstAttribute="top" secondItem="KWp-6e-uda" secondAttribute="bottom" constant="12" id="0cc-1q-wMw"/>
                                                                 <constraint firstItem="RMO-1y-MUm" firstAttribute="top" secondItem="KWp-6e-uda" secondAttribute="bottom" constant="5" id="1Gr-C8-V2U"/>
@@ -392,7 +393,7 @@
                                         <constraint firstItem="BXt-tz-cN9" firstAttribute="top" secondItem="dq8-w6-lGl" secondAttribute="bottom" constant="8" symbolic="YES" id="VMh-us-8FE"/>
                                         <constraint firstAttribute="trailing" secondItem="dq8-w6-lGl" secondAttribute="trailing" constant="5" id="X8V-c5-bQ2"/>
                                         <constraint firstAttribute="trailing" secondItem="Sv3-f2-HjD" secondAttribute="trailing" id="Xbi-lb-htK"/>
-                                        <constraint firstItem="dq8-w6-lGl" firstAttribute="top" secondItem="2HN-3p-hCC" secondAttribute="top" constant="5" id="fcj-b4-t6b"/>
+                                        <constraint firstItem="dq8-w6-lGl" firstAttribute="top" secondItem="2HN-3p-hCC" secondAttribute="top" constant="15" id="fcj-b4-t6b"/>
                                         <constraint firstAttribute="trailing" secondItem="BXt-tz-cN9" secondAttribute="trailing" constant="20" id="gZ9-Wo-nEZ"/>
                                         <constraint firstItem="jjf-87-GvR" firstAttribute="centerX" secondItem="2HN-3p-hCC" secondAttribute="centerX" id="hPl-bD-hxZ"/>
                                         <constraint firstItem="BXt-tz-cN9" firstAttribute="leading" secondItem="2HN-3p-hCC" secondAttribute="leading" constant="20" id="qUQ-VD-SSF"/>

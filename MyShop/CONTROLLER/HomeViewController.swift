@@ -17,10 +17,15 @@ class HomeViewController: UIViewController {
     @IBOutlet var HomeItemRightView: UIView!
     @IBOutlet var HomeTableView: UITableView!
     
+    var tapGesture = UITapGestureRecognizer()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         promoHomeItems()
-        addShadow()
+        addShadow(adhocView: HomeItemLeftView)
+        addShadow(adhocView: HomeItemRightView)
+        homeLeftViewTapGesture()
+        homeRightViewTapGesture()
     }
     
     func promoHomeItems() {
@@ -39,19 +44,44 @@ class HomeViewController: UIViewController {
         HeaderView.HomeItemRightImage.image = UIImage(named: Promo[1].photo)
         HeaderView.HomeItemRightDescription.text = Promo[1].description
         
-        HeaderView.InfoPromo.text = "Profitez de la livraison gratuite  de 50 €"
+        HeaderView.InfoPromo.text = "Profitez de la livraison gratuite dès 50 € d'achats"
    }
     
-    private func addShadow() {
-        HomeItemLeftView.layer.shadowColor = UIColor.systemPink.cgColor
-        HomeItemLeftView.layer.shadowRadius = 2.0
-        HomeItemLeftView.layer.shadowOffset = CGSize(width: 2.0, height: 2.0)
-        HomeItemLeftView.layer.shadowOpacity = 0.7
-        
-        HomeItemRightView.layer.shadowColor = UIColor.systemPink.cgColor
-        HomeItemRightView.layer.shadowRadius = 2.0
-        HomeItemRightView.layer.shadowOffset = CGSize(width: 2.0, height: 2.0)
-        HomeItemRightView.layer.shadowOpacity = 0.7
+    private func addShadow(adhocView: UIView) {
+        adhocView.layer.shadowColor = UIColor.systemPink.cgColor
+        adhocView.layer.shadowRadius = 2.0
+        adhocView.layer.shadowOffset = CGSize(width: 2.0, height: 2.0)
+        adhocView.layer.shadowOpacity = 0.7
+    }
+    
+ // TapGesture HomeItemsView
+    
+    func homeLeftViewTapGesture() {
+        tapGesture = UITapGestureRecognizer(target: self, action: #selector(leftHandleTap(_:)))
+        HomeItemLeftView.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc func leftHandleTap(_ sender: UITapGestureRecognizer) {
+        if HomeItemLeftView.backgroundColor == UIColor.white {
+            HomeItemLeftView.backgroundColor = UIColor.systemGray5
+            print("geste reconnu")
+        } else {
+            HomeItemLeftView.backgroundColor = UIColor.white
+        }
+    }
+    
+    func homeRightViewTapGesture() {
+        tapGesture = UITapGestureRecognizer(target: self, action: #selector(rightHandleTap(_:)))
+        HomeItemRightView.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc func rightHandleTap(_ sender: UITapGestureRecognizer) {
+        if HomeItemRightView.backgroundColor == UIColor.white {
+            HomeItemRightView.backgroundColor = UIColor.systemGray5
+            print("geste reconnu")
+        } else {
+            HomeItemRightView.backgroundColor = UIColor.white
+        }
     }
     
     
