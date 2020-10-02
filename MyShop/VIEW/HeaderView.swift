@@ -10,22 +10,22 @@ import Foundation
 import UIKit
 
 class HeaderView: UIView {
-    
+
     @IBOutlet var searchTextField: UITextField!
-    
+
     //leftViewItem
-    
+
     @IBOutlet var HomeItemLeftImage: UIImageView!
     @IBOutlet var HomeItemLeftName: UILabel!
     @IBOutlet var HomeItemLeftAuthor: UILabel!
     @IBOutlet var HomeItemLeftDescription: UILabel!
     //rightViewItem
-    
+
     @IBOutlet var HomeItemRightImage: UIImageView!
     @IBOutlet var HomeItemRightName: UILabel!
     @IBOutlet var HomeItemRightAuthor: UILabel!
     @IBOutlet var HomeItemRightDescription: UILabel!
-    
+
     @IBOutlet var InfoPromo: UILabel!
-    
+
 }
