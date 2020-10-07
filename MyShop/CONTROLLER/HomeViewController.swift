@@ -118,9 +118,10 @@ extension HomeViewController: UITableViewDataSource {
 extension HomeViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let itemsCollection = self.storyboard?.instantiateViewController(withIdentifier: "itemsCollection") as! ItemsViewController
+        let itemsCollection = self.storyboard?.instantiateViewController(withIdentifier: "collectionView") as! ItemsCollectionViewController
         let categoryName = ItemsService.shared.AllCategories[indexPath.row]
         itemsCollection.itemsCategory = categoryName
         self.navigationController?.pushViewController(itemsCollection, animated: true)
+        
     }
 }

@@ -18,7 +18,7 @@ class ItemsCollectionViewCell: UICollectionViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        addShadow()
+       addShadow()
     }
 
     private func addShadow() {
@@ -27,4 +27,5 @@ class ItemsCollectionViewCell: UICollectionViewCell {
         ItemsCollectionView.layer.shadowOffset = CGSize(width: 2.0, height: 2.0)
         ItemsCollectionView.layer.shadowOpacity = 0.7
     }
+ 
 }
