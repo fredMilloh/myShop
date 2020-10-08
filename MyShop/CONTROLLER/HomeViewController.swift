@@ -69,6 +69,11 @@ class HomeViewController: UIViewController {
     @objc func leftHandleTap(_ sender: UITapGestureRecognizer) {
         if HomeItemLeftView.backgroundColor == UIColor.white {
             HomeItemLeftView.backgroundColor = UIColor.systemGray5
+            
+            let itemTable = self.storyboard?.instantiateViewController(withIdentifier: "ItemTableView") as! ItemTableViewController
+            let itemSelected = ItemsService.shared.Promo[0]
+            itemTable.itemSelected = itemSelected
+            self.navigationController?.pushViewController(itemTable, animated: true)
             print("geste reconnu")
         } else {
             HomeItemLeftView.backgroundColor = UIColor.white
@@ -83,6 +88,10 @@ class HomeViewController: UIViewController {
     @objc func rightHandleTap(_ sender: UITapGestureRecognizer) {
         if HomeItemRightView.backgroundColor == UIColor.white {
             HomeItemRightView.backgroundColor = UIColor.systemGray5
+            let itemTable = self.storyboard?.instantiateViewController(withIdentifier: "ItemTableView") as! ItemTableViewController
+            let itemSelected = ItemsService.shared.Promo[1]
+            itemTable.itemSelected = itemSelected
+            self.navigationController?.pushViewController(itemTable, animated: true)
             
         } else {
             HomeItemRightView.backgroundColor = UIColor.white
