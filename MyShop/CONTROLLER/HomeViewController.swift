@@ -10,7 +10,7 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
-    private(set) var Promo = [Item]()
+    var infoPromo = "Profitez de la livraison gratuite dès 50 € d'achats"
     
     @IBOutlet var HeaderView: HeaderView!
     @IBOutlet var HomeItemLeftView: UIView!
@@ -33,20 +33,21 @@ class HomeViewController: UIViewController {
     func promoHomeItems() {
         for pastry in ItemsService.shared.pastries {
             if pastry.promo == true {
-               Promo.append(pastry)
+                ItemsService.shared.Promo.append(pastry)
            }
        }
-        HeaderView.HomeItemLeftName.text = Promo[0].nom
-        HeaderView.HomeItemLeftAuthor.text = Promo[0].auteur
-        HeaderView.HomeItemLeftImage.image = UIImage(named: Promo[0].photo)
-        HeaderView.HomeItemLeftDescription.text = Promo[0].description
+        let itemPromo = ItemsService.shared.Promo
+        HeaderView.HomeItemLeftName.text = itemPromo[0].nom
+        HeaderView.HomeItemLeftAuthor.text = itemPromo[0].auteur
+        HeaderView.HomeItemLeftImage.image = UIImage(named: itemPromo[0].photo)
+        HeaderView.HomeItemLeftDescription.text = itemPromo[0].description
 
-        HeaderView.HomeItemRightName.text = Promo[1].nom
-        HeaderView.HomeItemRightAuthor.text = Promo[1].auteur
-        HeaderView.HomeItemRightImage.image = UIImage(named: Promo[1].photo)
-        HeaderView.HomeItemRightDescription.text = Promo[1].description
+        HeaderView.HomeItemRightName.text = itemPromo[1].nom
+        HeaderView.HomeItemRightAuthor.text = itemPromo[1].auteur
+        HeaderView.HomeItemRightImage.image = UIImage(named: itemPromo[1].photo)
+        HeaderView.HomeItemRightDescription.text = itemPromo[1].description
 
-        HeaderView.InfoPromo.text = "Profitez de la livraison gratuite dès 50 € d'achats"
+        HeaderView.InfoPromo.text = infoPromo
     }
 
 //Marks: - shadow
@@ -82,6 +83,7 @@ class HomeViewController: UIViewController {
     @objc func rightHandleTap(_ sender: UITapGestureRecognizer) {
         if HomeItemRightView.backgroundColor == UIColor.white {
             HomeItemRightView.backgroundColor = UIColor.systemGray5
+            
         } else {
             HomeItemRightView.backgroundColor = UIColor.white
         }
