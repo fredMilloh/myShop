@@ -31,12 +31,9 @@ class HomeViewController: UIViewController {
 //Marks: - Select item for ItemsView and give them value
 
     func promoHomeItems() {
-        for pastry in ItemsService.shared.pastries {
-            if pastry.promo == true {
-                ItemsService.shared.Promo.append(pastry)
-           }
-       }
+        ItemsService.shared.AddPromo()
         let itemPromo = ItemsService.shared.Promo
+        
         HeaderView.HomeItemLeftName.text = itemPromo[0].nom
         HeaderView.HomeItemLeftAuthor.text = itemPromo[0].auteur
         HeaderView.HomeItemLeftImage.image = UIImage(named: itemPromo[0].photo)

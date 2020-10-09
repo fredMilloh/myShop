@@ -20,7 +20,6 @@ class ItemsCollectionViewController: UICollectionViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         selectItemsCategory()
 
         // Register cell classes - desactice sinon plante

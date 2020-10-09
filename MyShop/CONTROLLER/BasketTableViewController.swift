@@ -1,39 +1,26 @@
 //
-//  ItemTableViewController.swift
+//  BasketTableViewController.swift
 //  MyShop
 //
-//  Created by fred on 08/10/2020.
+//  Created by fred on 09/10/2020.
 //  Copyright © 2020 fred. All rights reserved.
 //
 
 import UIKit
 
-class ItemTableViewController: UITableViewController {
+class BasketTableViewController: UITableViewController {
     
-    private let reuseIdentifier = "ItemTableCell"
+    private let reuseIdentifier = "BasketCell"
     
-    @IBOutlet weak var ItemHeaderView: UIImageView!
-    @IBOutlet weak var ItemFooterLabel: UILabel!
-    
-    var itemSelected: Item!
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
+         self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+         self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
-    
-    @IBAction func addBasketButtonPressed(_ sender: UIButton) {
-        let basketTable = self.storyboard?.instantiateViewController(withIdentifier: "BasketTableView") as! BasketTableViewController
-        
-        ItemsService.shared.BasketItems.append(itemSelected)
-        self.navigationController?.pushViewController(basketTable, animated: true)
-    }
-    
 
     // MARK: - Table view data source
 
@@ -44,27 +31,28 @@ class ItemTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 1
+        return ItemsService.shared.BasketItems.count
     }
 
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as? ItemTableViewCell else { return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "BasketCell", for: indexPath) as? BasketTableViewCell else { return UITableViewCell() }
 
-        cell.itemTableName.text = itemSelected.nom
-        cell.itemTableAuthor.text = itemSelected.auteur
-        cell.itemTablePrice.text = itemSelected.prix
-        cell.itemTableNote.text = "***** 4.8"
-        cell.itemTableDescription.text = itemSelected.description
-        cell.itemTableAllergens.text = "Allergènes : " + itemSelected.allergens
-        ItemHeaderView.image = UIImage(named: itemSelected.photo)
-        ItemFooterLabel.text = itemSelected.siteWeb
+        let item = ItemsService.shared.BasketItems[indexPath.row]
+        cell.authorLabel.text = item.auteur
+        cell.nameLabel.text = item.nom
+        cell.priceLabel.text = item.prix
+        cell.quantityLabel.text = "2"
+
         return cell
     }
+    
+
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
-        return false
+        return true
     }
     */
 
