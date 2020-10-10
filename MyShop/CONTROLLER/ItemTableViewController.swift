@@ -41,7 +41,7 @@ class ItemTableViewController: UITableViewController {
     func addedBasketOn() {
         self.addedBasketView.transform = .identity
         UIView.animate(withDuration: 0.5, delay: 0.05, usingSpringWithDamping: 0.5, initialSpringVelocity: 5, options: [], animations: {
-            self.addedBasketView.transform = CGAffineTransform(translationX: 0, y: -110)
+            self.addedBasketView.transform = CGAffineTransform(translationX: 10, y: -110)
             self.addedBasketView.alpha = 1.0
         }, completion: nil)
     }

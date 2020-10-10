@@ -116,7 +116,7 @@
                                                         <constraint firstAttribute="width" constant="20" id="qRd-tH-9QE"/>
                                                     </constraints>
                                                     <state key="normal" title="X">
-                                                        <imageReference key="image" image="delete.left" catalog="system" symbolScale="large"/>
+                                                        <imageReference key="image" image="minus.square" catalog="system" symbolScale="large"/>
                                                     </state>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hfs-52-sFz">
@@ -1225,11 +1225,11 @@
         <image name="ImagePromo" width="1542" height="624"/>
         <image name="cart" catalog="system" width="128" height="102"/>
         <image name="cart.badge.plus" catalog="system" width="128" height="106"/>
-        <image name="delete.left" catalog="system" width="128" height="104"/>
         <image name="heart" catalog="system" width="128" height="109"/>
         <image name="heart.circle" catalog="system" width="128" height="121"/>
         <image name="house" catalog="system" width="128" height="106"/>
         <image name="list.bullet" catalog="system" width="128" height="88"/>
+        <image name="minus.square" catalog="system" width="128" height="114"/>
         <image name="person" catalog="system" width="128" height="117"/>
         <image name="plus.square" catalog="system" width="128" height="114"/>
         <systemColor name="systemBackgroundColor">
