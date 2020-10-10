@@ -98,6 +98,9 @@ class HomeViewController: UIViewController {
 //Marks: - button to show AllCategoriesViewController
 
     @IBAction func toutVoirButton(_ sender: UIButton) {
+        let categoriesTable = self.storyboard?.instantiateViewController(identifier: "CategoriesTable") as! AllCategoriesViewController
+        
+        self.navigationController?.pushViewController(categoriesTable, animated: true)
     }
 }
 

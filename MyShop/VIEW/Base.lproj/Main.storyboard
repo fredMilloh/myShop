@@ -22,16 +22,17 @@
                     </tabBar>
                     <connections>
                         <segue destination="Azz-NW-qbe" kind="relationship" relationship="viewControllers" id="ZJq-17-jaR"/>
+                        <segue destination="IP5-xb-o2o" kind="relationship" relationship="viewControllers" id="UKe-PN-zdF"/>
                         <segue destination="YL8-tb-XyH" kind="relationship" relationship="viewControllers" id="CXx-F8-Eyd"/>
                         <segue destination="SN0-zm-Efp" kind="relationship" relationship="viewControllers" id="JQV-Nh-cl1"/>
-                        <segue destination="BW9-9f-OPQ" kind="relationship" relationship="viewControllers" id="Hf7-9k-eqI"/>
+                        <segue destination="1le-jD-oRM" kind="relationship" relationship="viewControllers" id="Ckz-aq-nG3"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="shG-7g-ir9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2351" y="-183"/>
         </scene>
-        <!--Panier-->
+        <!--Basket Table View Controller-->
         <scene sceneID="bj2-Nk-rHi">
             <objects>
                 <tableViewController storyboardIdentifier="BasketTableView" id="BW9-9f-OPQ" customClass="BasketTableViewController" customModule="MyShop" customModuleProvider="target" sceneMemberID="viewController">
@@ -130,9 +131,6 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="000.00 €" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fkh-xK-zr2">
                                                     <rect key="frame" x="290" y="10" width="60" height="30"/>
                                                     <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="60" id="eUD-w5-ZEK"/>
-                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" systemColor="systemPinkColor"/>
                                                     <nil key="highlightedColor"/>
@@ -161,6 +159,7 @@
                                                 <constraint firstAttribute="bottom" secondItem="hfs-52-sFz" secondAttribute="bottom" constant="10" id="Ygh-DQ-9aE"/>
                                                 <constraint firstAttribute="bottom" secondItem="UZJ-Dn-jiz" secondAttribute="bottom" constant="5" id="a5i-Ej-gqG"/>
                                                 <constraint firstItem="eu0-LI-s1q" firstAttribute="leading" secondItem="Nyl-gb-3F9" secondAttribute="leading" constant="5" id="agG-bn-ZIq"/>
+                                                <constraint firstAttribute="trailing" secondItem="m6h-yz-32E" secondAttribute="trailing" constant="125" id="azg-jS-32K"/>
                                                 <constraint firstAttribute="bottom" secondItem="fkh-xK-zr2" secondAttribute="bottom" constant="10" id="cD4-OR-fwS"/>
                                                 <constraint firstAttribute="bottom" secondItem="0NR-QQ-nuQ" secondAttribute="bottom" constant="10" id="jMr-RF-pfz"/>
                                                 <constraint firstItem="0NR-QQ-nuQ" firstAttribute="top" secondItem="Nyl-gb-3F9" secondAttribute="top" constant="10" id="lfv-8V-t0K"/>
@@ -198,11 +197,11 @@
                             <outlet property="delegate" destination="BW9-9f-OPQ" id="B8z-YU-SYl"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Panier" image="cart" catalog="system" id="aMG-nw-8TW"/>
+                    <navigationItem key="navigationItem" id="QnJ-Dt-exb"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fhn-0S-7qB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-130" y="45"/>
+            <point key="canvasLocation" x="809" y="-278"/>
         </scene>
         <!--mon compte-->
         <scene sceneID="IIW-jm-dCj">
@@ -536,7 +535,6 @@
                                                     </state>
                                                     <connections>
                                                         <action selector="toutVoirButton:" destination="QZy-G7-kjo" eventType="touchUpInside" id="f3R-M5-VOe"/>
-                                                        <segue destination="Ufz-Wr-oyE" kind="show" id="fPT-lj-uAD"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -679,10 +677,10 @@
             </objects>
             <point key="canvasLocation" x="-840.79999999999995" y="-997.15142428785612"/>
         </scene>
-        <!--Catégories-->
+        <!--All Categories View Controller-->
         <scene sceneID="Cgv-W4-ZL4">
             <objects>
-                <viewController id="Ufz-Wr-oyE" customClass="AllCategoriesViewController" customModule="MyShop" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CategoriesTable" id="Ufz-Wr-oyE" customClass="AllCategoriesViewController" customModule="MyShop" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YT3-xx-XV8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -781,15 +779,16 @@
                             <constraint firstItem="rWu-RK-13R" firstAttribute="bottom" secondItem="tQ2-hk-7ns" secondAttribute="bottom" id="h1j-Zi-WPS"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Catégories" image="list.bullet" catalog="system" id="yfX-L2-isP"/>
-                    <navigationItem key="navigationItem" id="XXY-gs-efK"/>
+                    <navigationItem key="navigationItem" id="XXY-gs-efK">
+                        <nil key="title"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="allCategoriesTableView" destination="rWu-RK-13R" id="ptT-Ou-ZTG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zy4-0Q-ZTo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-130" y="-640"/>
+            <point key="canvasLocation" x="809" y="-997"/>
         </scene>
         <!--Items Collection View Controller-->
         <scene sceneID="rWD-D7-VWD">
@@ -922,7 +921,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cc6-dW-UP2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="604" y="-997"/>
+            <point key="canvasLocation" x="1570" y="-975"/>
         </scene>
         <!--Item Table View Controller-->
         <scene sceneID="XcY-06-Qsj">
@@ -1156,7 +1155,46 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BEB-YZ-jJD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1304.8" y="-997.15142428785612"/>
+            <point key="canvasLocation" x="2348" y="-976"/>
+        </scene>
+        <!--Panier-->
+        <scene sceneID="NVN-az-duj">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1le-jD-oRM" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Panier" image="cart" catalog="system" id="aMG-nw-8TW"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="q70-hl-G2A">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BW9-9f-OPQ" kind="relationship" relationship="rootViewController" id="rFp-MZ-ByG"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="unl-24-SUE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1" y="-277"/>
+        </scene>
+        <!--les catégories-->
+        <scene sceneID="xK6-vf-Rvd">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="IP5-xb-o2o" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Catégories" image="list.bullet" catalog="system" id="yfX-L2-isP"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="les catégories" id="cCF-Rv-oJY"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="O85-YK-fRD">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Ufz-Wr-oyE" kind="relationship" relationship="rootViewController" id="E8M-vt-76v"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jT4-v1-wz0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2" y="-997"/>
         </scene>
     </scenes>
     <resources>
