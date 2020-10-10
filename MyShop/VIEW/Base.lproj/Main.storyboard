@@ -921,7 +921,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cc6-dW-UP2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1570" y="-975"/>
+            <point key="canvasLocation" x="1577" y="-997"/>
         </scene>
         <!--Item Table View Controller-->
         <scene sceneID="XcY-06-Qsj">
@@ -935,6 +935,30 @@
                             <rect key="frame" x="0.0" y="0.0" width="375" height="350"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
+                                <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PlV-bu-Xuu">
+                                    <rect key="frame" x="40" y="485" width="295" height="30"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="article ajouté dans votre panier" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c2k-1x-LX1">
+                                            <rect key="frame" x="20" y="3" width="255" height="24"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="c2k-1x-LX1" secondAttribute="bottom" constant="3" id="0CW-J4-vGs"/>
+                                        <constraint firstAttribute="height" constant="30" id="Nh7-6d-hUB"/>
+                                        <constraint firstItem="c2k-1x-LX1" firstAttribute="leading" secondItem="PlV-bu-Xuu" secondAttribute="leading" constant="20" id="TZG-Y8-OjB"/>
+                                        <constraint firstAttribute="trailing" secondItem="c2k-1x-LX1" secondAttribute="trailing" constant="20" id="UV9-n6-q1X"/>
+                                        <constraint firstItem="c2k-1x-LX1" firstAttribute="top" secondItem="PlV-bu-Xuu" secondAttribute="top" constant="3" id="eCS-Yd-bzW"/>
+                                    </constraints>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                            <integer key="value" value="10"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </view>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VwW-n7-yh9">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="350"/>
                                 </imageView>
@@ -943,6 +967,9 @@
                             <constraints>
                                 <constraint firstAttribute="bottom" secondItem="VwW-n7-yh9" secondAttribute="bottom" id="Bxo-8Y-CHu"/>
                                 <constraint firstAttribute="trailing" secondItem="VwW-n7-yh9" secondAttribute="trailing" id="FLh-1r-uCx"/>
+                                <constraint firstAttribute="trailing" secondItem="PlV-bu-Xuu" secondAttribute="trailing" constant="40" id="V8c-DD-pHh"/>
+                                <constraint firstItem="PlV-bu-Xuu" firstAttribute="leading" secondItem="LQt-A7-kXX" secondAttribute="leading" constant="40" id="dmd-hi-PSk"/>
+                                <constraint firstItem="PlV-bu-Xuu" firstAttribute="top" secondItem="LQt-A7-kXX" secondAttribute="top" constant="485" id="ks4-DJ-Mxr"/>
                                 <constraint firstItem="VwW-n7-yh9" firstAttribute="top" secondItem="LQt-A7-kXX" secondAttribute="top" id="rFF-dn-mXL"/>
                                 <constraint firstItem="VwW-n7-yh9" firstAttribute="leading" secondItem="LQt-A7-kXX" secondAttribute="leading" id="tZL-nP-Zpn"/>
                             </constraints>
@@ -1049,28 +1076,23 @@
                                                         <constraint firstAttribute="height" constant="20" id="XKL-1D-1hq"/>
                                                     </constraints>
                                                 </stackView>
-                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="2gU-Xg-2WH" userLabel="ButtonStack View">
-                                                    <rect key="frame" x="10" y="106" width="355" height="30"/>
-                                                    <subviews>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q6Z-YZ-gcx">
-                                                            <rect key="frame" x="0.0" y="0.0" width="355" height="30"/>
-                                                            <color key="backgroundColor" systemColor="systemPinkColor"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                            <state key="normal" title="ajouter au panier"/>
-                                                            <userDefinedRuntimeAttributes>
-                                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                                    <integer key="value" value="10"/>
-                                                                </userDefinedRuntimeAttribute>
-                                                            </userDefinedRuntimeAttributes>
-                                                            <connections>
-                                                                <action selector="addBasketButtonPressed:" destination="57J-xY-hNB" eventType="touchUpInside" id="pvl-Fx-UnB"/>
-                                                            </connections>
-                                                        </button>
-                                                    </subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q6Z-YZ-gcx">
+                                                    <rect key="frame" x="10" y="111" width="355" height="30"/>
+                                                    <color key="backgroundColor" systemColor="systemPinkColor"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="30" id="dbK-GZ-wvD"/>
+                                                        <constraint firstAttribute="height" constant="30" id="fHB-Pf-hML"/>
                                                     </constraints>
-                                                </stackView>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <state key="normal" title="ajouter au panier"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="10"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="addBasketButtonPressed:" destination="57J-xY-hNB" eventType="touchUpInside" id="pvl-Fx-UnB"/>
+                                                    </connections>
+                                                </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GO7-nk-kof">
                                                     <rect key="frame" x="10" y="151" width="355" height="20"/>
                                                     <constraints>
@@ -1102,25 +1124,25 @@
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="HtG-Pc-654" secondAttribute="trailing" constant="20" id="0Ln-II-Eq7"/>
                                                 <constraint firstItem="tiV-Yt-jg3" firstAttribute="top" secondItem="pZC-bE-GFk" secondAttribute="bottom" constant="8" symbolic="YES" id="16m-YF-nfY"/>
-                                                <constraint firstItem="2gU-Xg-2WH" firstAttribute="leading" secondItem="1EP-Ba-uBe" secondAttribute="leading" constant="10" id="42w-sm-dpu"/>
                                                 <constraint firstAttribute="trailing" secondItem="pZC-bE-GFk" secondAttribute="trailing" constant="5" id="7TN-AB-din"/>
                                                 <constraint firstAttribute="trailing" secondItem="yiC-Uh-rq1" secondAttribute="trailing" constant="10" id="9uS-Tf-BXA"/>
                                                 <constraint firstItem="yiC-Uh-rq1" firstAttribute="top" secondItem="HtG-Pc-654" secondAttribute="bottom" constant="3" id="A87-uU-msN"/>
+                                                <constraint firstItem="q6Z-YZ-gcx" firstAttribute="leading" secondItem="1EP-Ba-uBe" secondAttribute="leading" constant="10" id="DZF-CG-70j"/>
                                                 <constraint firstItem="pZC-bE-GFk" firstAttribute="top" secondItem="1EP-Ba-uBe" secondAttribute="top" constant="10" id="E86-tr-t2r"/>
                                                 <constraint firstItem="QJH-WO-P7l" firstAttribute="leading" secondItem="1EP-Ba-uBe" secondAttribute="leading" constant="75" id="His-Wq-m2f"/>
-                                                <constraint firstAttribute="trailing" secondItem="2gU-Xg-2WH" secondAttribute="trailing" constant="10" id="QHk-pD-BrC"/>
                                                 <constraint firstItem="HtG-Pc-654" firstAttribute="leading" secondItem="1EP-Ba-uBe" secondAttribute="leading" constant="20" id="R0d-dv-vsC"/>
                                                 <constraint firstItem="HtG-Pc-654" firstAttribute="top" secondItem="GO7-nk-kof" secondAttribute="bottom" constant="20" id="TAS-oh-DkL"/>
-                                                <constraint firstItem="2gU-Xg-2WH" firstAttribute="top" secondItem="QJH-WO-P7l" secondAttribute="bottom" constant="15" id="UF4-7k-ZPU"/>
                                                 <constraint firstAttribute="trailing" secondItem="GO7-nk-kof" secondAttribute="trailing" constant="10" id="UVD-iD-hod"/>
                                                 <constraint firstItem="GO7-nk-kof" firstAttribute="leading" secondItem="1EP-Ba-uBe" secondAttribute="leading" constant="10" id="WXT-Wf-aPT"/>
+                                                <constraint firstItem="q6Z-YZ-gcx" firstAttribute="top" secondItem="QJH-WO-P7l" secondAttribute="bottom" constant="20" id="Xsf-Fl-nC5"/>
                                                 <constraint firstItem="yiC-Uh-rq1" firstAttribute="leading" secondItem="1EP-Ba-uBe" secondAttribute="leading" constant="10" id="Ztv-Ib-JeK"/>
                                                 <constraint firstItem="tiV-Yt-jg3" firstAttribute="leading" secondItem="1EP-Ba-uBe" secondAttribute="leading" constant="10" id="bYi-Yr-wx3"/>
                                                 <constraint firstItem="pZC-bE-GFk" firstAttribute="leading" secondItem="1EP-Ba-uBe" secondAttribute="leading" constant="5" id="bqN-yf-9u6"/>
+                                                <constraint firstAttribute="trailing" secondItem="q6Z-YZ-gcx" secondAttribute="trailing" constant="10" id="ekb-cs-Nsa"/>
                                                 <constraint firstItem="QJH-WO-P7l" firstAttribute="top" secondItem="tiV-Yt-jg3" secondAttribute="bottom" constant="8" symbolic="YES" id="fHs-c8-Bi9"/>
                                                 <constraint firstAttribute="trailing" secondItem="tiV-Yt-jg3" secondAttribute="trailing" constant="10" id="fme-ib-smk"/>
                                                 <constraint firstAttribute="trailing" secondItem="QJH-WO-P7l" secondAttribute="trailing" constant="50" id="hzh-gW-LxS"/>
-                                                <constraint firstItem="GO7-nk-kof" firstAttribute="top" secondItem="2gU-Xg-2WH" secondAttribute="bottom" constant="15" id="kee-pX-VCv"/>
+                                                <constraint firstItem="GO7-nk-kof" firstAttribute="top" secondItem="q6Z-YZ-gcx" secondAttribute="bottom" constant="10" id="wtv-EY-1EW"/>
                                             </constraints>
                                         </view>
                                     </subviews>
@@ -1151,11 +1173,12 @@
                     <connections>
                         <outlet property="ItemFooterLabel" destination="vhA-jn-VX0" id="Nqz-9G-QQJ"/>
                         <outlet property="ItemHeaderView" destination="VwW-n7-yh9" id="w7w-vF-ksi"/>
+                        <outlet property="addedBasketView" destination="PlV-bu-Xuu" id="p11-Ct-uqi"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BEB-YZ-jJD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2348" y="-976"/>
+            <point key="canvasLocation" x="2340" y="-997.15142428785612"/>
         </scene>
         <!--Panier-->
         <scene sceneID="NVN-az-duj">
@@ -1214,6 +1237,9 @@
         </systemColor>
         <systemColor name="systemGray5Color">
             <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemOrangeColor">
             <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -14,27 +14,48 @@ class ItemTableViewController: UITableViewController {
     
     @IBOutlet weak var ItemHeaderView: UIImageView!
     @IBOutlet weak var ItemFooterLabel: UILabel!
+    @IBOutlet var addedBasketView: UIView!
+    
+    //var headerView: ItemHeaderView!
     
     var itemSelected: Item!
-
+    var itemImage: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
+        self.clearsSelectionOnViewWillAppear = true
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     
     @IBAction func addBasketButtonPressed(_ sender: UIButton) {
-        let basketTable = self.storyboard?.instantiateViewController(withIdentifier: "BasketTableView") as! BasketTableViewController
+        sender.flash()
         
         ItemsService.shared.BasketItems.append(itemSelected)
-        self.navigationController?.pushViewController(basketTable, animated: true)
+        addedBasketOn()
+        addedBasketOff()
     }
     
-
+    func addedBasketOn() {
+        self.addedBasketView.transform = .identity
+        UIView.animate(withDuration: 0.5, delay: 0.05, usingSpringWithDamping: 0.5, initialSpringVelocity: 5, options: [], animations: {
+            self.addedBasketView.transform = CGAffineTransform(translationX: 0, y: -110)
+            self.addedBasketView.alpha = 1.0
+        }, completion: nil)
+    }
+    
+    func addedBasketOff() {
+        UIView.animate(withDuration: 2.0, delay: 1.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1, options: [], animations: {
+            self.addedBasketView.alpha = 0.0
+            let moveBottomTransform = CGAffineTransform.init(translationX: 400, y: 300)
+            self.addedBasketView.transform = moveBottomTransform
+        }, completion: nil)
+    }
+    
+    
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {

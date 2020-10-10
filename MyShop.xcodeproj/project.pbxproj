@@ -13,6 +13,7 @@
 		B62A2AAA252F0AF7009D7C6C /* ItemTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62A2AA9252F0AF7009D7C6C /* ItemTableViewController.swift */; };
 		B62A2AAE2530D9FD009D7C6C /* BasketTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62A2AAD2530D9FD009D7C6C /* BasketTableViewController.swift */; };
 		B62A2AB42530E95A009D7C6C /* BasketTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62A2AB32530E95A009D7C6C /* BasketTableViewCell.swift */; };
+		B62A2AB82531C72D009D7C6C /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62A2AB72531C72D009D7C6C /* UIButtonExtension.swift */; };
 		B6314D022523A38F00AE15C8 /* AllCategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6314D012523A38F00AE15C8 /* AllCategoriesViewController.swift */; };
 		B6314D062523A5B900AE15C8 /* AllCategoriesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6314D052523A5B900AE15C8 /* AllCategoriesCell.swift */; };
 		B6314D0E25249B8B00AE15C8 /* ItemsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6314D0D25249B8B00AE15C8 /* ItemsCollectionViewCell.swift */; };
@@ -37,6 +38,7 @@
 		B62A2AA9252F0AF7009D7C6C /* ItemTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewController.swift; sourceTree = "<group>"; };
 		B62A2AAD2530D9FD009D7C6C /* BasketTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketTableViewController.swift; sourceTree = "<group>"; };
 		B62A2AB32530E95A009D7C6C /* BasketTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketTableViewCell.swift; sourceTree = "<group>"; };
+		B62A2AB72531C72D009D7C6C /* UIButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
 		B6314D012523A38F00AE15C8 /* AllCategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllCategoriesViewController.swift; sourceTree = "<group>"; };
 		B6314D052523A5B900AE15C8 /* AllCategoriesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllCategoriesCell.swift; sourceTree = "<group>"; };
 		B6314D0D25249B8B00AE15C8 /* ItemsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 			children = (
 				B66D2B05252111DC00DBDD90 /* Items.swift */,
 				B66D2B082521128E00DBDD90 /* ItemsService.swift */,
+				B62A2AB72531C72D009D7C6C /* UIButtonExtension.swift */,
 			);
 			path = MODEL;
 			sourceTree = "<group>";
@@ -217,6 +220,7 @@
 			files = (
 				B692CEE9251CF9A700A2943B /* AppDelegate.swift in Sources */,
 				B62A2AB42530E95A009D7C6C /* BasketTableViewCell.swift in Sources */,
+				B62A2AB82531C72D009D7C6C /* UIButtonExtension.swift in Sources */,
 				B62A2AAE2530D9FD009D7C6C /* BasketTableViewController.swift in Sources */,
 				B6314D062523A5B900AE15C8 /* AllCategoriesCell.swift in Sources */,
 				B692CF04251D026100A2943B /* WhishListViewController.swift in Sources */,

@@ -17,7 +17,6 @@ class ItemTableViewCell: UITableViewCell {
     @IBOutlet var itemTableNote: UILabel!
     @IBOutlet var itemTableDescription: UILabel!
     @IBOutlet var itemTableAllergens: UILabel!
-    
 
     override func awakeFromNib() {
         super.awakeFromNib()
