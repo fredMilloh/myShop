@@ -40,8 +40,9 @@ class ItemTableViewController: UITableViewController {
     
     func addedBasketOn() {
         self.addedBasketView.transform = .identity
-        UIView.animate(withDuration: 0.5, delay: 0.05, usingSpringWithDamping: 0.5, initialSpringVelocity: 5, options: [], animations: {
-            self.addedBasketView.transform = CGAffineTransform(translationX: 10, y: -110)
+        UIView.animate(withDuration: 1.0, delay: 0.05, usingSpringWithDamping: 0.5, initialSpringVelocity: 5, options: [], animations: {
+            let moveUpTransform = CGAffineTransform(translationX: 0, y: -110)
+            self.addedBasketView.transform = moveUpTransform
             self.addedBasketView.alpha = 1.0
         }, completion: nil)
     }
@@ -49,8 +50,10 @@ class ItemTableViewController: UITableViewController {
     func addedBasketOff() {
         UIView.animate(withDuration: 2.0, delay: 1.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1, options: [], animations: {
             self.addedBasketView.alpha = 0.0
-            let moveBottomTransform = CGAffineTransform.init(translationX: 400, y: 300)
-            self.addedBasketView.transform = moveBottomTransform
+            let scaleDownTransform = CGAffineTransform.init(scaleX: -1, y: 1)
+            let moveBottomTransform = CGAffineTransform.init(translationX: 300, y: 300)
+            let scaleMoveTransform = scaleDownTransform.concatenating(moveBottomTransform)
+            self.addedBasketView.transform = scaleMoveTransform
         }, completion: nil)
     }
     
