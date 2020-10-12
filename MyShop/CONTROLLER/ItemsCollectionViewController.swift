@@ -17,26 +17,28 @@ class ItemsCollectionViewController: UICollectionViewController {
 
     // var to collect cell category name from tableView
     var itemsCategory = ""
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         selectItemsCategory()
+        
 
         // Register cell classes - desactice sinon plante
         //self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
     }
     
+    
 //Marks: - sort items by category
 
         func selectItemsCategory() {
-            ItemsService.shared.CategoriesItems = [Item]()
+            ItemsService.shared.CategoriesItems = [Item]() //remise a zéro pour ne pas cumuler les catégories
             for pastry in ItemsService.shared.pastries {
                 if pastry.categorie == itemsCategory {
                     ItemsService.shared.CategoriesItems.append(pastry)
                }
            }
         }
-
+    
 // MARK: UICollectionViewDataSource
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -56,7 +58,9 @@ class ItemsCollectionViewController: UICollectionViewController {
         cell.ItemsCollectionDescription.text = item.description
         cell.ItemsCollectionImage.image = UIImage(named: item.photo)
         cell.ItemsCollectionName.text = item.nom
-    
+        cell.addButtonPressed = {
+            ItemsService.shared.BasketItems.append(item)
+        }
         return cell
     }
     

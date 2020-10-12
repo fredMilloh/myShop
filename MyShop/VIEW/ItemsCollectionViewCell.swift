@@ -15,6 +15,8 @@ class ItemsCollectionViewCell: UICollectionViewCell {
     @IBOutlet var ItemsCollectionName: UILabel!
     @IBOutlet var ItemsCollectionAuthor: UILabel!
     @IBOutlet var ItemsCollectionDescription: UILabel!
+    
+    var addButtonPressed: (() -> Void)? = nil
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -26,6 +28,12 @@ class ItemsCollectionViewCell: UICollectionViewCell {
         ItemsCollectionView.layer.shadowRadius = 2.0
         ItemsCollectionView.layer.shadowOffset = CGSize(width: 2.0, height: 2.0)
         ItemsCollectionView.layer.shadowOpacity = 0.7
+    }
+    
+    @IBAction func addBasketButton(sender: UIButton) {
+        if let addButtonPressed = self.addButtonPressed {
+            addButtonPressed()
+        }
     }
  
 }

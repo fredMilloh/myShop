@@ -848,6 +848,9 @@
                                                     <state key="normal">
                                                         <imageReference key="image" image="cart.badge.plus" catalog="system" symbolScale="large"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="addBasketButtonWithSender:" destination="FYe-GR-eZa" eventType="touchUpInside" id="5QC-Hg-hhY"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xhi-oM-tmE" userLabel="HeartButton">
                                                     <rect key="frame" x="136" y="82" width="25" height="40"/>

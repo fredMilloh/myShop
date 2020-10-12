@@ -19,7 +19,7 @@ class ItemTableViewController: UITableViewController {
     //var headerView: ItemHeaderView!
     
     var itemSelected: Item!
-    var itemImage: UIImageView!
+    //var itemImage: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,12 +62,10 @@ class ItemTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return 1
     }
 

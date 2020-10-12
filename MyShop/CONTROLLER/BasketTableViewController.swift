@@ -16,11 +16,14 @@ class BasketTableViewController: UITableViewController {
         super.viewDidLoad()
 
         // Uncomment the following line to preserve selection between presentations
-         self.clearsSelectionOnViewWillAppear = true
+        self.clearsSelectionOnViewWillAppear = true
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
          self.navigationItem.rightBarButtonItem = self.editButtonItem
        
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
     }
 
     // MARK: - Table view data source
@@ -44,7 +47,6 @@ class BasketTableViewController: UITableViewController {
         cell.nameLabel.text = item.nom
         cell.priceLabel.text = item.prix
         cell.quantityLabel.text = "2"
-
         return cell
     }
     
