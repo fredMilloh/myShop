@@ -21,14 +21,12 @@ class ItemsCollectionViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         selectItemsCategory()
-        
 
         // Register cell classes - desactice sinon plante
         //self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
     }
-    
-    
-//Marks: - sort items by category
+
+// MARK: - Sort items by category
 
         func selectItemsCategory() {
             ItemsService.shared.CategoriesItems = [Item]() //remise a zéro pour ne pas cumuler les catégories
@@ -38,7 +36,7 @@ class ItemsCollectionViewController: UICollectionViewController {
                }
            }
         }
-    
+
 // MARK: UICollectionViewDataSource
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {

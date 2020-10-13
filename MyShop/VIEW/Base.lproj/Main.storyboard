@@ -815,6 +815,30 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5hM-Fh-Olp">
                                             <rect key="frame" x="2" y="2" width="176" height="176"/>
                                             <subviews>
+                                                <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sad-Am-vvY">
+                                                    <rect key="frame" x="10" y="50" width="156" height="22"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="article ajouté au panier" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nJW-2L-Tw0">
+                                                            <rect key="frame" x="5" y="5" width="146" height="12"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                            <color key="shadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" systemColor="systemPinkColor"/>
+                                                    <constraints>
+                                                        <constraint firstItem="nJW-2L-Tw0" firstAttribute="leading" secondItem="sad-Am-vvY" secondAttribute="leading" constant="5" id="1k6-Hm-N7F"/>
+                                                        <constraint firstAttribute="trailing" secondItem="nJW-2L-Tw0" secondAttribute="trailing" constant="5" id="3td-4E-kyP"/>
+                                                        <constraint firstItem="nJW-2L-Tw0" firstAttribute="top" secondItem="sad-Am-vvY" secondAttribute="top" constant="5" id="Qjr-wv-5UV"/>
+                                                        <constraint firstAttribute="bottom" secondItem="nJW-2L-Tw0" secondAttribute="bottom" constant="5" id="X2c-lk-bik"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="10"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NameLabel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t8e-7E-tSk">
                                                     <rect key="frame" x="5" y="5" width="166" height="16"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
@@ -870,10 +894,13 @@
                                                 <constraint firstItem="Xhi-oM-tmE" firstAttribute="top" secondItem="wyv-ZB-gmW" secondAttribute="bottom" constant="10" id="ElZ-Yt-il8"/>
                                                 <constraint firstItem="t8e-7E-tSk" firstAttribute="top" secondItem="5hM-Fh-Olp" secondAttribute="top" constant="5" id="GKM-YO-lvE"/>
                                                 <constraint firstAttribute="trailing" secondItem="U3e-Ml-3xG" secondAttribute="trailing" constant="5" id="GPd-rP-iJz"/>
+                                                <constraint firstItem="qHi-2I-bsD" firstAttribute="top" secondItem="sad-Am-vvY" secondAttribute="bottom" constant="60" id="Htc-GD-DF5"/>
+                                                <constraint firstItem="sad-Am-vvY" firstAttribute="top" secondItem="r6x-ez-HaM" secondAttribute="bottom" constant="15" id="IC7-oI-qb1"/>
                                                 <constraint firstItem="t8e-7E-tSk" firstAttribute="leading" secondItem="5hM-Fh-Olp" secondAttribute="leading" constant="5" id="Mxd-m9-2iH"/>
                                                 <constraint firstAttribute="trailing" secondItem="qHi-2I-bsD" secondAttribute="trailing" constant="5" id="OJ2-Dq-Gwq"/>
                                                 <constraint firstAttribute="bottom" relation="lessThanOrEqual" secondItem="sr1-pl-8zN" secondAttribute="bottom" constant="40" id="Pa5-l9-CeX"/>
                                                 <constraint firstAttribute="trailing" secondItem="r6x-ez-HaM" secondAttribute="trailing" constant="5" id="RNF-hH-vLk"/>
+                                                <constraint firstItem="sad-Am-vvY" firstAttribute="leading" secondItem="5hM-Fh-Olp" secondAttribute="leading" constant="10" id="SGm-ba-ayb"/>
                                                 <constraint firstItem="U3e-Ml-3xG" firstAttribute="leading" secondItem="5hM-Fh-Olp" secondAttribute="leading" constant="5" id="Tcn-LO-cvZ"/>
                                                 <constraint firstAttribute="trailing" secondItem="sr1-pl-8zN" secondAttribute="trailing" constant="66" id="U5W-Ge-7xQ"/>
                                                 <constraint firstItem="r6x-ez-HaM" firstAttribute="top" secondItem="t8e-7E-tSk" secondAttribute="bottom" constant="2" id="U5o-Um-Yi6"/>
@@ -882,6 +909,7 @@
                                                 <constraint firstAttribute="bottom" secondItem="r6x-ez-HaM" secondAttribute="bottom" constant="141" id="c0l-gc-DZ4"/>
                                                 <constraint firstAttribute="trailing" secondItem="Xhi-oM-tmE" secondAttribute="trailing" constant="15" id="diT-oK-tDT"/>
                                                 <constraint firstAttribute="trailing" secondItem="t8e-7E-tSk" secondAttribute="trailing" constant="5" id="eHP-Wl-WDb"/>
+                                                <constraint firstAttribute="trailing" secondItem="sad-Am-vvY" secondAttribute="trailing" constant="10" id="fDp-Fu-a35"/>
                                                 <constraint firstAttribute="trailing" secondItem="wyv-ZB-gmW" secondAttribute="trailing" constant="15" id="gSI-gV-ArO"/>
                                                 <constraint firstAttribute="trailing" secondItem="Xhi-oM-tmE" secondAttribute="trailing" constant="15" id="iI4-t9-eu5"/>
                                                 <constraint firstItem="r6x-ez-HaM" firstAttribute="leading" secondItem="5hM-Fh-Olp" secondAttribute="leading" constant="5" id="iKU-ZZ-KEE"/>
@@ -908,6 +936,7 @@
                                     </constraints>
                                 </collectionViewCellContentView>
                                 <connections>
+                                    <outlet property="ItemsCollectionAddedView" destination="sad-Am-vvY" id="Ldx-kv-YZO"/>
                                     <outlet property="ItemsCollectionAuthor" destination="r6x-ez-HaM" id="Y96-Lb-Czf"/>
                                     <outlet property="ItemsCollectionDescription" destination="U3e-Ml-3xG" id="UsK-dw-i0e"/>
                                     <outlet property="ItemsCollectionImage" destination="sr1-pl-8zN" id="kbE-we-uVN"/>
@@ -924,7 +953,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cc6-dW-UP2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1577" y="-997"/>
+            <point key="canvasLocation" x="1576.8" y="-997.15142428785612"/>
         </scene>
         <!--Item Table View Controller-->
         <scene sceneID="XcY-06-Qsj">

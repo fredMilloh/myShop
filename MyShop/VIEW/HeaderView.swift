@@ -13,13 +13,14 @@ class HeaderView: UIView {
 
     @IBOutlet var searchTextField: UITextField!
 
-    //leftViewItem
+// MARK: - leftViewItem
 
     @IBOutlet var HomeItemLeftImage: UIImageView!
     @IBOutlet var HomeItemLeftName: UILabel!
     @IBOutlet var HomeItemLeftAuthor: UILabel!
     @IBOutlet var HomeItemLeftDescription: UILabel!
-    //rightViewItem
+    
+// MARK: - rightViewItem
 
     @IBOutlet var HomeItemRightImage: UIImageView!
     @IBOutlet var HomeItemRightName: UILabel!

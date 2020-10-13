@@ -19,7 +19,6 @@ class ItemTableViewController: UITableViewController {
     //var headerView: ItemHeaderView!
     
     var itemSelected: Item!
-    //var itemImage: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,8 +37,20 @@ class ItemTableViewController: UITableViewController {
         addedBasketOff()
     }
     
+// MARK: - Shadow
+
+    private func addShadow(adhocView: UIView) {
+        adhocView.layer.shadowColor = UIColor.systemPink.cgColor
+        adhocView.layer.shadowRadius = 2.0
+        adhocView.layer.shadowOffset = CGSize(width: 2.0, height: 2.0)
+        adhocView.layer.shadowOpacity = 0.7
+    }
+
+// MARK: - Animations View
+    
     func addedBasketOn() {
         self.addedBasketView.transform = .identity
+        addShadow(adhocView: addedBasketView)
         UIView.animate(withDuration: 1.0, delay: 0.05, usingSpringWithDamping: 0.5, initialSpringVelocity: 5, options: [], animations: {
             let moveUpTransform = CGAffineTransform(translationX: 0, y: -110)
             self.addedBasketView.transform = moveUpTransform
@@ -59,7 +70,7 @@ class ItemTableViewController: UITableViewController {
     
     
     
-    // MARK: - Table view data source
+// MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1

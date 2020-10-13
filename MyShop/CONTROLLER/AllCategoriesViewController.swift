@@ -17,6 +17,7 @@ class AllCategoriesViewController: UIViewController {
         
     }
 }
+// MARK: - Extensions
 
 extension AllCategoriesViewController: UITableViewDataSource {
 

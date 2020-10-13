@@ -28,7 +28,7 @@ class HomeViewController: UIViewController {
         homeRightViewTapGesture()
     }
 
-//Marks: - Select item for ItemsView and give them value
+// MARK: - Select item for ItemsView and give them value
 
     func promoHomeItems() {
         ItemsService.shared.AddPromo()
@@ -46,17 +46,17 @@ class HomeViewController: UIViewController {
 
         HeaderView.InfoPromo.text = infoPromo
     }
+    
+// MARK: - Shadow
 
-//Marks: - shadow
+        private func addShadow(adhocView: UIView) {
+            adhocView.layer.shadowColor = UIColor.systemPink.cgColor
+            adhocView.layer.shadowRadius = 2.0
+            adhocView.layer.shadowOffset = CGSize(width: 2.0, height: 2.0)
+            adhocView.layer.shadowOpacity = 0.7
+        }
 
-    private func addShadow(adhocView: UIView) {
-        adhocView.layer.shadowColor = UIColor.systemPink.cgColor
-        adhocView.layer.shadowRadius = 2.0
-        adhocView.layer.shadowOffset = CGSize(width: 2.0, height: 2.0)
-        adhocView.layer.shadowOpacity = 0.7
-    }
-
-//Marks: - TapGesture HomeItemsView
+// MARK: - TapGesture HomeItemsView
 
     func homeLeftViewTapGesture() {
         tapGesture = UITapGestureRecognizer(target: self, action: #selector(leftHandleTap(_:)))
@@ -95,7 +95,7 @@ class HomeViewController: UIViewController {
         }
     }
 
-//Marks: - button to show AllCategoriesViewController
+// MARK: - Button to show AllCategoriesViewController
 
     @IBAction func toutVoirButton(_ sender: UIButton) {
         let categoriesTable = self.storyboard?.instantiateViewController(identifier: "CategoriesTable") as! AllCategoriesViewController
@@ -104,7 +104,7 @@ class HomeViewController: UIViewController {
     }
 }
 
-//Marks: - extensions
+// MARK: - Extensions
 
 extension HomeViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
