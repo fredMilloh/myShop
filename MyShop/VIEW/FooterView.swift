@@ -11,8 +11,9 @@ import UIKit
 class FooterView: UIView {
     
     @IBOutlet var imagePromoView: UIView!
+    @IBOutlet var imagePromoImage: UIImageView!
     @IBOutlet var espacePubView:UIView!
-    
+    @IBOutlet var espacePubLabel: UILabel!
 
     /*
     // Only override draw() if you perform custom drawing.

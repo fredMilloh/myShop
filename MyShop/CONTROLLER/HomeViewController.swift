@@ -11,6 +11,7 @@ import UIKit
 class HomeViewController: UIViewController {
     
     var infoPromo = "Profitez de la livraison gratuite dès 50 € d'achats"
+    var infoPromoImage2: String { return "EspacePub4"}
     
     @IBOutlet var HeaderView: HeaderView!
     @IBOutlet var HomeItemLeftView: UIView!
@@ -28,6 +29,7 @@ class HomeViewController: UIViewController {
         homeLeftViewTapGesture()
         homeRightViewTapGesture()
         animPromoView()
+        animEspacePubView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -39,16 +41,14 @@ class HomeViewController: UIViewController {
     func promoHomeItems() {
         ItemsService.shared.AddPromo()
         let itemPromo = ItemsService.shared.Promo
-        
+
         HeaderView.HomeItemLeftName.text = itemPromo[0].nom
         HeaderView.HomeItemLeftAuthor.text = itemPromo[0].auteur
         HeaderView.HomeItemLeftImage.image = UIImage(named: itemPromo[0].photo)
-        
 
         HeaderView.HomeItemRightName.text = itemPromo[1].nom
         HeaderView.HomeItemRightAuthor.text = itemPromo[1].auteur
         HeaderView.HomeItemRightImage.image = UIImage(named: itemPromo[1].photo)
-        
 
         HeaderView.InfoPromo.text = infoPromo
     }
@@ -113,10 +113,32 @@ class HomeViewController: UIViewController {
     
     func animPromoView() -> Void {
         
+        let secondImageView = UIImageView(image: UIImage(named: "EspacePub4"))
+        secondImageView.clipsToBounds = FooterView.imagePromoImage.clipsToBounds
+        secondImageView.alpha = 0.0
+        
+        FooterView.imagePromoImage.insertSubview(secondImageView, aboveSubview: FooterView.imagePromoImage)
+        
+        UIView.animate(withDuration: 3.0, delay: 2.0, options: [.curveEaseOut, .repeat] , animations: { secondImageView.alpha = 1.0 }, completion: {_ in
+            self.FooterView.imagePromoImage.image = secondImageView.image
+            secondImageView.removeFromSuperview()
+        })
+        
+        /*
         UIView.animate(withDuration: 2, delay: 1.0, options: [.repeat], animations: {
             let scaleDownTransform = CGAffineTransform.init(scaleX: 1, y: -1)
             self.FooterView.imagePromoView.transform = scaleDownTransform
+            self.FooterView.imagePromoImage.image = UIImage(named: self.infoPromoImage2)
+            
         }, completion: nil)
+ */
+    }
+    
+    func animEspacePubView() -> Void {
+        UIView.animate(withDuration: 2, delay: 1.0, options: [.repeat], animations: {
+            self.FooterView.espacePubLabel.alpha = 0
+        }, completion: nil)
+        
     }
 }
 
