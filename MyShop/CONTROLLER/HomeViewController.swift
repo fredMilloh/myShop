@@ -16,6 +16,7 @@ class HomeViewController: UIViewController {
     @IBOutlet var HomeItemLeftView: UIView!
     @IBOutlet var HomeItemRightView: UIView!
     @IBOutlet var HomeTableView: UITableView!
+    @IBOutlet var FooterView: FooterView!
     
     var tapGesture = UITapGestureRecognizer()
     
@@ -26,6 +27,11 @@ class HomeViewController: UIViewController {
         addShadow(adhocView: HomeItemRightView)
         homeLeftViewTapGesture()
         homeRightViewTapGesture()
+        animPromoView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
     }
 
 // MARK: - Select item for ItemsView and give them value
@@ -37,12 +43,12 @@ class HomeViewController: UIViewController {
         HeaderView.HomeItemLeftName.text = itemPromo[0].nom
         HeaderView.HomeItemLeftAuthor.text = itemPromo[0].auteur
         HeaderView.HomeItemLeftImage.image = UIImage(named: itemPromo[0].photo)
-        HeaderView.HomeItemLeftDescription.text = itemPromo[0].description
+        
 
         HeaderView.HomeItemRightName.text = itemPromo[1].nom
         HeaderView.HomeItemRightAuthor.text = itemPromo[1].auteur
         HeaderView.HomeItemRightImage.image = UIImage(named: itemPromo[1].photo)
-        HeaderView.HomeItemRightDescription.text = itemPromo[1].description
+        
 
         HeaderView.InfoPromo.text = infoPromo
     }
@@ -101,6 +107,16 @@ class HomeViewController: UIViewController {
         let categoriesTable = self.storyboard?.instantiateViewController(identifier: "CategoriesTable") as! AllCategoriesViewController
         
         self.navigationController?.pushViewController(categoriesTable, animated: true)
+    }
+    
+// MARK: - Animation Footer
+    
+    func animPromoView() -> Void {
+        
+        UIView.animate(withDuration: 2, delay: 1.0, options: [.repeat], animations: {
+            let scaleDownTransform = CGAffineTransform.init(scaleX: 1, y: -1)
+            self.FooterView.imagePromoView.transform = scaleDownTransform
+        }, completion: nil)
     }
 }
 
