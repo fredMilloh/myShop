@@ -119,19 +119,13 @@ class HomeViewController: UIViewController {
         
         FooterView.imagePromoImage.insertSubview(secondImageView, aboveSubview: FooterView.imagePromoImage)
         
-        UIView.animate(withDuration: 3.0, delay: 2.0, options: [.curveEaseOut, .repeat] , animations: { secondImageView.alpha = 1.0 }, completion: {_ in
+        UIView.animate(withDuration: 5.0, delay: 1.0, options: [.repeat] , animations: {
+            let rotationX = CGAffineTransform.init(scaleX: 1, y: -1)
+                        self.FooterView.imagePromoImage.transform = rotationX
+            secondImageView.alpha = 1.0 }, completion: {_ in
             self.FooterView.imagePromoImage.image = secondImageView.image
             secondImageView.removeFromSuperview()
         })
-        
-        /*
-        UIView.animate(withDuration: 2, delay: 1.0, options: [.repeat], animations: {
-            let scaleDownTransform = CGAffineTransform.init(scaleX: 1, y: -1)
-            self.FooterView.imagePromoView.transform = scaleDownTransform
-            self.FooterView.imagePromoImage.image = UIImage(named: self.infoPromoImage2)
-            
-        }, completion: nil)
- */
     }
     
     func animEspacePubView() -> Void {

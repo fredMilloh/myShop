@@ -15,6 +15,9 @@ class BasketTableViewCell: UITableViewCell {
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var authorLabel: UILabel!
     @IBOutlet var priceLabel: UILabel!
+    
+    var plusButtonPressed: (() -> Void)? = nil
+    var minusButtonPressed: (() -> Void)? = nil
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -25,6 +28,19 @@ class BasketTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    @IBAction func plusBasketButton(sender: UIButton) {
+        if let plusButtonPressed = self.plusButtonPressed  {
+            plusButtonPressed()
+        
+    }
+    }
+        
+    @IBAction func minusBasketButton(sender: UIButton) {
+        if let minusButtonPressed = self.minusButtonPressed  {
+            minusButtonPressed()
+    }
     }
 
 }

@@ -18,9 +18,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gâteau-96" translatesAutoresizingMaskIntoConstraints="NO" id="KDy-oT-4HR">
-                                <rect key="frame" x="0.0" y="298" width="414" height="300"/>
+                                <rect key="frame" x="82" y="323" width="250" height="250"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="300" id="9fs-Re-yB9"/>
+                                    <constraint firstAttribute="width" secondItem="KDy-oT-4HR" secondAttribute="height" multiplier="1:1" id="1Gt-po-EkM"/>
+                                    <constraint firstAttribute="height" constant="250" id="9fs-Re-yB9"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="bienvenue dans myShop" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7iT-7N-r9r">
@@ -40,7 +41,6 @@
                             <constraint firstItem="KDy-oT-4HR" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Ncf-Qo-nVH"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="7iT-7N-r9r" secondAttribute="trailing" constant="10" id="fER-jR-gWe"/>
                             <constraint firstItem="7iT-7N-r9r" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="125" id="h6A-8p-KkV"/>
-                            <constraint firstItem="KDy-oT-4HR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="kyk-gO-47D"/>
                             <constraint firstItem="KDy-oT-4HR" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="lFT-et-rkO"/>
                         </constraints>
                     </view>

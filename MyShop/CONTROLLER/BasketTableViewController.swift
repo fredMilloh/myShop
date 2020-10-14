@@ -46,7 +46,21 @@ class BasketTableViewController: UITableViewController {
         cell.authorLabel.text = item.auteur
         cell.nameLabel.text = item.nom
         cell.priceLabel.text = item.prix
-        cell.quantityLabel.text = "2"
+        cell.quantityLabel.text = "1"
+        cell.plusButtonPressed = {
+            if let quantityLabel = cell.quantityLabel.text,
+               var quantityValue = Int(quantityLabel) {
+                quantityValue += 1
+                cell.quantityLabel.text = "\(quantityValue)"
+            }
+        }
+        cell.minusButtonPressed = {
+            if let quantityLabel = cell.quantityLabel.text,
+               var quantityValue = Int(quantityLabel) {
+                quantityValue -= 1
+                cell.quantityLabel.text = "\(quantityValue)"
+            }
+        }
         return cell
     }
     
