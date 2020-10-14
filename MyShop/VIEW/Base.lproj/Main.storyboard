@@ -828,12 +828,13 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wyv-ZB-gmW" userLabel="CartButton">
-                                                    <rect key="frame" x="130.5" y="47" width="30.5" height="25"/>
+                                                    <rect key="frame" x="131" y="47" width="30" height="25"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="25" id="dhz-F5-hFR"/>
+                                                        <constraint firstAttribute="width" secondItem="wyv-ZB-gmW" secondAttribute="height" multiplier="6:5" id="haL-fK-m7j"/>
                                                     </constraints>
                                                     <state key="normal">
-                                                        <imageReference key="image" image="cart.badge.plus" catalog="system" symbolScale="large"/>
+                                                        <imageReference key="image" image="PanierIcon" symbolScale="large"/>
                                                     </state>
                                                     <connections>
                                                         <action selector="addBasketButtonWithSender:" destination="FYe-GR-eZa" eventType="touchUpInside" id="5QC-Hg-hhY"/>
@@ -901,6 +902,7 @@
                                 <connections>
                                     <outlet property="ItemsCollectionAddedView" destination="sad-Am-vvY" id="Ldx-kv-YZO"/>
                                     <outlet property="ItemsCollectionAuthor" destination="r6x-ez-HaM" id="Y96-Lb-Czf"/>
+                                    <outlet property="ItemsCollectionBasketButton" destination="wyv-ZB-gmW" id="AYj-hn-Ppo"/>
                                     <outlet property="ItemsCollectionDescription" destination="U3e-Ml-3xG" id="UsK-dw-i0e"/>
                                     <outlet property="ItemsCollectionImage" destination="sr1-pl-8zN" id="kbE-we-uVN"/>
                                     <outlet property="ItemsCollectionName" destination="t8e-7E-tSk" id="ZYy-sv-8hw"/>
@@ -1218,8 +1220,8 @@
     <resources>
         <image name="EspacePub2" width="492" height="332"/>
         <image name="ImagePromo" width="1542" height="624"/>
+        <image name="PanierIcon" width="308" height="264"/>
         <image name="cart" catalog="system" width="128" height="102"/>
-        <image name="cart.badge.plus" catalog="system" width="128" height="106"/>
         <image name="heart" catalog="system" width="128" height="109"/>
         <image name="heart.circle" catalog="system" width="128" height="121"/>
         <image name="house" catalog="system" width="128" height="106"/>

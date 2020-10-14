@@ -12,6 +12,10 @@ class ItemsService {
 
     static let shared = ItemsService()
     private init() {}
+    
+    var addPanierIcon: String {
+        return "panierIcon"
+    }
 
     private(set) var AllCategories = ["Entremet", "Choux", "Tartes", "Tartelette", "Cake", "Biscuit", "Individuel", "Chocolat"]
     

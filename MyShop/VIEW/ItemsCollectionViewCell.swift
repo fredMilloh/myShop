@@ -14,7 +14,7 @@ class ItemsCollectionViewCell: UICollectionViewCell {
     @IBOutlet var ItemsCollectionImage: UIImageView!
     @IBOutlet var ItemsCollectionName: UILabel!
     @IBOutlet var ItemsCollectionAuthor: UILabel!
-    @IBOutlet var ItemsCollectionDescription: UILabel!
+    @IBOutlet var ItemsCollectionDescription: UILabel! 
     @IBOutlet var ItemsCollectionAddedView: UIView!
     
     var addButtonPressed: (() -> Void)? = nil
