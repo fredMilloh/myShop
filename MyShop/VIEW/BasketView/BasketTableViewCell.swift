@@ -15,6 +15,7 @@ class BasketTableViewCell: UITableViewCell {
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var authorLabel: UILabel!
     @IBOutlet var priceLabel: UILabel!
+    @IBOutlet var totalLabel: UILabel!
     
     var plusButtonPressed: (() -> Void)? = nil
     var minusButtonPressed: (() -> Void)? = nil
@@ -33,14 +34,12 @@ class BasketTableViewCell: UITableViewCell {
     @IBAction func plusBasketButton(sender: UIButton) {
         if let plusButtonPressed = self.plusButtonPressed  {
             plusButtonPressed()
-        
-    }
+        }
     }
         
     @IBAction func minusBasketButton(sender: UIButton) {
         if let minusButtonPressed = self.minusButtonPressed  {
             minusButtonPressed()
+        }
     }
-    }
-
 }

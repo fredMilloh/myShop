@@ -45,20 +45,26 @@ class BasketTableViewController: UITableViewController {
         let item = ItemsService.shared.BasketItems[indexPath.row]
         cell.authorLabel.text = item.auteur
         cell.nameLabel.text = item.nom
-        cell.priceLabel.text = item.prix
+        cell.priceLabel.text = String(format: "%.2f", (item.prix)) + "€"
         cell.quantityLabel.text = "1"
+        cell.totalLabel.text = String(format: "%.2f", (item.prix)) + "€"
         cell.plusButtonPressed = {
-            if let quantityLabel = cell.quantityLabel.text,
-               var quantityValue = Int(quantityLabel) {
-                quantityValue += 1
-                cell.quantityLabel.text = "\(quantityValue)"
+            if let quantityLabel = cell.quantityLabel.text, var quantityValue = Int(quantityLabel) {
+                    quantityValue += 1
+                    cell.quantityLabel.text = "\(quantityValue)"
+                cell.totalLabel.text = String(format: "%.2f", (Double(quantityValue) * item.prix)) + "€"
+                
             }
         }
         cell.minusButtonPressed = {
-            if let quantityLabel = cell.quantityLabel.text,
-               var quantityValue = Int(quantityLabel) {
-                quantityValue -= 1
-                cell.quantityLabel.text = "\(quantityValue)"
+            if let quantityLabel = cell.quantityLabel.text, var quantityValue = Int(quantityLabel) {
+                if quantityValue > 0 {
+                    quantityValue -= 1
+                    cell.quantityLabel.text = "\(quantityValue)"
+                    cell.totalLabel.text = String(format: "%.2f", (Double(quantityValue) * item.prix)) + "€"
+                } else {
+                    cell.quantityLabel.text = "0"
+                }
             }
         }
         return cell
