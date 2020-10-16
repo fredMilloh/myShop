@@ -29,6 +29,13 @@ class ItemTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     
+// MARK: - Buttons
+    
+    @IBAction func addWhishListButtonPressed(_ sender: UIButton) {
+        ItemsService.shared.WhishListItems.append(itemSelected)
+        print("ajouté à la whishlist")
+    }
+    
     @IBAction func addBasketButtonPressed(_ sender: UIButton) {
         sender.flash()
         ItemsService.shared.BasketItems.append(itemSelected)

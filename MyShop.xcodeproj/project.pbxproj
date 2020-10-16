@@ -129,9 +129,9 @@
 				B6314D012523A38F00AE15C8 /* AllCategoriesViewController.swift */,
 				B62A2A9E252DFD3F009D7C6C /* ItemsCollectionViewController.swift */,
 				B62A2AA9252F0AF7009D7C6C /* ItemTableViewController.swift */,
+				B62A2AAD2530D9FD009D7C6C /* BasketTableViewController.swift */,
 				B692CF03251D026100A2943B /* WhishListViewController.swift */,
 				B692CF05251D027D00A2943B /* AccountViewController.swift */,
-				B62A2AAD2530D9FD009D7C6C /* BasketTableViewController.swift */,
 			);
 			path = CONTROLLER;
 			sourceTree = "<group>";

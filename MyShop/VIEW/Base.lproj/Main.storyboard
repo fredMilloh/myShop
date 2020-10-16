@@ -304,7 +304,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="AaU-iz-v4R">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="AaU-iz-v4R">
                                 <rect key="frame" x="10" y="44" width="355" height="674"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="U15-Hd-Oh2">
@@ -344,7 +344,7 @@
                                                                 <constraint firstAttribute="width" constant="61" id="bKx-B6-o05"/>
                                                             </constraints>
                                                         </imageView>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u9z-Nz-3uk">
+                                                        <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u9z-Nz-3uk">
                                                             <rect key="frame" x="285" y="10" width="45" height="45"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="45" id="KPd-8G-U7F"/>
@@ -416,6 +416,10 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="YL8-tb-XyH" id="FcZ-qp-NJi"/>
+                                    <outlet property="delegate" destination="YL8-tb-XyH" id="vzX-6N-cEI"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="3Fl-sE-G4k"/>
@@ -428,6 +432,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="4vw-SM-Zh0"/>
+                    <connections>
+                        <outlet property="WhishListTableView" destination="AaU-iz-v4R" id="I5p-Nq-h47"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="plA-vy-A80" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1053,6 +1060,9 @@
                                                     <state key="normal">
                                                         <imageReference key="image" image="whishlistIcon" symbolScale="large"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="whishButtonPressed:" destination="FYe-GR-eZa" eventType="touchUpInside" id="2f4-od-8dO"/>
+                                                    </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="avis  4,8/5" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qHi-2I-bsD">
                                                     <rect key="frame" x="115" y="122" width="56" height="16"/>
@@ -1201,6 +1211,9 @@
                                             <integer key="value" value="10"/>
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="addWhishListButtonPressed:" destination="57J-xY-hNB" eventType="touchUpInside" id="bnI-Rw-a5n"/>
+                                    </connections>
                                 </button>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xv2-Sf-W5F">
                                     <rect key="frame" x="20" y="45" width="335" height="2"/>

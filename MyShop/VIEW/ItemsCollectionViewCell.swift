@@ -18,6 +18,7 @@ class ItemsCollectionViewCell: UICollectionViewCell {
     @IBOutlet var ItemsCollectionAddedView: UIView!
     
     var addButtonPressed: (() -> Void)? = nil
+    var whishButtonPressed: (() -> Void)? = nil
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -33,6 +34,12 @@ class ItemsCollectionViewCell: UICollectionViewCell {
             adhocView.layer.shadowOpacity = 0.7
         }
 // MARK: - Button Pressed
+    
+    @IBAction func whishButtonPressed(_ sender: UIButton) {
+        if let whishButtonPressed = self.whishButtonPressed {
+            whishButtonPressed()
+        }
+    }
     
     @IBAction func addBasketButton(sender: UIButton) {
         if let addButtonPressed = self.addButtonPressed  {

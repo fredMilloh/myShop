@@ -23,6 +23,8 @@ class ItemsService {
     
     var BasketItems = [Item]()
     
+    var WhishListItems = [Item]()
+    
     var Promo = [Item]()
     
     func AddPromo() {
