@@ -61,10 +61,51 @@
                                 <constraint firstAttribute="trailing" secondItem="hNz-mP-D9b" secondAttribute="trailing" constant="10" id="x3A-MZ-tt1"/>
                             </constraints>
                         </view>
-                        <view key="tableFooterView" contentMode="scaleToFill" id="ey5-VC-DeU" userLabel="FooterBasketView">
-                            <rect key="frame" x="0.0" y="160" width="375" height="44"/>
+                        <view key="tableFooterView" contentMode="scaleToFill" id="ey5-VC-DeU" userLabel="FooterBasketView" customClass="BasketFooter" customModule="MyShop" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="160" width="375" height="60"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hlk-ZN-Rei">
+                                    <rect key="frame" x="290" y="5" width="70" height="20"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HJW-D4-yOR">
+                                            <rect key="frame" x="2" y="2" width="66" height="16"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <color key="textColor" systemColor="systemPinkColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="HJW-D4-yOR" secondAttribute="bottom" constant="2" id="0Sb-Nh-zh4"/>
+                                        <constraint firstItem="HJW-D4-yOR" firstAttribute="top" secondItem="hlk-ZN-Rei" secondAttribute="top" constant="2" id="C0K-hw-57h"/>
+                                        <constraint firstItem="HJW-D4-yOR" firstAttribute="leading" secondItem="hlk-ZN-Rei" secondAttribute="leading" constant="2" id="ID9-hA-dJj"/>
+                                        <constraint firstAttribute="width" constant="70" id="VBa-K8-JLD"/>
+                                        <constraint firstAttribute="height" constant="20" id="mx6-yL-wFj"/>
+                                        <constraint firstAttribute="trailing" secondItem="HJW-D4-yOR" secondAttribute="trailing" constant="2" id="xd3-6K-4WU"/>
+                                    </constraints>
+                                </view>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Montant total de votre panier =  " textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q4H-Ag-YTt">
+                                    <rect key="frame" x="20" y="5" width="260" height="20"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="20" id="fsq-aG-LVs"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                    <color key="textColor" systemColor="systemPinkColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstItem="q4H-Ag-YTt" firstAttribute="leading" secondItem="ey5-VC-DeU" secondAttribute="leading" constant="20" id="G6D-sb-50G"/>
+                                <constraint firstItem="hlk-ZN-Rei" firstAttribute="top" secondItem="ey5-VC-DeU" secondAttribute="top" constant="5" id="JhN-Rs-JCe"/>
+                                <constraint firstAttribute="trailing" secondItem="hlk-ZN-Rei" secondAttribute="trailing" constant="15" id="P8M-mG-ib6"/>
+                                <constraint firstItem="q4H-Ag-YTt" firstAttribute="top" secondItem="ey5-VC-DeU" secondAttribute="top" constant="5" id="dXJ-0B-iVI"/>
+                                <constraint firstItem="hlk-ZN-Rei" firstAttribute="leading" secondItem="q4H-Ag-YTt" secondAttribute="trailing" constant="10" id="nsq-pM-zol"/>
+                            </constraints>
+                            <connections>
+                                <outlet property="montantTotal" destination="HJW-D4-yOR" id="FqT-T9-eBV"/>
+                            </connections>
                         </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BasketCell" rowHeight="60" id="f8u-fc-98r" customClass="BasketTableViewCell" customModule="MyShop" customModuleProvider="target">
@@ -213,6 +254,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="QnJ-Dt-exb"/>
+                    <connections>
+                        <outlet property="BasketFooterView" destination="ey5-VC-DeU" id="nN2-25-ko6"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fhn-0S-7qB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -955,7 +999,7 @@
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="article ajouté au panier" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c2k-1x-LX1">
                                             <rect key="frame" x="20" y="3" width="215" height="34"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>

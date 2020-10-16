@@ -17,6 +17,7 @@ struct Item {
     var nom: String
     var categorie: String
     var prix: Double
+    var montant: Double
     var description: String
     var allergens: String
     var photo: String

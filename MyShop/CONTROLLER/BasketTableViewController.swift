@@ -11,10 +11,13 @@ import UIKit
 class BasketTableViewController: UITableViewController {
     
     private let reuseIdentifier = "BasketCell"
+    var montantTotal: Double = 0.00
+    
+    @IBOutlet var BasketFooterView: BasketFooter!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        calculateTotal()
         // Uncomment the following line to preserve selection between presentations
         self.clearsSelectionOnViewWillAppear = true
 
@@ -24,6 +27,15 @@ class BasketTableViewController: UITableViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         tableView.reloadData()
+        calculateTotal()
+    }
+    
+    func calculateTotal() {
+        montantTotal = 0.00
+            for BasketItem in ItemsService.shared.BasketItems {
+                montantTotal += BasketItem.montant
+            }
+        BasketFooterView.montantTotal.text = String(format: "%.2f", self.montantTotal) + "€"
     }
 
 // MARK: - Table view data source
@@ -50,18 +62,24 @@ class BasketTableViewController: UITableViewController {
         cell.totalLabel.text = String(format: "%.2f", (item.prix)) + "€"
         cell.plusButtonPressed = {
             if let quantityLabel = cell.quantityLabel.text, var quantityValue = Int(quantityLabel) {
-                    quantityValue += 1
+                quantityValue += 1
                     cell.quantityLabel.text = "\(quantityValue)"
-                cell.totalLabel.text = String(format: "%.2f", (Double(quantityValue) * item.prix)) + "€"
-                
+                let totalLine = (Double(quantityValue) * item.prix)
+                cell.totalLabel.text = String(format: "%.2f", totalLine) + "€"
+                ItemsService.shared.BasketItems[indexPath.row].montant = totalLine
+                self.calculateTotal()
             }
         }
         cell.minusButtonPressed = {
+            self.BasketFooterView.montantTotal.text = String(format: "%.2f", self.montantTotal)
             if let quantityLabel = cell.quantityLabel.text, var quantityValue = Int(quantityLabel) {
                 if quantityValue > 0 {
                     quantityValue -= 1
                     cell.quantityLabel.text = "\(quantityValue)"
-                    cell.totalLabel.text = String(format: "%.2f", (Double(quantityValue) * item.prix)) + "€"
+                    let totalLine = (Double(quantityValue) * item.prix)
+                    cell.totalLabel.text = String(format: "%.2f", totalLine) + "€"
+                    ItemsService.shared.BasketItems[indexPath.row].montant = totalLine
+                    self.calculateTotal()
                 } else {
                     cell.quantityLabel.text = "0"
                 }
@@ -85,6 +103,7 @@ class BasketTableViewController: UITableViewController {
         if editingStyle == .delete {
             ItemsService.shared.BasketItems.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
+            calculateTotal()
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    

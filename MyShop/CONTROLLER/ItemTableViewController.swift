@@ -31,7 +31,6 @@ class ItemTableViewController: UITableViewController {
     
     @IBAction func addBasketButtonPressed(_ sender: UIButton) {
         sender.flash()
-        
         ItemsService.shared.BasketItems.append(itemSelected)
         addedBasketOn()
         addedBasketOff()
