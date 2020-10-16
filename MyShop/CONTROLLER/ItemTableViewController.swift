@@ -84,7 +84,7 @@ class ItemTableViewController: UITableViewController {
 
         cell.itemTableName.text = itemSelected.nom
         cell.itemTableAuthor.text = itemSelected.auteur
-        cell.itemTablePrice.text = "\(itemSelected.prix)"
+        cell.itemTablePrice.text = "\(itemSelected.prix)" + " €"
         cell.itemTableNote.text = "***** 4.8"
         cell.itemTableDescription.text = itemSelected.description
         cell.itemTableAllergens.text = "Allergènes : " + itemSelected.allergens
