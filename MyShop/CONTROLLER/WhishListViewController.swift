@@ -47,9 +47,19 @@ extension WhishListViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let itemTable = self.storyboard?.instantiateViewController(withIdentifier: "ItemTableView") as! ItemTableViewController
-        let itemSelected = ItemsService.shared.CategoriesItems[indexPath.row]
+        let itemSelected = ItemsService.shared.WhishListItems[indexPath.row]
         itemTable.itemSelected = itemSelected
         self.navigationController?.pushViewController(itemTable, animated: true)
-        
+    }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let supprimerAction = UIContextualAction(style: .destructive, title: "supprimer") { (action, sourceView, completionHandler) in
+            ItemsService.shared.WhishListItems.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            completionHandler(true)
+        }
+        let swippeConfiguration = UISwipeActionsConfiguration(actions: [supprimerAction])
+        return swippeConfiguration
     }
 }
+    

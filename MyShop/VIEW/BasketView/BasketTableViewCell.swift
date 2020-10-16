@@ -22,7 +22,7 @@ class BasketTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        addShadow(adhocView: itemBasketView)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -30,6 +30,7 @@ class BasketTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+// MARK: - Buttons
     
     @IBAction func plusBasketButton(sender: UIButton) {
         if let plusButtonPressed = self.plusButtonPressed  {
@@ -42,4 +43,13 @@ class BasketTableViewCell: UITableViewCell {
             minusButtonPressed()
         }
     }
+    
+// MARK: - Shadow
+
+                private func addShadow(adhocView: UIView) {
+                    adhocView.layer.shadowColor = UIColor.systemPink.cgColor
+                    adhocView.layer.shadowRadius = 2.0
+                    adhocView.layer.shadowOffset = CGSize(width: 2.0, height: 2.0)
+                    adhocView.layer.shadowOpacity = 0.7
+                }
 }
