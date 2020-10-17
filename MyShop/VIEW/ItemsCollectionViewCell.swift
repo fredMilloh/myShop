@@ -22,20 +22,13 @@ class ItemsCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        addShadow(adhocView: ItemsCollectionView)
+        ItemsCollectionView.addShadow()
     }
-
-// MARK: - shadow
-
-        private func addShadow(adhocView: UIView) {
-            adhocView.layer.shadowColor = UIColor.systemPink.cgColor
-            adhocView.layer.shadowRadius = 2.0
-            adhocView.layer.shadowOffset = CGSize(width: 2.0, height: 2.0)
-            adhocView.layer.shadowOpacity = 0.7
-        }
+    
 // MARK: - Button Pressed
     
     @IBAction func whishButtonPressed(_ sender: UIButton) {
+        sender.pulsate()
         if let whishButtonPressed = self.whishButtonPressed {
             whishButtonPressed()
         }
@@ -53,11 +46,11 @@ class ItemsCollectionViewCell: UICollectionViewCell {
     
     func addedBasketAnimOn() {
         self.ItemsCollectionAddedView.transform = .identity
-        addShadow(adhocView: ItemsCollectionAddedView)
+        ItemsCollectionAddedView.addShadow()
         self.ItemsCollectionName.alpha = 0
         self.ItemsCollectionAuthor.alpha = 0
         UIView.animate(withDuration: 1.0, delay: 0.05, usingSpringWithDamping: 0.5, initialSpringVelocity: 5, options: [], animations: {
-            let moveUpTransform = CGAffineTransform(translationX: 0, y: -50)
+            let moveUpTransform = CGAffineTransform(translationX: 0, y: -40)
             self.ItemsCollectionAddedView.transform = moveUpTransform
             self.ItemsCollectionAddedView.alpha = 1.0
         }, completion: nil)

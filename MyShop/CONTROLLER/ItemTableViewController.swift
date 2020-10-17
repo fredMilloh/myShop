@@ -32,6 +32,7 @@ class ItemTableViewController: UITableViewController {
 // MARK: - Buttons
     
     @IBAction func addWhishListButtonPressed(_ sender: UIButton) {
+        sender.pulsate()
         ItemsService.shared.WhishListItems.append(itemSelected)
         print("ajouté à la whishlist")
     }
@@ -42,21 +43,12 @@ class ItemTableViewController: UITableViewController {
         addedBasketOn()
         addedBasketOff()
     }
-    
-// MARK: - Shadow
-
-    private func addShadow(adhocView: UIView) {
-        adhocView.layer.shadowColor = UIColor.systemPink.cgColor
-        adhocView.layer.shadowRadius = 2.0
-        adhocView.layer.shadowOffset = CGSize(width: 2.0, height: 2.0)
-        adhocView.layer.shadowOpacity = 0.7
-    }
 
 // MARK: - Animations View
     
     func addedBasketOn() {
         self.addedBasketView.transform = .identity
-        addShadow(adhocView: addedBasketView)
+        addedBasketView.addShadow()
         UIView.animate(withDuration: 1.0, delay: 0.05, usingSpringWithDamping: 0.5, initialSpringVelocity: 5, options: [], animations: {
             let moveUpTransform = CGAffineTransform(translationX: 0, y: -110)
             self.addedBasketView.transform = moveUpTransform

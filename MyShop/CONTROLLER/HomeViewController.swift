@@ -24,8 +24,8 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         promoHomeItems()
-        addShadow(adhocView: HomeItemLeftView)
-        addShadow(adhocView: HomeItemRightView)
+        HomeItemLeftView.addShadow()
+        HomeItemRightView.addShadow()
         homeLeftViewTapGesture()
         homeRightViewTapGesture()
         animPromoView()
@@ -52,15 +52,6 @@ class HomeViewController: UIViewController {
 
         HeaderView.InfoPromo.text = infoPromo
     }
-    
-// MARK: - Shadow
-
-        private func addShadow(adhocView: UIView) {
-            adhocView.layer.shadowColor = UIColor.systemPink.cgColor
-            adhocView.layer.shadowRadius = 2.0
-            adhocView.layer.shadowOffset = CGSize(width: 2.0, height: 2.0)
-            adhocView.layer.shadowOpacity = 0.7
-        }
 
 // MARK: - TapGesture HomeItemsView
 

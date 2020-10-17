@@ -15,5 +15,6 @@ class AllCategoriesCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        allCategoryView.addShadow()
     }
 }

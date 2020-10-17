@@ -18,18 +18,9 @@ class WhishListTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        addShadow(adhocView: whishlistCellView)
+        whishlistCellView.addShadow()
     }
     
-// MARK: - shadow
-
-            private func addShadow(adhocView: UIView) {
-                adhocView.layer.shadowColor = UIColor.systemPink.cgColor
-                adhocView.layer.shadowRadius = 2.0
-                adhocView.layer.shadowOffset = CGSize(width: 2.0, height: 2.0)
-                adhocView.layer.shadowOpacity = 0.7
-            }
-
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 

@@ -18,6 +18,7 @@ class BasketTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         calculateTotal()
+        BasketFooterView.basketFooterView.addShadow()
         // Uncomment the following line to preserve selection between presentations
         self.clearsSelectionOnViewWillAppear = true
 
@@ -29,7 +30,8 @@ class BasketTableViewController: UITableViewController {
         tableView.reloadData()
         calculateTotal()
     }
-    
+
+// MARK: - Calculate Method
     func calculateTotal() {
         montantTotal = 0.00
             for BasketItem in ItemsService.shared.BasketItems {

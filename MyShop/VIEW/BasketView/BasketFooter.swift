@@ -11,6 +11,7 @@ import UIKit
 class BasketFooter: UIView {
     
     @IBOutlet var montantTotal: UILabel!
+    @IBOutlet var basketFooterView: UIView!
 
     /*
     // Only override draw() if you perform custom drawing.
