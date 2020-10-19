@@ -61,7 +61,6 @@ class ItemsCollectionViewController: UICollectionViewController {
         }
         cell.whishButtonPressed = {
             ItemsService.shared.WhishListItems.append(item)
-            print("ajouté à la whishlist")
         }
         return cell
     }

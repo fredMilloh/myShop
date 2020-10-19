@@ -54,6 +54,7 @@ class ItemTableViewController: UITableViewController {
             self.addedBasketView.transform = moveUpTransform
             self.addedBasketView.alpha = 1.0
         }, completion: nil)
+        
     }
     
     func addedBasketOff() {

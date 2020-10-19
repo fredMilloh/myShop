@@ -29,7 +29,7 @@ extension UIButton {
         pulse.fromValue = 0.25 // % de variation de la taille du bouton
         pulse.toValue = 1
         pulse.autoreverses = false // bouton va rétrécir puis revenir
-        pulse.repeatCount = 2
+        pulse.repeatCount = 1
         pulse.initialVelocity = 0.5
         pulse.damping = 1.0
 
