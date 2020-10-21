@@ -25,3 +25,4 @@ struct Item {
     var siteWeb: String
     var promo: Bool
 }
+

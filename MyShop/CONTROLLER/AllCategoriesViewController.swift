@@ -25,14 +25,14 @@ extension AllCategoriesViewController: UITableViewDataSource {
         return 1
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return ItemsService.shared.AllCategories.count
+        return ItemsService.shared.AllCategoriesDB.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         guard let cell = AllCategoriesTableView.dequeueReusableCell(withIdentifier: "allCategoriesCell", for: indexPath) as? AllCategoriesCell else { return UITableViewCell() }
-        let item = ItemsService.shared.AllCategories[indexPath.row]
-        cell.allCategoryLabel.text = item
+        let item = ItemsService.shared.AllCategoriesDB[indexPath.row]
+        cell.allCategoryLabel.text = item.name
             return cell
     }
 }
@@ -40,7 +40,7 @@ extension AllCategoriesViewController: UITableViewDataSource {
 extension AllCategoriesViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let itemsCollection = self.storyboard?.instantiateViewController(withIdentifier: "collectionView") as! ItemsCollectionViewController
-        let categoryName = ItemsService.shared.AllCategories[indexPath.row]
+        let categoryName = ItemsService.shared.AllCategoriesDB[indexPath.row].name
         itemsCollection.itemsCategory = categoryName
         
         self.navigationController?.pushViewController(itemsCollection, animated: true)

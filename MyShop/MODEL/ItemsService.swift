@@ -17,7 +17,8 @@ class ItemsService {
         return "panierIcon"
     }
 
-    private(set) var AllCategories = ["Tartelette", "Individuel", "Entremet", "Choux", "Tartes", "Cake", "Biscuit", "Chocolat"]
+    private(set) var AllCategories = ["Biscuit", "Cake", "Chocolat", "Choux", "Entremet", "Individuel", "Tartelettes", "Tartes"]
+    var AllCategoriesDB = [CategoryDB]()
     
     var CategoriesItems = [Item]()
     

@@ -3,11 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		598384C825273355D88450AA /* Pods_MyShop.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A5A4B72FDB4401AE786068F /* Pods_MyShop.framework */; };
+		B60CA22E253F8C7700BABBFA /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60CA22D253F8C7700BABBFA /* Category.swift */; };
 		B62A2A9F252DFD3F009D7C6C /* ItemsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62A2A9E252DFD3F009D7C6C /* ItemsCollectionViewController.swift */; };
 		B62A2AA4252F0374009D7C6C /* ItemHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62A2AA3252F0374009D7C6C /* ItemHeaderView.swift */; };
 		B62A2AA7252F04AA009D7C6C /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62A2AA6252F04AA009D7C6C /* ItemTableViewCell.swift */; };
@@ -41,6 +42,7 @@
 /* Begin PBXFileReference section */
 		77FB3C016817FABF0B0A4C2D /* Pods-MyShop.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyShop.debug.xcconfig"; path = "Target Support Files/Pods-MyShop/Pods-MyShop.debug.xcconfig"; sourceTree = "<group>"; };
 		8A5A4B72FDB4401AE786068F /* Pods_MyShop.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyShop.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B60CA22D253F8C7700BABBFA /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		B62A2A9E252DFD3F009D7C6C /* ItemsCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsCollectionViewController.swift; sourceTree = "<group>"; };
 		B62A2AA3252F0374009D7C6C /* ItemHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemHeaderView.swift; sourceTree = "<group>"; };
 		B62A2AA6252F04AA009D7C6C /* ItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
@@ -92,7 +94,6 @@
 				77FB3C016817FABF0B0A4C2D /* Pods-MyShop.debug.xcconfig */,
 				BB42981D9962D3944F2A64E6 /* Pods-MyShop.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -186,6 +187,7 @@
 				B66D2B082521128E00DBDD90 /* ItemsService.swift */,
 				B62A2AB72531C72D009D7C6C /* UIButtonExtension.swift */,
 				B62A2AD1253B19D7009D7C6C /* UIViewExtension.swift */,
+				B60CA22D253F8C7700BABBFA /* Category.swift */,
 			);
 			path = MODEL;
 			sourceTree = "<group>";
@@ -330,6 +332,7 @@
 				B692CEEB251CF9A700A2943B /* SceneDelegate.swift in Sources */,
 				B62A2AC32535BC21009D7C6C /* FooterView.swift in Sources */,
 				B66D2B06252111DC00DBDD90 /* Items.swift in Sources */,
+				B60CA22E253F8C7700BABBFA /* Category.swift in Sources */,
 				B6314D022523A38F00AE15C8 /* AllCategoriesViewController.swift in Sources */,
 				B62A2AC72538CB77009D7C6C /* BasketFooter.swift in Sources */,
 				B66D2AFD251FB35E00DBDD90 /* CategoryCell.swift in Sources */,

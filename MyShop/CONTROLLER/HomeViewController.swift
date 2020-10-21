@@ -7,11 +7,14 @@
 //
 
 import UIKit
+import Firebase
 
 class HomeViewController: UIViewController {
     
     var infoPromo = "Profitez de la livraison gratuite dès 50 € d'achats"
     var infoPromoImage2: String { return "EspacePub4"}
+    
+    var categoriesCollectionRef: CollectionReference!
     
     @IBOutlet var HeaderView: HeaderView!
     @IBOutlet var HomeItemLeftView: UIView!
@@ -24,6 +27,8 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        categoriesCollectionRef = Firestore.firestore().collection("categories")
+        fetchCategories()
         promoHomeItems()
         HomeItemLeftView.addShadow()
         HomeItemRightView.addShadow()
@@ -35,8 +40,31 @@ class HomeViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        
+        //fetchCategories()
     }
+    
+// MARK: - Fetch categoriesDB
+    
+    func fetchCategories() {
+        ItemsService.shared.AllCategoriesDB = [CategoryDB]()
+        
+        categoriesCollectionRef.getDocuments { (snapshot, error) in
+            if let err = error {
+                debugPrint("error fetching docs : \(err)")
+            } else {
+                guard let snap = snapshot else { return }
+                for document in snap.documents {
+                    let categorie = document.data()
+                    let categorieName = categorie["name"] as? String ?? ""
+                    let newCategory = CategoryDB(name: categorieName)
+                    
+                    ItemsService.shared.AllCategoriesDB.append(newCategory)
+                }
+                self.HomeTableView.reloadData()
+            }
+        }
+    }
+
     
 // MARK: - SearchBar
     
@@ -167,7 +195,7 @@ extension HomeViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let itemsCollection = self.storyboard?.instantiateViewController(withIdentifier: "collectionView") as! ItemsCollectionViewController
-        let categoryName = ItemsService.shared.AllCategories[indexPath.row]
+        let categoryName = ItemsService.shared.AllCategoriesDB[indexPath.row].name
         itemsCollection.itemsCategory = categoryName
         self.navigationController?.pushViewController(itemsCollection, animated: true)
         
