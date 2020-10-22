@@ -9,6 +9,7 @@ target 'MyShop' do
   # add the Firebase pod for Google Analytics
   pod 'Firebase/Core'
   pod 'Firebase/Firestore'
+  pod 'FirebaseFirestoreSwift'
 
 # add pods for any other desired Firebase products
 # https://firebase.google.com/docs/ios/setup#available-pods

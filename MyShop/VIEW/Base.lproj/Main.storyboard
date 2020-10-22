@@ -315,7 +315,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="355" height="44"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Whish List" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zcc-oE-1Js">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wish List" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zcc-oE-1Js">
                                             <rect key="frame" x="1" y="1" width="353" height="42"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
@@ -1515,11 +1515,11 @@
             </objects>
             <point key="canvasLocation" x="2" y="-997"/>
         </scene>
-        <!--whish list-->
+        <!--wish list-->
         <scene sceneID="JzA-ia-xti">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="OHS-rU-8HN" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="whish list" image="heart" catalog="system" id="YCh-lr-bL6"/>
+                    <tabBarItem key="tabBarItem" title="wish list" image="heart" catalog="system" id="YCh-lr-bL6"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Ovm-H5-fln">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>

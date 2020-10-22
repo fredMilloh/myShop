@@ -7,14 +7,15 @@
 //
 
 import UIKit
-import Firebase
+import FirebaseFirestore
+
 
 class HomeViewController: UIViewController {
     
     var infoPromo = "Profitez de la livraison gratuite dès 50 € d'achats"
     var infoPromoImage2: String { return "EspacePub4"}
     
-    var categoriesCollectionRef: CollectionReference!
+    private var db = Firestore.firestore()
     
     @IBOutlet var HeaderView: HeaderView!
     @IBOutlet var HomeItemLeftView: UIView!
@@ -27,7 +28,6 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        categoriesCollectionRef = Firestore.firestore().collection("categories")
         fetchCategories()
         promoHomeItems()
         HomeItemLeftView.addShadow()
@@ -40,12 +40,26 @@ class HomeViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        //fetchCategories()
+    fetchCategories()
     }
     
 // MARK: - Fetch categoriesDB
     // Méthode pour récupérer les catégories de firestore
     func fetchCategories() {
+        
+        db .collection("categories").addSnapshotListener { (querySnapshot, error) in
+            guard let documents = querySnapshot?.documents else { print("NoDoc")
+                return }
+            ItemsService.shared.AllCategoriesDB = documents.map({ (queryDocumentSnapshot) -> CategoryDB in
+                let data = queryDocumentSnapshot.data()
+                
+                let name = data["name"] as? String ?? ""
+                
+                return CategoryDB(name: name)
+            })
+        }
+        
+        /*
         ItemsService.shared.AllCategoriesDB = [CategoryDB]()
         
         categoriesCollectionRef.getDocuments { (snapshot, error) in
@@ -64,6 +78,7 @@ class HomeViewController: UIViewController {
                 self.HomeTableView.reloadData()
             }
         }
+ */
     }
 
     

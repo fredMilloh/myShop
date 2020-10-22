@@ -9,8 +9,8 @@
 import Foundation
 import Firebase
 
-struct CategoryDB: Identifiable, Codable {
-     public let id: String?
+struct CategoryDB: Identifiable {
+    public var id: String = UUID().uuidString
     
      var name: String
 }
