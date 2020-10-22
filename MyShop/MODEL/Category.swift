@@ -9,6 +9,8 @@
 import Foundation
 import Firebase
 
-struct CategoryDB: Decodable {
+struct CategoryDB: Identifiable, Codable {
+     public let id: String?
+    
      var name: String
 }

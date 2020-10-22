@@ -15,6 +15,8 @@ class WhishListTableViewCell: UITableViewCell {
     @IBOutlet var whishlistAuthor: UILabel!
     @IBOutlet var whishlistPrice: UILabel!
     @IBOutlet var whishlistImage: UIImageView!
+    
+    var addPressed: (() -> Void)? = nil
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -25,6 +27,14 @@ class WhishListTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    @IBAction func addBasketButton(sender: UIButton) {
+        sender.pulsate()
+        if let addBasketPressed = self.addPressed  {
+            addBasketPressed()
+            
+        }
     }
 
 }

@@ -126,12 +126,11 @@ static NSString *GDTCORStoragePath() {
         [data writeToFile:[GDTCORStorage archivePath] atomically:YES];
       } else {
 #if !TARGET_OS_MACCATALYST
-          
         [NSKeyedArchiver archiveRootObject:self toFile:[GDTCORStorage archivePath]];
 #endif
       }
     }
-    
+
     // Cancel or end the associated background task if it's still valid.
     [[GDTCORApplication sharedApplication] endBackgroundTask:bgID];
     bgID = GDTCORBackgroundIdentifierInvalid;

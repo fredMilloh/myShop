@@ -44,7 +44,7 @@ class HomeViewController: UIViewController {
     }
     
 // MARK: - Fetch categoriesDB
-    
+    // Méthode pour récupérer les catégories de firestore
     func fetchCategories() {
         ItemsService.shared.AllCategoriesDB = [CategoryDB]()
         
@@ -56,7 +56,8 @@ class HomeViewController: UIViewController {
                 for document in snap.documents {
                     let categorie = document.data()
                     let categorieName = categorie["name"] as? String ?? ""
-                    let newCategory = CategoryDB(name: categorieName)
+                    let id = categorie["id"] as? String ?? ""
+                    let newCategory = CategoryDB(id: id, name: categorieName)
                     
                     ItemsService.shared.AllCategoriesDB.append(newCategory)
                 }
@@ -182,8 +183,7 @@ extension HomeViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
-        guard let cell = HomeTableView.dequeueReusableCell(withIdentifier: "categoryCell", for: indexPath) as? CategoryCell else { return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "categoryCell", for: indexPath) as? CategoryCell else { return UITableViewCell() }
         let item = ItemsService.shared.AllCategories[indexPath.row]
         cell.categoryLabel.text = item
 

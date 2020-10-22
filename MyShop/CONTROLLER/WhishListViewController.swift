@@ -40,6 +40,9 @@ extension WhishListViewController: UITableViewDataSource {
         cell.whishlistImage.image = UIImage(named: item.photo)
         cell.whishlistName.text = item.nom
         cell.whishlistPrice.text = String(format: "%.2f", (item.prix)) + "€"
+        cell.addPressed = {
+            ItemsService.shared.BasketItems.append(item)
+        }
         return cell
     }
 }
