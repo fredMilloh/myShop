@@ -37,6 +37,7 @@
 		B692CF04251D026100A2943B /* WhishListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B692CF03251D026100A2943B /* WhishListViewController.swift */; };
 		B692CF06251D027D00A2943B /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B692CF05251D027D00A2943B /* AccountViewController.swift */; };
 		B692CF08251D0B9500A2943B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B692CF07251D0B9500A2943B /* HomeViewController.swift */; };
+		B6DF24162542CEAA00D2CD0C /* InscriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6DF24152542CEAA00D2CD0C /* InscriptionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,6 +74,7 @@
 		B692CF03251D026100A2943B /* WhishListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhishListViewController.swift; sourceTree = "<group>"; };
 		B692CF05251D027D00A2943B /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		B692CF07251D0B9500A2943B /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		B6DF24152542CEAA00D2CD0C /* InscriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InscriptionViewController.swift; sourceTree = "<group>"; };
 		BB42981D9962D3944F2A64E6 /* Pods-MyShop.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyShop.release.xcconfig"; path = "Target Support Files/Pods-MyShop/Pods-MyShop.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -158,6 +160,7 @@
 				B692CF03251D026100A2943B /* WhishListViewController.swift */,
 				B692CF05251D027D00A2943B /* AccountViewController.swift */,
 				B62A2AF5253CAD19009D7C6C /* SearchResultTVController.swift */,
+				B6DF24152542CEAA00D2CD0C /* InscriptionViewController.swift */,
 			);
 			path = CONTROLLER;
 			sourceTree = "<group>";
@@ -325,6 +328,7 @@
 				B62A2A9F252DFD3F009D7C6C /* ItemsCollectionViewController.swift in Sources */,
 				B62A2AA7252F04AA009D7C6C /* ItemTableViewCell.swift in Sources */,
 				B66D2B092521128E00DBDD90 /* ItemsService.swift in Sources */,
+				B6DF24162542CEAA00D2CD0C /* InscriptionViewController.swift in Sources */,
 				B62A2AA4252F0374009D7C6C /* ItemHeaderView.swift in Sources */,
 				B6314D0E25249B8B00AE15C8 /* ItemsCollectionViewCell.swift in Sources */,
 				B692CF06251D027D00A2943B /* AccountViewController.swift in Sources */,

@@ -30,9 +30,15 @@ class BasketTableViewController: UITableViewController {
         tableView.reloadData()
         calculateTotal()
     }
-
+    
+    @IBAction func ValidateBasket(_ sender: UIButton) {
+        let inscriptionVC = self.storyboard?.instantiateViewController(identifier: "InscriptionVC") as! InscriptionViewController
+        
+        self.navigationController?.pushViewController(inscriptionVC, animated: true)
+    }
+    
 // MARK: - Calculate Method
-    func calculateTotal() {
+    fileprivate func calculateTotal() {
         montantTotal = 0.00
             for BasketItem in ItemsService.shared.BasketItems {
                 montantTotal += BasketItem.montant

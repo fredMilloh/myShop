@@ -108,6 +108,9 @@
                                             <integer key="value" value="10"/>
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="ValidateBasket:" destination="BW9-9f-OPQ" eventType="touchUpInside" id="D4q-XN-UJA"/>
+                                    </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -463,6 +466,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="plA-vy-A80" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="661.60000000000002" y="400.74962518740631"/>
+        </scene>
+        <!--Inscription View Controller-->
+        <scene sceneID="jKM-vk-jTV">
+            <objects>
+                <viewController storyboardIdentifier="InscriptionVC" id="dCA-f1-5cQ" customClass="InscriptionViewController" customModule="MyShop" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Q4S-bd-bsl">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="X4t-jO-8Ub"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MUT-dn-f2e" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1707" y="137"/>
         </scene>
         <!--accueil-->
         <scene sceneID="T9m-cU-Stg">
