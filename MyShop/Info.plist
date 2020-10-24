@@ -2,6 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSCameraUsageDescription</key>
+	<string>L&apos;application souhaite accéder à votre appareil photo pour créer une image de profil</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>L&apos;application souhaite accéder à votre album photo pour ajouter une photo de profil</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>

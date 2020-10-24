@@ -8,8 +8,10 @@
 
 import UIKit
 import FirebaseAuth
+import FirebaseDatabase
+import FirebaseStorage
 
-class InscriptionViewController: UIViewController {
+class InscriptionViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     // sans Storyboard - tous en code
     
@@ -17,6 +19,8 @@ class InscriptionViewController: UIViewController {
         let button = UIButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setImage(#imageLiteral(resourceName: "addPhoto.png").withRenderingMode(.alwaysOriginal), for: .normal) // withRenderingMode = même couleur et rendu que l'image originale
+        
+        button.addTarget(self, action: #selector(handlePlusPhoto), for: .touchUpInside)
         return button
     }()
     
@@ -116,13 +120,50 @@ class InscriptionViewController: UIViewController {
         guard let email = emailTextField.text, email.count > 0 else { return }
         guard let username = usernameTextField.text, username.count > 0 else { return }
         guard let password = passwordTextField.text, password.count > 4 else { return }
-        
+   
+// MARK: - Auth Firebase
         Auth.auth().createUser(withEmail: email, password: password) { (user, error: Error?) in
             if let err = error {
                 print("Echec pour la création de l'utilisateur : ", err)
             }
             print("L'utilisateur a été correctement créé : ", user?.user.uid ?? "")
-        }
+
+// MARK: - Storage Firebase
+            // la suite pour enregistrer l'image dans le dossier profil_images de Storage
+            
+            // permet de créer un nouveau fichier dans le dossier, a chaque création de profil
+            let fileId = NSUUID().uuidString
+            let storageRef = Storage.storage().reference().child("profil_images").child(fileId)
+            
+            guard let image = self.addPhotoButton.imageView?.image else { return }
+            guard let uploadData = image.jpegData(compressionQuality: 0.3) else { return }
+            
+            storageRef.putData(uploadData, metadata: nil) { (metadata, error) in
+                if let error = error {
+                    print("Echec pour uploader l'image du profil :", error)
+                    return
+                }
+            storageRef.downloadURL { (downloadURL, error) in
+                    guard let profilImageUrl = downloadURL?.absoluteString else { return }
+                    print("Succès pour uploader l'image : ", profilImageUrl)
+
+// MARK: - Database Firebase
+                // la suite pour enregistrer dans database, les données de l'utilisateur
+            
+                guard let uid = user?.user.uid else { return }
+                let userValues = ["username": username, "email": email, "password": password, "imageUrl": profilImageUrl]
+                let values = [uid: userValues]
+            
+                Database.database().reference().child("users").updateChildValues(values) { (error, ref) in
+                    if let error = error {
+                        print("Echec sauvegarde informations utilisateur : ", error)
+                        return
+                    }
+                    print("succés sauvegarde informations utilisateur")
+                }
+            }
+            }
+            }
     }
 
     @objc func handleTextInputChange() {
@@ -134,6 +175,29 @@ class InscriptionViewController: UIViewController {
             signUpButton.isEnabled = false
             signUpButton.backgroundColor = .cyan
         }
+    }
+    
+    @objc func handlePlusPhoto() {
+        let imagePickerController = UIImagePickerController()
+        imagePickerController.delegate = self
+        //pour zoom la photo allowEditing
+        imagePickerController.allowsEditing = true
+        
+        present(imagePickerController, animated: true)
+    }
+    // func du delegate qui permet de selection une ou partie de l'image, et de la poser dans un tableau info, de type any, donc préciser cast
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        // image originale print originalImage.size
+        if let editedlImage = info[.editedImage] as? UIImage {
+            addPhotoButton.setImage(editedlImage.withRenderingMode(.alwaysOriginal), for: .normal)
+        } else if let originalImage = info[.originalImage] as? UIImage {
+            addPhotoButton.setImage(originalImage.withRenderingMode(.alwaysOriginal), for: .normal)
+        }
+        addPhotoButton.layer.cornerRadius = addPhotoButton.frame.width/2
+        addPhotoButton.layer.masksToBounds = true
+        
+        dismiss(animated: true)
     }
 
 }
