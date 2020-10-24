@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class InscriptionViewController: UIViewController {
     
@@ -26,6 +27,8 @@ class InscriptionViewController: UIViewController {
         tf.backgroundColor = UIColor(white: 0, alpha: 0.03)
         tf.borderStyle = .roundedRect
         tf.font = .systemFont(ofSize: 14)
+        // quand les 3 champs sont bien complétés, la couleur du bouton signUp change
+        tf.addTarget(self, action: #selector(handleTextInputChange), for: .editingChanged)
         return tf
     }()
     
@@ -36,17 +39,21 @@ class InscriptionViewController: UIViewController {
         tf.backgroundColor = UIColor(white: 0, alpha: 0.03)
         tf.borderStyle = .roundedRect
         tf.font = .systemFont(ofSize: 14)
+        
+        tf.addTarget(self, action: #selector(handleTextInputChange), for: .editingChanged)
         return tf
     }()
     
     let passwordTextField: UITextField = {
         let tf = UITextField()
         tf.translatesAutoresizingMaskIntoConstraints = false
-        tf.placeholder = "Password"
+        tf.placeholder = "Password ******  mini 6 characters"
         tf.isSecureTextEntry = true // pour masquer les caractéres
         tf.backgroundColor = UIColor(white: 0, alpha: 0.03)
         tf.borderStyle = .roundedRect
         tf.font = .systemFont(ofSize: 14)
+        
+        tf.addTarget(self, action: #selector(handleTextInputChange), for: .editingChanged)
         return tf
     }()
     
@@ -59,6 +66,10 @@ class InscriptionViewController: UIViewController {
         bt.setTitle("Inscription", for: .normal)
         //bt.setTitleColor(.white, for: .normal)
         bt.layer.cornerRadius = 5
+        // ajout de l'action quand on appui sur le bouton
+        bt.addTarget(self, action: #selector(handleSignUp), for: .touchUpInside)
+        // rend le bouton inactif
+        bt.isEnabled = false
       return bt
     }()
 
@@ -99,21 +110,30 @@ class InscriptionViewController: UIViewController {
         ])
         // NSLayoutConstaint peut être remplacé par extension anchors()
         //stackView.anchors(top: addPhotoButton, left: view.leftAnchor, bottom: nil, right: <#T##NSLayoutXAxisAnchor?#>, topConstant: 20, leftConstant: 40, bottomConstant: 0, rightConstant: <#T##CGFloat#>, width: 0, height: 200)
-        
-        
-        
-        
-    }
+        }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @objc func handleSignUp() {
+        guard let email = emailTextField.text, email.count > 0 else { return }
+        guard let username = usernameTextField.text, username.count > 0 else { return }
+        guard let password = passwordTextField.text, password.count > 4 else { return }
+        
+        Auth.auth().createUser(withEmail: email, password: password) { (user, error: Error?) in
+            if let err = error {
+                print("Echec pour la création de l'utilisateur : ", err)
+            }
+            print("L'utilisateur a été correctement créé : ", user?.user.uid ?? "")
+        }
     }
-    */
+
+    @objc func handleTextInputChange() {
+        let isFormComplete = emailTextField.text?.count ?? 0 > 0 && usernameTextField.text?.count ?? 0 > 0 && passwordTextField.text?.count ?? 0 >= 6
+        if isFormComplete {
+            signUpButton.isEnabled = true
+            signUpButton.backgroundColor = .systemPink
+        } else {
+            signUpButton.isEnabled = false
+            signUpButton.backgroundColor = .cyan
+        }
+    }
 
 }
