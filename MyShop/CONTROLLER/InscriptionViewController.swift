@@ -183,7 +183,7 @@ class InscriptionViewController: UIViewController, UIImagePickerControllerDelega
             stackViewIn.topAnchor.constraint(equalTo: addPhotoButton.bottomAnchor, constant: 20),
             stackViewIn.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 40),
             stackViewIn.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -40),
-            stackViewIn.heightAnchor.constraint(equalToConstant: 200)
+            stackViewIn.heightAnchor.constraint(equalToConstant: 175)
         ])
  
         }
@@ -200,7 +200,7 @@ class InscriptionViewController: UIViewController, UIImagePickerControllerDelega
         
         // autre méthode pour ajouter des contraintes spaciales
         NSLayoutConstraint.activate([
-            stackView.topAnchor.constraint(equalTo: addPhotoButton.bottomAnchor, constant: 250),
+            stackView.topAnchor.constraint(equalTo: addPhotoButton.bottomAnchor, constant: 275),
             stackView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 40),
             stackView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -40),
             stackView.heightAnchor.constraint(equalToConstant: 250)

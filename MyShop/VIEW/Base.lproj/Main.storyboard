@@ -24,13 +24,13 @@
                         <segue destination="Azz-NW-qbe" kind="relationship" relationship="viewControllers" id="ZJq-17-jaR"/>
                         <segue destination="IP5-xb-o2o" kind="relationship" relationship="viewControllers" id="UKe-PN-zdF"/>
                         <segue destination="OHS-rU-8HN" kind="relationship" relationship="viewControllers" id="ahk-Ek-7wC"/>
-                        <segue destination="SN0-zm-Efp" kind="relationship" relationship="viewControllers" id="JQV-Nh-cl1"/>
+                        <segue destination="ReA-gX-etb" kind="relationship" relationship="viewControllers" id="S5B-RG-D2Y"/>
                         <segue destination="1le-jD-oRM" kind="relationship" relationship="viewControllers" id="TUu-UE-h0I"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="shG-7g-ir9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2351" y="-183"/>
+            <point key="canvasLocation" x="-1599" y="-22"/>
         </scene>
         <!--Basket Table View Controller-->
         <scene sceneID="bj2-Nk-rHi">
@@ -287,22 +287,6 @@
             </objects>
             <point key="canvasLocation" x="661.60000000000002" y="-278.41079460269867"/>
         </scene>
-        <!--mon compte-->
-        <scene sceneID="IIW-jm-dCj">
-            <objects>
-                <viewController id="SN0-zm-Efp" customClass="AccountViewController" customModule="MyShop" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="6HJ-be-9id">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="4rW-HB-q25"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="mon compte" image="person" catalog="system" id="aQ8-Bv-3Ya"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Zgx-A9-tcl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1597" y="788"/>
-        </scene>
         <!--Whish List View Controller-->
         <scene sceneID="j7h-Y7-OPf">
             <objects>
@@ -476,7 +460,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9OD-Xw-WTY">
-                                <rect key="frame" x="340" y="5" width="30" height="20"/>
+                                <rect key="frame" x="340" y="49" width="30" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="0kM-d4-cI3"/>
                                     <constraint firstAttribute="width" constant="30" id="4as-lO-3Yp"/>
@@ -495,10 +479,11 @@
                             <constraint firstItem="9OD-Xw-WTY" firstAttribute="top" secondItem="X4t-jO-8Ub" secondAttribute="top" constant="5" id="yBb-tr-ikI"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="yZw-Jk-uAx"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MUT-dn-f2e" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1476" y="-278"/>
+            <point key="canvasLocation" x="-940" y="1126"/>
         </scene>
         <!--accueil-->
         <scene sceneID="T9m-cU-Stg">
@@ -1570,6 +1555,25 @@
             </objects>
             <point key="canvasLocation" x="1" y="401"/>
         </scene>
+        <!--Mon compte-->
+        <scene sceneID="xZa-Wy-YJF">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ReA-gX-etb" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Mon compte" image="person.fill" catalog="system" id="7VR-qH-m4c"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="TMM-UD-5LQ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="dCA-f1-5cQ" kind="relationship" relationship="rootViewController" id="6e1-n6-nv2"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hti-uS-XMP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1599" y="1126"/>
+        </scene>
     </scenes>
     <resources>
         <image name="EspacePub2" width="492" height="332"/>
@@ -1580,7 +1584,7 @@
         <image name="house" catalog="system" width="128" height="106"/>
         <image name="list.bullet" catalog="system" width="128" height="88"/>
         <image name="minus.square" catalog="system" width="128" height="114"/>
-        <image name="person" catalog="system" width="128" height="117"/>
+        <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="plus.square" catalog="system" width="128" height="114"/>
         <image name="whishlistIcon" width="96" height="96"/>
         <systemColor name="systemBackgroundColor">
