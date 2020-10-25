@@ -23,6 +23,77 @@ class InscriptionViewController: UIViewController, UIImagePickerControllerDelega
         button.addTarget(self, action: #selector(handlePlusPhoto), for: .touchUpInside)
         return button
     }()
+ 
+// MARK: - Sign In Fields
+    
+    let signInLabel: UILabel = {
+        let lb =  UILabel()
+        lb.translatesAutoresizingMaskIntoConstraints = false
+        lb.text = "Déjà Inscrit"
+        lb.textColor = .white
+        lb.font = .systemFont(ofSize: 14)
+        lb.textAlignment = .center
+        lb.backgroundColor = .systemPink
+        lb.layer.cornerRadius = 5
+        lb.layer.masksToBounds = true
+        return lb
+    }()
+    
+    let emailAvailableTF: UITextField = {
+        let tf = UITextField()
+        tf.translatesAutoresizingMaskIntoConstraints = false
+        tf.placeholder = "Votre Email"
+        tf.backgroundColor = UIColor(white: 0, alpha: 0.03)
+        tf.borderStyle = .roundedRect
+        tf.font = .systemFont(ofSize: 14)
+        // quand les 3 champs sont bien complétés, la couleur du bouton signUp change
+        tf.addTarget(self, action: #selector(handleTextSignInChange), for: .editingChanged)
+        return tf
+    }()
+    
+    let passwordAvailableTF: UITextField = {
+        let tf = UITextField()
+        tf.translatesAutoresizingMaskIntoConstraints = false
+        tf.placeholder = "Votre Password ******"
+        tf.isSecureTextEntry = true // pour masquer les caractéres
+        tf.backgroundColor = UIColor(white: 0, alpha: 0.03)
+        tf.borderStyle = .roundedRect
+        tf.font = .systemFont(ofSize: 14)
+        
+        tf.addTarget(self, action: #selector(handleTextSignInChange), for: .editingChanged)
+        return tf
+    }()
+    
+    let signInButton: UIButton = {
+        let bt = UIButton(type: .system)
+        bt.translatesAutoresizingMaskIntoConstraints = false
+        bt.backgroundColor = .cyan
+        //bt.backgroundColor = UIColor.rgb(red: 149, green: 204, blue: 244)
+        bt.titleLabel?.font = .boldSystemFont(ofSize: 14)
+        bt.setTitle("Se connecter", for: .normal)
+        //bt.setTitleColor(.white, for: .normal)
+        bt.layer.cornerRadius = 5
+        // ajout de l'action quand on appui sur le bouton
+        bt.addTarget(self, action: #selector(handleSignIn), for: .touchUpInside)
+        // rend le bouton inactif
+        bt.isEnabled = false
+      return bt
+    }()
+    
+// MARK: - SignUP Fields
+    
+    let signUpLabel: UILabel = {
+        let lb =  UILabel()
+        lb.translatesAutoresizingMaskIntoConstraints = false
+        lb.text = "Créer un compte"
+        lb.textColor = .white
+        lb.font = .systemFont(ofSize: 14)
+        lb.textAlignment = .center
+        lb.backgroundColor = .systemPink
+        lb.layer.cornerRadius = 5
+        lb.layer.masksToBounds = true
+        return lb
+    }()
     
     let emailTextField: UITextField = {
         let tf = UITextField()
@@ -82,6 +153,7 @@ class InscriptionViewController: UIViewController, UIImagePickerControllerDelega
 
         setupButton()
         setupInputFields()
+        setupSignInFields()
     }
     
     fileprivate func setupButton() {
@@ -95,9 +167,30 @@ class InscriptionViewController: UIViewController, UIImagePickerControllerDelega
         //addPhotoButton.anchors(top: , left: , bottom: , right: , topConstant: , leftConstant: , bottomConstant: , rightConstant: , width: , height: )
     }
     
+    fileprivate func setupSignInFields() {
+        
+        let stackViewIn = UIStackView(arrangedSubviews: [signInLabel, emailAvailableTF, passwordAvailableTF, signInButton])
+        stackViewIn.translatesAutoresizingMaskIntoConstraints = false
+        stackViewIn.distribution = .fillEqually
+        stackViewIn.axis = .vertical
+        stackViewIn.spacing = 10
+        
+        view.addSubview(stackViewIn)
+        
+        // autre méthode pour ajouter des contraintes spaciales
+        
+        NSLayoutConstraint.activate([
+            stackViewIn.topAnchor.constraint(equalTo: addPhotoButton.bottomAnchor, constant: 20),
+            stackViewIn.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 40),
+            stackViewIn.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -40),
+            stackViewIn.heightAnchor.constraint(equalToConstant: 200)
+        ])
+ 
+        }
+    
     fileprivate func setupInputFields() {
         
-        let stackView = UIStackView(arrangedSubviews: [emailTextField, usernameTextField, passwordTextField, signUpButton])
+        let stackView = UIStackView(arrangedSubviews: [signUpLabel, emailTextField, usernameTextField, passwordTextField, signUpButton])
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.distribution = .fillEqually
         stackView.axis = .vertical
@@ -107,28 +200,57 @@ class InscriptionViewController: UIViewController, UIImagePickerControllerDelega
         
         // autre méthode pour ajouter des contraintes spaciales
         NSLayoutConstraint.activate([
-            stackView.topAnchor.constraint(equalTo: addPhotoButton.bottomAnchor, constant: 20),
+            stackView.topAnchor.constraint(equalTo: addPhotoButton.bottomAnchor, constant: 250),
             stackView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 40),
             stackView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -40),
-            stackView.heightAnchor.constraint(equalToConstant: 200)
+            stackView.heightAnchor.constraint(equalToConstant: 250)
         ])
         // NSLayoutConstaint peut être remplacé par extension anchors()
         //stackView.anchors(top: addPhotoButton, left: view.leftAnchor, bottom: nil, right: <#T##NSLayoutXAxisAnchor?#>, topConstant: 20, leftConstant: 40, bottomConstant: 0, rightConstant: <#T##CGFloat#>, width: 0, height: 200)
         }
+    
+//MARK: - Logout
+    
+    @IBAction func logoutAction(_ sender: UIButton) {
+        do {
+            try Auth.auth().signOut()
+        } catch {
+            print("impossible de déconnecter l'user")
+        }
+    }
+    
+//MARK: - Sign In
+    
+    @objc func handleSignIn() {
+        guard let email = emailAvailableTF.text, email.count > 0 else { return }
+        guard let password = passwordAvailableTF.text, password.count >= 6 else { return }
+        
+        Auth.auth().signIn(withEmail: email, password: password) { (authResult, error) in
+            if let error = error {
+                print("erreur lors de l'authentification", error.localizedDescription)
+            } else {
+                //let userId = Auth.auth().currentUser?.uid
+                print("bienvenue : ", email)
+            }
+        }
+        
+    }
+
+//MARK: - SignUp Firebase
     
     @objc func handleSignUp() {
         guard let email = emailTextField.text, email.count > 0 else { return }
         guard let username = usernameTextField.text, username.count > 0 else { return }
         guard let password = passwordTextField.text, password.count > 4 else { return }
    
-// MARK: - Auth Firebase
+    // Auth Firebase
         Auth.auth().createUser(withEmail: email, password: password) { (user, error: Error?) in
             if let err = error {
                 print("Echec pour la création de l'utilisateur : ", err)
             }
             print("L'utilisateur a été correctement créé : ", user?.user.uid ?? "")
 
-// MARK: - Storage Firebase
+    // Storage Firebase
             // la suite pour enregistrer l'image dans le dossier profil_images de Storage
             
             // permet de créer un nouveau fichier dans le dossier, a chaque création de profil
@@ -147,7 +269,7 @@ class InscriptionViewController: UIViewController, UIImagePickerControllerDelega
                     guard let profilImageUrl = downloadURL?.absoluteString else { return }
                     print("Succès pour uploader l'image : ", profilImageUrl)
 
-// MARK: - Database Firebase
+    // Database Firebase
                 // la suite pour enregistrer dans database, les données de l'utilisateur
             
                 guard let uid = user?.user.uid else { return }
@@ -165,6 +287,19 @@ class InscriptionViewController: UIViewController, UIImagePickerControllerDelega
             }
             }
     }
+ 
+//MARK: - Handle Text change
+    
+    @objc func handleTextSignInChange() {
+        let isFormComplete = emailAvailableTF.text?.count ?? 0 > 0  && passwordAvailableTF.text?.count ?? 0 >= 6
+        if isFormComplete {
+            signInButton.isEnabled = true
+            signInButton.backgroundColor = .systemPink
+        } else {
+            signInButton.isEnabled = false
+            signInButton.backgroundColor = .cyan
+        }
+    }
 
     @objc func handleTextInputChange() {
         let isFormComplete = emailTextField.text?.count ?? 0 > 0 && usernameTextField.text?.count ?? 0 > 0 && passwordTextField.text?.count ?? 0 >= 6
@@ -176,6 +311,8 @@ class InscriptionViewController: UIViewController, UIImagePickerControllerDelega
             signUpButton.backgroundColor = .cyan
         }
     }
+
+//MARK: - Handle add photo
     
     @objc func handlePlusPhoto() {
         let imagePickerController = UIImagePickerController()

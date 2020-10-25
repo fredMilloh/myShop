@@ -474,13 +474,31 @@
                     <view key="view" contentMode="scaleToFill" id="Q4S-bd-bsl">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9OD-Xw-WTY">
+                                <rect key="frame" x="340" y="5" width="30" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="0kM-d4-cI3"/>
+                                    <constraint firstAttribute="width" constant="30" id="4as-lO-3Yp"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="8"/>
+                                <state key="normal" title="LogOut"/>
+                                <connections>
+                                    <action selector="logoutAction:" destination="dCA-f1-5cQ" eventType="touchUpInside" id="U4g-A4-nz4"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="X4t-jO-8Ub"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="9OD-Xw-WTY" firstAttribute="trailing" secondItem="X4t-jO-8Ub" secondAttribute="trailing" constant="-5" id="mhb-QG-tS9"/>
+                            <constraint firstItem="9OD-Xw-WTY" firstAttribute="top" secondItem="X4t-jO-8Ub" secondAttribute="top" constant="5" id="yBb-tr-ikI"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MUT-dn-f2e" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1707" y="137"/>
+            <point key="canvasLocation" x="1476" y="-278"/>
         </scene>
         <!--accueil-->
         <scene sceneID="T9m-cU-Stg">
@@ -563,7 +581,7 @@
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="25" id="Tpi-1V-yCm"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="italicSystem" pointSize="21"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                             <color key="textColor" systemColor="systemPinkColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -729,7 +747,7 @@
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Catégories" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lLz-AG-vl5">
                                                     <rect key="frame" x="0.0" y="3" width="369" height="24"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -867,7 +885,7 @@
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="catégorie" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ynj-bj-6eI">
                                                             <rect key="frame" x="5" y="5" width="339" height="25"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                             <color key="textColor" red="0.57741088460000001" green="0.62461904469999996" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
