@@ -209,16 +209,6 @@ class InscriptionViewController: UIViewController, UIImagePickerControllerDelega
         //stackView.anchors(top: addPhotoButton, left: view.leftAnchor, bottom: nil, right: <#T##NSLayoutXAxisAnchor?#>, topConstant: 20, leftConstant: 40, bottomConstant: 0, rightConstant: <#T##CGFloat#>, width: 0, height: 200)
         }
     
-//MARK: - Logout
-    
-    @IBAction func logoutAction(_ sender: UIButton) {
-        do {
-            try Auth.auth().signOut()
-        } catch {
-            print("impossible de déconnecter l'user")
-        }
-    }
-    
 //MARK: - Sign In
     
     @objc func handleSignIn() {
@@ -227,9 +217,24 @@ class InscriptionViewController: UIViewController, UIImagePickerControllerDelega
         
         Auth.auth().signIn(withEmail: email, password: password) { (authResult, error) in
             if let error = error {
+                
                 print("erreur lors de l'authentification", error.localizedDescription)
             } else {
-                //let userId = Auth.auth().currentUser?.uid
+                let ref = Database.database().reference()
+                let userId = Auth.auth().currentUser?.uid
+                ref.child("users").child(userId!).observeSingleEvent(of: .value) { (snapshot) in
+                    let value = snapshot.value as? NSDictionary
+                    let username = value?["username"] as? String ?? "No Name"
+                    let email = value?["email"] as? String ?? "No Email"
+                    let imageUrl = value?["imageUrl"] as? String ?? "No Image"
+                    
+                    let currentUser = User(id: userId!, username: username, mail: email, imageUrl: imageUrl, name: "", prenom: "", adresse1: "", adresse2: "", codePostal: "", ville: "", isConnected: true)
+                    UserInfo.shared.userInfo = currentUser
+                    UserInfo.shared.connexion = "on"
+                }
+                let accountTVC = self.storyboard?.instantiateViewController(identifier: "AccountTVC") as! AccountTVController
+                accountTVC.connexion = "on"
+                self.navigationController?.pushViewController(accountTVC, animated: true)
                 print("bienvenue : ", email)
             }
         }

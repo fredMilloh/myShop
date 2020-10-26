@@ -35,9 +35,12 @@
 		B692CEF2251CF9A900A2943B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B692CEF1251CF9A900A2943B /* Assets.xcassets */; };
 		B692CEF5251CF9A900A2943B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B692CEF3251CF9A900A2943B /* LaunchScreen.storyboard */; };
 		B692CF04251D026100A2943B /* WhishListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B692CF03251D026100A2943B /* WhishListViewController.swift */; };
-		B692CF06251D027D00A2943B /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B692CF05251D027D00A2943B /* AccountViewController.swift */; };
 		B692CF08251D0B9500A2943B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B692CF07251D0B9500A2943B /* HomeViewController.swift */; };
 		B6DF24162542CEAA00D2CD0C /* InscriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6DF24152542CEAA00D2CD0C /* InscriptionViewController.swift */; };
+		B6DF253B2546CAAE00D2CD0C /* AccountTVController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6DF253A2546CAAE00D2CD0C /* AccountTVController.swift */; };
+		B6DF253E2546CF1300D2CD0C /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6DF253D2546CF1300D2CD0C /* UserInfo.swift */; };
+		B6DF25432546DC1E00D2CD0C /* ActionTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6DF25422546DC1E00D2CD0C /* ActionTVCell.swift */; };
+		B6DF254D254732AE00D2CD0C /* LabelTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6DF254C254732AE00D2CD0C /* LabelTVCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,9 +75,12 @@
 		B692CEF4251CF9A900A2943B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B692CEF6251CF9A900A2943B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B692CF03251D026100A2943B /* WhishListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhishListViewController.swift; sourceTree = "<group>"; };
-		B692CF05251D027D00A2943B /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		B692CF07251D0B9500A2943B /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		B6DF24152542CEAA00D2CD0C /* InscriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InscriptionViewController.swift; sourceTree = "<group>"; };
+		B6DF253A2546CAAE00D2CD0C /* AccountTVController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTVController.swift; sourceTree = "<group>"; };
+		B6DF253D2546CF1300D2CD0C /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
+		B6DF25422546DC1E00D2CD0C /* ActionTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionTVCell.swift; sourceTree = "<group>"; };
+		B6DF254C254732AE00D2CD0C /* LabelTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelTVCell.swift; sourceTree = "<group>"; };
 		BB42981D9962D3944F2A64E6 /* Pods-MyShop.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyShop.release.xcconfig"; path = "Target Support Files/Pods-MyShop/Pods-MyShop.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -152,13 +158,13 @@
 		B692CEFC251CF9CE00A2943B /* CONTROLLER */ = {
 			isa = PBXGroup;
 			children = (
+				B6DF25372546CA6700D2CD0C /* Account */,
 				B692CF07251D0B9500A2943B /* HomeViewController.swift */,
 				B6314D012523A38F00AE15C8 /* AllCategoriesViewController.swift */,
 				B62A2A9E252DFD3F009D7C6C /* ItemsCollectionViewController.swift */,
 				B62A2AA9252F0AF7009D7C6C /* ItemTableViewController.swift */,
 				B62A2AAD2530D9FD009D7C6C /* BasketTableViewController.swift */,
 				B692CF03251D026100A2943B /* WhishListViewController.swift */,
-				B692CF05251D027D00A2943B /* AccountViewController.swift */,
 				B62A2AF5253CAD19009D7C6C /* SearchResultTVController.swift */,
 				B6DF24152542CEAA00D2CD0C /* InscriptionViewController.swift */,
 			);
@@ -179,6 +185,7 @@
 				B62A2AA6252F04AA009D7C6C /* ItemTableViewCell.swift */,
 				B62A2AB12530DA07009D7C6C /* BasketView */,
 				B62A2AC92539FB2E009D7C6C /* WhishList */,
+				B6DF25402546DBE200D2CD0C /* Account */,
 			);
 			path = VIEW;
 			sourceTree = "<group>";
@@ -191,8 +198,26 @@
 				B62A2AB72531C72D009D7C6C /* UIButtonExtension.swift */,
 				B62A2AD1253B19D7009D7C6C /* UIViewExtension.swift */,
 				B60CA22D253F8C7700BABBFA /* Category.swift */,
+				B6DF253D2546CF1300D2CD0C /* UserInfo.swift */,
 			);
 			path = MODEL;
+			sourceTree = "<group>";
+		};
+		B6DF25372546CA6700D2CD0C /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				B6DF253A2546CAAE00D2CD0C /* AccountTVController.swift */,
+			);
+			path = Account;
+			sourceTree = "<group>";
+		};
+		B6DF25402546DBE200D2CD0C /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				B6DF25422546DC1E00D2CD0C /* ActionTVCell.swift */,
+				B6DF254C254732AE00D2CD0C /* LabelTVCell.swift */,
+			);
+			path = Account;
 			sourceTree = "<group>";
 		};
 		C0C00F96C05BBA6DD3EE7739 /* Frameworks */ = {
@@ -324,6 +349,8 @@
 				B62A2AB82531C72D009D7C6C /* UIButtonExtension.swift in Sources */,
 				B62A2AAE2530D9FD009D7C6C /* BasketTableViewController.swift in Sources */,
 				B6314D062523A5B900AE15C8 /* AllCategoriesCell.swift in Sources */,
+				B6DF253B2546CAAE00D2CD0C /* AccountTVController.swift in Sources */,
+				B6DF254D254732AE00D2CD0C /* LabelTVCell.swift in Sources */,
 				B692CF04251D026100A2943B /* WhishListViewController.swift in Sources */,
 				B62A2A9F252DFD3F009D7C6C /* ItemsCollectionViewController.swift in Sources */,
 				B62A2AA7252F04AA009D7C6C /* ItemTableViewCell.swift in Sources */,
@@ -331,7 +358,6 @@
 				B6DF24162542CEAA00D2CD0C /* InscriptionViewController.swift in Sources */,
 				B62A2AA4252F0374009D7C6C /* ItemHeaderView.swift in Sources */,
 				B6314D0E25249B8B00AE15C8 /* ItemsCollectionViewCell.swift in Sources */,
-				B692CF06251D027D00A2943B /* AccountViewController.swift in Sources */,
 				B62A2AF6253CAD19009D7C6C /* SearchResultTVController.swift in Sources */,
 				B692CEEB251CF9A700A2943B /* SceneDelegate.swift in Sources */,
 				B62A2AC32535BC21009D7C6C /* FooterView.swift in Sources */,
@@ -342,8 +368,10 @@
 				B66D2AFD251FB35E00DBDD90 /* CategoryCell.swift in Sources */,
 				B692CF08251D0B9500A2943B /* HomeViewController.swift in Sources */,
 				B62A2AD2253B19D7009D7C6C /* UIViewExtension.swift in Sources */,
+				B6DF25432546DC1E00D2CD0C /* ActionTVCell.swift in Sources */,
 				B62A2AAA252F0AF7009D7C6C /* ItemTableViewController.swift in Sources */,
 				B66D2AE2251F92C600DBDD90 /* HeaderView.swift in Sources */,
+				B6DF253E2546CF1300D2CD0C /* UserInfo.swift in Sources */,
 				B62A2ACD253A0397009D7C6C /* WhishListTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
