@@ -27,6 +27,7 @@ class AccountTVController: UITableViewController {
      func logOut() {
         do {
             try Auth.auth().signOut()
+            connexion = "off"
         } catch {
           print("erreur de déconnexion")
         }
@@ -59,7 +60,9 @@ class AccountTVController: UITableViewController {
                     cell.connexionBt.setTitle("Déconnexion", for: .normal)
                     cell.stateButton = {
                         print("déconnexion")
-                        self.logOut() }
+                        self.logOut()
+                        tableView.reloadData()
+                    }
                 } else {
                     cell.connectState.backgroundColor = .red
                     cell.stateLabel.text = "Vous êtes déconnecté"
