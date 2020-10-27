@@ -292,6 +292,10 @@ class InscriptionViewController: UIViewController, UIImagePickerControllerDelega
                     }
                     print("succés sauvegarde informations utilisateur")
                 }
+                let accountTVC = self.storyboard?.instantiateViewController(identifier: "AccountTVC") as! AccountTVController
+                accountTVC.connexion = "on"
+                self.navigationController?.pushViewController(accountTVC, animated: true)
+                print("bienvenue : ", email)
             }
             }
             }
