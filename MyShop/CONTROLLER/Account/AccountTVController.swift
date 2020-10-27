@@ -37,7 +37,6 @@ class AccountTVController: UITableViewController {
     
      func logIn() {
         let inscriptionVC = self.storyboard?.instantiateViewController(identifier: "InscriptionVC") as! InscriptionViewController
-        
         self.navigationController?.pushViewController(inscriptionVC, animated: true)
     }
 
@@ -90,7 +89,6 @@ class AccountTVController: UITableViewController {
             print("état de la connexion du compte")
         case 1:
             let infoVC = self.storyboard?.instantiateViewController(identifier: "InfoTV") as! InfoTVController
-            
             self.navigationController?.pushViewController(infoVC, animated: true)
             
         default:

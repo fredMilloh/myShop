@@ -15,11 +15,10 @@ struct User {
     var imageUrl: String?
     var name: String?
     var prenom: String?
-    var adresse1: String?
+    var adresse: String?
     var phoneNumber: String?
     var codePostal: String?
     var ville: String?
-    var isConnected: Bool
 }
 
 class UserInfo {

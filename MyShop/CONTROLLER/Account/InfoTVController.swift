@@ -8,28 +8,83 @@
 
 import UIKit
 
-class InfoTVController: UITableViewController {
+class InfoTVController: UITableViewController, UITextFieldDelegate {
+    
+    @IBOutlet var imageProfil: UIImageView!
+    @IBOutlet var nomTF: RoundedTextField! {
+        didSet {
+            nomTF.tag = 1
+            nomTF.becomeFirstResponder()
+            nomTF.delegate = self
+        }
+    }
+    @IBOutlet var prenomTF: RoundedTextField! {
+        didSet {
+            prenomTF.tag = 2
+            prenomTF.delegate = self
+        }
+    }
+    @IBOutlet var pseudoTF: RoundedTextField! {
+        didSet {
+            pseudoTF.tag = 3
+            pseudoTF.delegate = self
+        }
+    }
+    @IBOutlet var adresseTF: RoundedTextField! {
+        didSet {
+            adresseTF.tag = 4
+            adresseTF.delegate = self
+        }
+    }
+    @IBOutlet var codePostalTF: RoundedTextField! {
+        didSet {
+            codePostalTF.tag = 5
+            codePostalTF.delegate = self
+        }
+    }
+    @IBOutlet var villeTF: RoundedTextField! {
+        didSet {
+            villeTF.tag = 6
+            villeTF.delegate = self
+        }
+    }
+    @IBOutlet var telephoneTF: RoundedTextField! {
+        didSet {
+            telephoneTF.tag = 7
+            telephoneTF.delegate = self
+        }
+    }
+    @IBOutlet var emailTF: RoundedTextField! {
+        didSet {
+            emailTF.tag = 8
+            emailTF.delegate = self
+        }
+    }
+    @IBOutlet var observationsTV: UITextView! {
+        didSet {
+            observationsTV.tag = 9
+            observationsTV.layer.cornerRadius = 5.0
+            observationsTV.layer.masksToBounds = true
+            
+        }
+    }
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
-    // MARK: - Table view data source
+// MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return 10
     }
 
     /*
@@ -42,49 +97,66 @@ class InfoTVController: UITableViewController {
     }
     */
 
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
+    
+// MARK: - TableView Delegate
+    // pour afficher une alerte avec choix album ou appareil photo
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row == 0 {
+            let photoSourceController = UIAlertController(title: "", message: "Choississez votre image", preferredStyle: .actionSheet)
+            
+            let cameraAction = UIAlertAction(title: "Appareil photo", style: .default) { (action) in
+                if UIImagePickerController.isSourceTypeAvailable(.camera) {
+                    let imagePicker = UIImagePickerController()
+                    imagePicker.delegate = self
+                    imagePicker.allowsEditing = true
+                    imagePicker.sourceType = .camera
+                    
+                    self.present(imagePicker, animated: true, completion: nil)
+                }
+            }
+            let albumPhotoAction = UIAlertAction(title: "Album photo", style: .default) { (action) in
+                if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+                    let imagePicker = UIImagePickerController()
+                    imagePicker.delegate = self
+                    imagePicker.allowsEditing = true
+                    imagePicker.sourceType = .photoLibrary
+                    
+                    self.present(imagePicker, animated: true, completion: nil)
+                }
+            }
+            
+            photoSourceController.addAction(cameraAction)
+            photoSourceController.addAction(albumPhotoAction)
+            
+            present(photoSourceController, animated: true, completion: nil)
+        }
+    }
+    
+// MARK: - Fonction pour les textFields
+    // pour passer au champs suivant (tag) quand on appui sur retour
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if let prochainTextField = view.viewWithTag(textField.tag + 1) {
+            textField.resignFirstResponder()
+            prochainTextField.becomeFirstResponder()
+        }
         return true
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+}
+extension InfoTVController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        
+        if let editedImage = info[.editedImage] as? UIImage {
+            imageProfil.image = editedImage.withRenderingMode(.alwaysOriginal)
+            
+        } else if let originalImage = info[.originalImage] as? UIImage {
+            imageProfil.image = originalImage.withRenderingMode(.alwaysOriginal)
+        }
+        imageProfil.layer.cornerRadius = 90
+        imageProfil.layer.masksToBounds = true
+            
+        dismiss(animated: true, completion: nil)
     }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    
 }
