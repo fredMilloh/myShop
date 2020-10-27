@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import FirebaseAuth
+import FirebaseDatabase
+import FirebaseStorage
 
 class InfoTVController: UITableViewController, UITextFieldDelegate {
     
@@ -73,6 +76,48 @@ class InfoTVController: UITableViewController, UITextFieldDelegate {
         super.viewDidLoad()
 
     }
+    
+    @IBAction func saveButton(_ sender: UIButton) {
+        guard let nom = nomTF.text, nom.count > 0 else { return }
+        guard let prenom = prenomTF.text, prenom.count > 0 else { return }
+        guard let pseudo = pseudoTF.text, pseudo.count > 0 else { return }
+        guard let adresse = adresseTF.text, adresse.count > 0 else { return }
+        guard let codePostal = codePostalTF.text, codePostal.count > 0 else { return }
+        guard let ville = villeTF.text, ville.count > 0 else { return }
+        guard let email = emailTF.text, email.count > 0 else { return }
+        
+        let fileId = NSUUID().uuidString
+        let storageRef = Storage.storage().reference().child("profil_images").child(fileId)
+        
+        guard let image = self.imageProfil.image else { return }
+        guard let uploadData = image.jpegData(compressionQuality: 0.3) else { return }
+        
+        storageRef.putData(uploadData, metadata: nil) { (metadata, error) in
+            if let error = error {
+                print("Echec pour uploader l'image du profil :", error)
+                return
+            }
+        storageRef.downloadURL { (downloadURL, error) in
+                guard let profilImageUrl = downloadURL?.absoluteString else { return }
+                print("Succès pour uploader l'image : ", profilImageUrl)
+            
+        guard let userId = Auth.auth().currentUser?.uid else { return }
+        //guard let uid = user?.user.uid else { return }
+        
+        let userValues = ["name": nom, "secondName": prenom, "username": pseudo, "address": adresse, "codePostal": codePostal, "city": ville, "email": email, "imageUrl": profilImageUrl]
+        let values = [userId: userValues]
+    
+        Database.database().reference().child("users").updateChildValues(values) { (error, ref) in
+            if let error = error {
+                print("Echec sauvegarde informations utilisateur : ", error)
+                return
+            }
+            print("succés sauvegarde informations utilisateur")
+        }
+    }
+    }
+    }
+    
 
 // MARK: - Table view data source
 

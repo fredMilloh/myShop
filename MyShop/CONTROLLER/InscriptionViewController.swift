@@ -222,6 +222,7 @@ class InscriptionViewController: UIViewController, UIImagePickerControllerDelega
             } else {
                 let ref = Database.database().reference()
                 let userId = Auth.auth().currentUser?.uid
+               
                 ref.child("users").child(userId!).observeSingleEvent(of: .value) { (snapshot) in
                     let value = snapshot.value as? NSDictionary
                     let username = value?["username"] as? String ?? "No Name"
