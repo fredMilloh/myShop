@@ -28,6 +28,7 @@ class AccountTVController: UITableViewController {
         do {
             try Auth.auth().signOut()
             connexion = "off"
+            tableView.reloadData()
         } catch {
           print("erreur de déconnexion")
         }
@@ -61,7 +62,6 @@ class AccountTVController: UITableViewController {
                     cell.stateButton = {
                         print("déconnexion")
                         self.logOut()
-                        tableView.reloadData()
                     }
                 } else {
                     cell.connectState.backgroundColor = .red
@@ -89,7 +89,9 @@ class AccountTVController: UITableViewController {
         case 0:
             print("état de la connexion du compte")
         case 1:
-            print("vers formulaire utilisateur")
+            let infoVC = self.storyboard?.instantiateViewController(identifier: "InfoTV") as! InfoTVController
+            
+            self.navigationController?.pushViewController(infoVC, animated: true)
             
         default:
             fatalError()

@@ -16,7 +16,7 @@ struct User {
     var name: String?
     var prenom: String?
     var adresse1: String?
-    var adresse2: String?
+    var phoneNumber: String?
     var codePostal: String?
     var ville: String?
     var isConnected: Bool

@@ -41,6 +41,7 @@
 		B6DF253E2546CF1300D2CD0C /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6DF253D2546CF1300D2CD0C /* UserInfo.swift */; };
 		B6DF25432546DC1E00D2CD0C /* ActionTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6DF25422546DC1E00D2CD0C /* ActionTVCell.swift */; };
 		B6DF254D254732AE00D2CD0C /* LabelTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6DF254C254732AE00D2CD0C /* LabelTVCell.swift */; };
+		B6DF255025483BBB00D2CD0C /* InfoTVController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6DF254F25483BBB00D2CD0C /* InfoTVController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -81,6 +82,7 @@
 		B6DF253D2546CF1300D2CD0C /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		B6DF25422546DC1E00D2CD0C /* ActionTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionTVCell.swift; sourceTree = "<group>"; };
 		B6DF254C254732AE00D2CD0C /* LabelTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelTVCell.swift; sourceTree = "<group>"; };
+		B6DF254F25483BBB00D2CD0C /* InfoTVController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoTVController.swift; sourceTree = "<group>"; };
 		BB42981D9962D3944F2A64E6 /* Pods-MyShop.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyShop.release.xcconfig"; path = "Target Support Files/Pods-MyShop/Pods-MyShop.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -207,6 +209,7 @@
 			isa = PBXGroup;
 			children = (
 				B6DF253A2546CAAE00D2CD0C /* AccountTVController.swift */,
+				B6DF254F25483BBB00D2CD0C /* InfoTVController.swift */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -353,6 +356,7 @@
 				B6DF254D254732AE00D2CD0C /* LabelTVCell.swift in Sources */,
 				B692CF04251D026100A2943B /* WhishListViewController.swift in Sources */,
 				B62A2A9F252DFD3F009D7C6C /* ItemsCollectionViewController.swift in Sources */,
+				B6DF255025483BBB00D2CD0C /* InfoTVController.swift in Sources */,
 				B62A2AA7252F04AA009D7C6C /* ItemTableViewCell.swift in Sources */,
 				B66D2B092521128E00DBDD90 /* ItemsService.swift in Sources */,
 				B6DF24162542CEAA00D2CD0C /* InscriptionViewController.swift in Sources */,
