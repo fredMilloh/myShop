@@ -23,7 +23,7 @@ class InscriptionViewController: UIViewController, UIImagePickerControllerDelega
         button.addTarget(self, action: #selector(handlePlusPhoto), for: .touchUpInside)
         return button
     }()
- 
+    
 // MARK: - Sign In Fields
     
     let signInLabel: UILabel = {
@@ -151,7 +151,7 @@ class InscriptionViewController: UIViewController, UIImagePickerControllerDelega
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        setupButton()
+        //setupButton()
         setupInputFields()
         setupSignInFields()
     }
@@ -159,7 +159,7 @@ class InscriptionViewController: UIViewController, UIImagePickerControllerDelega
     fileprivate func setupButton() {
         view.addSubview(addPhotoButton)
         // ajout contraintes spaciales
-        addPhotoButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20).isActive = true
+        addPhotoButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 600).isActive = true
         addPhotoButton.heightAnchor.constraint(equalToConstant: 140).isActive = true
         addPhotoButton.widthAnchor.constraint(equalToConstant: 140).isActive = true
         addPhotoButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
@@ -180,7 +180,7 @@ class InscriptionViewController: UIViewController, UIImagePickerControllerDelega
         // autre méthode pour ajouter des contraintes spaciales
         
         NSLayoutConstraint.activate([
-            stackViewIn.topAnchor.constraint(equalTo: addPhotoButton.bottomAnchor, constant: 20),
+            stackViewIn.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 40),
             stackViewIn.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 40),
             stackViewIn.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -40),
             stackViewIn.heightAnchor.constraint(equalToConstant: 175)
@@ -200,7 +200,7 @@ class InscriptionViewController: UIViewController, UIImagePickerControllerDelega
         
         // autre méthode pour ajouter des contraintes spaciales
         NSLayoutConstraint.activate([
-            stackView.topAnchor.constraint(equalTo: addPhotoButton.bottomAnchor, constant: 275),
+            stackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 300),
             stackView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 40),
             stackView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -40),
             stackView.heightAnchor.constraint(equalToConstant: 250)
@@ -254,7 +254,8 @@ class InscriptionViewController: UIViewController, UIImagePickerControllerDelega
                 print("Echec pour la création de l'utilisateur : ", err)
             }
             print("L'utilisateur a été correctement créé : ", user?.user.uid ?? "")
-
+            
+    
     // Storage Firebase
             // la suite pour enregistrer l'image dans le dossier profil_images de Storage
             
@@ -273,11 +274,13 @@ class InscriptionViewController: UIViewController, UIImagePickerControllerDelega
             storageRef.downloadURL { (downloadURL, error) in
                     guard let profilImageUrl = downloadURL?.absoluteString else { return }
                     print("Succès pour uploader l'image : ", profilImageUrl)
+    
 
     // Database Firebase
                 // la suite pour enregistrer dans database, les données de l'utilisateur
             
                 guard let uid = user?.user.uid else { return }
+                
                 let userValues = ["username": username, "email": email, "password": password, "imageUrl": profilImageUrl]
                 let values = [uid: userValues]
             
