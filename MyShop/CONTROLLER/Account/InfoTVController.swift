@@ -65,7 +65,6 @@ class InfoTVController: UITableViewController, UITextFieldDelegate {
             observationsTV.tag = 9
             observationsTV.layer.cornerRadius = 5.0
             observationsTV.layer.masksToBounds = true
-            
         }
     }
     
@@ -102,6 +101,8 @@ class InfoTVController: UITableViewController, UITextFieldDelegate {
     // pour afficher une alerte avec choix album ou appareil photo
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 0 {
+            nomTF.resignFirstResponder()
+            imageProfil.becomeFirstResponder()
             let photoSourceController = UIAlertController(title: "", message: "Choississez votre image", preferredStyle: .actionSheet)
             
             let cameraAction = UIAlertAction(title: "Appareil photo", style: .default) { (action) in
@@ -145,7 +146,8 @@ class InfoTVController: UITableViewController, UITextFieldDelegate {
 extension InfoTVController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        
+        nomTF.resignFirstResponder()
+        imageProfil.becomeFirstResponder()
         
         if let editedImage = info[.editedImage] as? UIImage {
             imageProfil.image = editedImage.withRenderingMode(.alwaysOriginal)

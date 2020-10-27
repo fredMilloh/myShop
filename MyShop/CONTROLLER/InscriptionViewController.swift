@@ -228,7 +228,7 @@ class InscriptionViewController: UIViewController, UIImagePickerControllerDelega
                     let email = value?["email"] as? String ?? "No Email"
                     let imageUrl = value?["imageUrl"] as? String ?? "No Image"
                     
-                    let currentUser = User(id: userId!, username: username, mail: email, imageUrl: imageUrl, name: "", prenom: "", adresse1: "", phoneNumber: "", codePostal: "", ville: "")
+                    let currentUser = User(id: userId!, username: username, mail: email, imageUrl: imageUrl, name: "", prenom: "", adresse: "", phoneNumber: "", codePostal: "", ville: "")
                     UserInfo.shared.userInfo = currentUser
                     UserInfo.shared.connexion = "on"
                 }
