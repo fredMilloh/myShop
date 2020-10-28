@@ -47,7 +47,7 @@ class HomeViewController: UIViewController {
     // Méthode pour récupérer les catégories de firestore
     func fetchCategories() {
         
-        db .collection("categories").addSnapshotListener { (querySnapshot, error) in
+        db.collection("categories").addSnapshotListener { (querySnapshot, error) in
             guard let documents = querySnapshot?.documents else { print("NoDoc")
                 return }
             ItemsService.shared.AllCategoriesDB = documents.map({ (queryDocumentSnapshot) -> CategoryDB in

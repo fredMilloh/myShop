@@ -110,6 +110,7 @@
                                     </userDefinedRuntimeAttributes>
                                     <connections>
                                         <action selector="ValidateBasket:" destination="BW9-9f-OPQ" eventType="touchUpInside" id="D4q-XN-UJA"/>
+                                        <segue destination="X29-kf-fMY" kind="unwind" unwindAction="unwindToAccountWithSegue:" id="RSy-Wu-OXJ"/>
                                     </connections>
                                 </button>
                             </subviews>
@@ -284,6 +285,7 @@
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fhn-0S-7qB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="X29-kf-fMY" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="809" y="-278"/>
         </scene>
@@ -658,11 +660,11 @@
                             </constraints>
                         </view>
                         <view key="tableFooterView" contentMode="scaleToFill" id="6co-3X-C7a" userLabel="FooterView">
-                            <rect key="frame" x="0.0" y="1129" width="375" height="44"/>
+                            <rect key="frame" x="0.0" y="1129" width="375" height="60"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yqq-b6-kBA">
-                                    <rect key="frame" x="15" y="5" width="345" height="34"/>
+                                    <rect key="frame" x="15" y="5" width="345" height="50"/>
                                     <color key="backgroundColor" systemColor="systemPinkColor"/>
                                     <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                     <state key="normal" title="Enregistrer">
@@ -992,7 +994,7 @@
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Observations relative à la livraison" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="nW2-3L-aST">
+                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="nW2-3L-aST">
                                                             <rect key="frame" x="0.0" y="25.5" width="355" height="93.5"/>
                                                             <color key="backgroundColor" systemColor="systemGray5Color"/>
                                                             <color key="textColor" systemColor="labelColor"/>

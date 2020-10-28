@@ -74,6 +74,31 @@ class InfoTVController: UITableViewController, UITextFieldDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        updateFields()
+    }
+    
+    func updateFields() {
+        guard let user = UserInfo.shared.userInfo else { return }
+        nomTF.text = user.name
+        prenomTF.text = user.prenom
+        pseudoTF.text = user.username
+        adresseTF.text = user.adresse
+        codePostalTF.text = user.codePostal
+        villeTF.text = user.ville
+        telephoneTF.text = user.phoneNumber
+        emailTF.text = user.mail
+
+        guard let imagePath = user.imageUrl else { return }
+        let httpsReference = Storage.storage().reference(forURL: imagePath)
+        httpsReference.getData(maxSize: 1 * 512 * 512) { (data, error) in
+            if let error = error {
+                print("Echec pour downloader l'image du profil", error)
+            } else {
+                let image = UIImage(data: data!)
+                self.imageProfil.image = image
+                self.imageProfil.layer.cornerRadius = 90
+            }
+        }
 
     }
     
@@ -84,6 +109,7 @@ class InfoTVController: UITableViewController, UITextFieldDelegate {
         guard let adresse = adresseTF.text, adresse.count > 0 else { return }
         guard let codePostal = codePostalTF.text, codePostal.count > 0 else { return }
         guard let ville = villeTF.text, ville.count > 0 else { return }
+        guard let telephone = telephoneTF.text, telephone.count > 0 else { return }
         guard let email = emailTF.text, email.count > 0 else { return }
         
         let fileId = NSUUID().uuidString
@@ -104,7 +130,7 @@ class InfoTVController: UITableViewController, UITextFieldDelegate {
         guard let userId = Auth.auth().currentUser?.uid else { return }
         //guard let uid = user?.user.uid else { return }
         
-        let userValues = ["name": nom, "secondName": prenom, "username": pseudo, "address": adresse, "codePostal": codePostal, "city": ville, "email": email, "imageUrl": profilImageUrl]
+            let userValues = ["name": nom, "secondName": prenom, "username": pseudo, "address": adresse, "codePostal": codePostal, "city": ville, "phoneNumber": telephone, "email": email, "imageUrl": profilImageUrl]
         let values = [userId: userValues]
     
         Database.database().reference().child("users").updateChildValues(values) { (error, ref) in
@@ -114,8 +140,12 @@ class InfoTVController: UITableViewController, UITextFieldDelegate {
             }
             print("succés sauvegarde informations utilisateur")
         }
+            
     }
     }
+        let accountTVC = self.storyboard?.instantiateViewController(identifier: "AccountTVC") as! AccountTVController
+        accountTVC.connexion = "on"
+        self.navigationController?.pushViewController(accountTVC, animated: true)
     }
     
 

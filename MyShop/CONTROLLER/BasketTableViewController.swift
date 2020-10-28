@@ -31,11 +31,7 @@ class BasketTableViewController: UITableViewController {
         calculateTotal()
     }
     
-    @IBAction func ValidateBasket(_ sender: UIButton) {
-        let inscriptionVC = self.storyboard?.instantiateViewController(identifier: "InscriptionVC") as! InscriptionViewController
-        
-        self.navigationController?.pushViewController(inscriptionVC, animated: true)
-    }
+    @IBAction func ValidateBasket(_ sender: UIButton) {}
     
 // MARK: - Calculate Method
     fileprivate func calculateTotal() {

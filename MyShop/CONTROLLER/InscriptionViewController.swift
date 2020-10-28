@@ -225,11 +225,17 @@ class InscriptionViewController: UIViewController, UIImagePickerControllerDelega
                
                 ref.child("users").child(userId!).observeSingleEvent(of: .value) { (snapshot) in
                     let value = snapshot.value as? NSDictionary
-                    let username = value?["username"] as? String ?? "No Name"
-                    let email = value?["email"] as? String ?? "No Email"
-                    let imageUrl = value?["imageUrl"] as? String ?? "No Image"
+                    let username = value?["username"] as? String ?? "non renseigné"
+                    let email = value?["email"] as? String ?? "non renseigné"
+                    let imageUrl = value?["imageUrl"] as? String ?? "non renseigné"
+                    let name = value?["name"] as? String ?? "non renseigné"
+                    let secondName = value?["secondName"] as? String ?? "non renseigné"
+                    let address = value?["address"] as? String ?? "non renseigné"
+                    let codePostal = value?["codePostal"] as? String ?? "non renseigné"
+                    let city = value?["city"] as? String ?? "non renseigné"
+                    let phoneNumber = value?["phoneNumber"] as? String ?? "non renseigné"
                     
-                    let currentUser = User(id: userId!, username: username, mail: email, imageUrl: imageUrl, name: "", prenom: "", adresse: "", phoneNumber: "", codePostal: "", ville: "")
+                    let currentUser = User(id: userId!, username: username, mail: email, imageUrl: imageUrl, name: name, prenom: secondName, adresse: address, phoneNumber: phoneNumber, codePostal: codePostal, ville: city)
                     UserInfo.shared.userInfo = currentUser
                     UserInfo.shared.connexion = "on"
                 }
@@ -291,6 +297,9 @@ class InscriptionViewController: UIViewController, UIImagePickerControllerDelega
                         return
                     }
                     print("succés sauvegarde informations utilisateur")
+                    let currentUser = User(id: uid, username: username, mail: email, imageUrl: profilImageUrl, name: "", prenom: "", adresse: "", phoneNumber: "", codePostal: "", ville: "")
+                    UserInfo.shared.userInfo = currentUser
+                    UserInfo.shared.connexion = "on"
                 }
                 let accountTVC = self.storyboard?.instantiateViewController(identifier: "AccountTVC") as! AccountTVController
                 accountTVC.connexion = "on"

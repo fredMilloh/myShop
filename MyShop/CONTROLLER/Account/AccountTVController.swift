@@ -11,6 +11,10 @@ import FirebaseAuth
 
 class AccountTVController: UITableViewController {
     
+    @IBAction func unwindToAccount(segue: UIStoryboardSegue) {
+        
+    }
+    
     var connexion = ""
 
     override func viewDidLoad() {
@@ -27,6 +31,7 @@ class AccountTVController: UITableViewController {
      func logOut() {
         do {
             try Auth.auth().signOut()
+            tableView.reloadData()
             connexion = "off"
             tableView.reloadData()
         } catch {
@@ -54,7 +59,7 @@ class AccountTVController: UITableViewController {
         switch indexPath.row {
         case 0:
         let cell = tableView.dequeueReusableCell(withIdentifier: "ActionCell", for: indexPath) as! ActionTVCell
-             if connexion == "on" {
+            if connexion == "on" {
                     cell.connectState.backgroundColor = .green
                     cell.stateLabel.text = "Vous êtes connecté"
                     cell.connexionBt.setTitle("Déconnexion", for: .normal)
@@ -88,12 +93,17 @@ class AccountTVController: UITableViewController {
         case 0:
             print("état de la connexion du compte")
         case 1:
-            let infoVC = self.storyboard?.instantiateViewController(identifier: "InfoTV") as! InfoTVController
-            self.navigationController?.pushViewController(infoVC, animated: true)
-            
+            if connexion == "on" {
+                let infoVC = self.storyboard?.instantiateViewController(identifier: "InfoTV") as! InfoTVController
+                self.navigationController?.pushViewController(infoVC, animated: true)
+            } else {
+                let inscriptionVC = self.storyboard?.instantiateViewController(identifier: "InscriptionVC") as! InscriptionViewController
+                self.navigationController?.pushViewController(inscriptionVC, animated: true)
+            }
         default:
             fatalError()
         }
+        
     }
     /*
     // Override to support conditional editing of the table view.
