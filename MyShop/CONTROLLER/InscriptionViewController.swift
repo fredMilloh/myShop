@@ -225,15 +225,15 @@ class InscriptionViewController: UIViewController, UIImagePickerControllerDelega
                
                 ref.child("users").child(userId!).observeSingleEvent(of: .value) { (snapshot) in
                     let value = snapshot.value as? NSDictionary
-                    let username = value?["username"] as? String ?? "non renseigné"
-                    let email = value?["email"] as? String ?? "non renseigné"
-                    let imageUrl = value?["imageUrl"] as? String ?? "non renseigné"
-                    let name = value?["name"] as? String ?? "non renseigné"
-                    let secondName = value?["secondName"] as? String ?? "non renseigné"
-                    let address = value?["address"] as? String ?? "non renseigné"
-                    let codePostal = value?["codePostal"] as? String ?? "non renseigné"
-                    let city = value?["city"] as? String ?? "non renseigné"
-                    let phoneNumber = value?["phoneNumber"] as? String ?? "non renseigné"
+                    let username = value?["username"] as? String ?? ""
+                    let email = value?["email"] as? String ?? ""
+                    let imageUrl = value?["imageUrl"] as? String ?? ""
+                    let name = value?["name"] as? String ?? ""
+                    let secondName = value?["secondName"] as? String ?? ""
+                    let address = value?["address"] as? String ?? ""
+                    let codePostal = value?["codePostal"] as? String ?? ""
+                    let city = value?["city"] as? String ?? ""
+                    let phoneNumber = value?["phoneNumber"] as? String ?? ""
                     
                     let currentUser = User(id: userId!, username: username, mail: email, imageUrl: imageUrl, name: name, prenom: secondName, adresse: address, phoneNumber: phoneNumber, codePostal: codePostal, ville: city)
                     UserInfo.shared.userInfo = currentUser

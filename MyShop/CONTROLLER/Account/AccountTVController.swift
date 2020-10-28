@@ -16,6 +16,7 @@ class AccountTVController: UITableViewController {
     }
     
     var connexion = ""
+    var reception = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,13 +53,13 @@ class AccountTVController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return 5
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.row {
         case 0:
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ActionCell", for: indexPath) as! ActionTVCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ActionCell", for: indexPath) as! ActionTVCell
             if connexion == "on" {
                     cell.connectState.backgroundColor = .green
                     cell.stateLabel.text = "Vous êtes connecté"
@@ -81,6 +82,57 @@ class AccountTVController: UITableViewController {
             
             return cell
             
+        case 2:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ActionCell", for: indexPath) as! ActionTVCell
+            if reception == "livraison" {
+                cell.connectState.backgroundColor = .red
+            } else if reception == "click" {
+                cell.connectState.backgroundColor = .green
+            } else {
+                cell.connectState.backgroundColor = .systemGray5 }
+            cell.stateLabel.text = "Click & Collect"
+            cell.connexionBt.setTitle("choisir", for: .normal)
+            cell.stateButton = { self.reception = "click"
+                                self.tableView.reloadData()
+                                print("click & collect") }
+            return cell
+            
+        case 3:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ActionCell", for: indexPath) as! ActionTVCell
+            if reception == "click" {
+                cell.connectState.backgroundColor = .red
+            } else if reception == "livraison" {
+                cell.connectState.backgroundColor = .green
+            } else {
+                cell.connectState.backgroundColor = .systemGray5 }
+            cell.stateLabel.text = "Livraison à domicile"
+            cell.connexionBt.setTitle("choisir", for: .normal)
+            cell.stateButton = {
+                if self.connexion == "on" {
+                    guard let nom = UserInfo.shared.userInfo.name else { return }
+                    guard let prenom = UserInfo.shared.userInfo.prenom else { return }
+                    guard let adresse = UserInfo.shared.userInfo.adresse else { return }
+                    guard let codePostal = UserInfo.shared.userInfo.codePostal else { return }
+                    guard let ville = UserInfo.shared.userInfo.ville else { return }
+                
+                    if (nom.count > 0) && (prenom.count > 0) && (adresse.count > 0) && (codePostal.count > 0) && ville.count > 0 {
+                        self.reception = "livraison"
+                        self.tableView.reloadData()
+                        print("livraison à domicile")
+                    } else {
+                        print("complèter tous les champs")
+                        let infoVC = self.storyboard?.instantiateViewController(identifier: "InfoTV") as! InfoTVController
+                        self.navigationController?.pushViewController(infoVC, animated: true) }
+                } else {
+                    let inscriptionVC = self.storyboard?.instantiateViewController(identifier: "InscriptionVC") as! InscriptionViewController
+                    self.navigationController?.pushViewController(inscriptionVC, animated: true)
+                }
+            }
+            return cell
+        case 4:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "PaymentCell", for: indexPath)
+            
+            return cell
         default:
             fatalError()
         }
@@ -100,6 +152,12 @@ class AccountTVController: UITableViewController {
                 let inscriptionVC = self.storyboard?.instantiateViewController(identifier: "InscriptionVC") as! InscriptionViewController
                 self.navigationController?.pushViewController(inscriptionVC, animated: true)
             }
+        case 2:
+            print("choix du magasins")
+        case 3:
+            print("choix livraison à domicile")
+        case 4:
+            print("choix mode de paiement")
         default:
             fatalError()
         }

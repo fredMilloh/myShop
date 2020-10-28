@@ -106,10 +106,10 @@ class InfoTVController: UITableViewController, UITextFieldDelegate {
         guard let nom = nomTF.text, nom.count > 0 else { return }
         guard let prenom = prenomTF.text, prenom.count > 0 else { return }
         guard let pseudo = pseudoTF.text, pseudo.count > 0 else { return }
-        guard let adresse = adresseTF.text, adresse.count > 0 else { return }
-        guard let codePostal = codePostalTF.text, codePostal.count > 0 else { return }
-        guard let ville = villeTF.text, ville.count > 0 else { return }
-        guard let telephone = telephoneTF.text, telephone.count > 0 else { return }
+        guard let adresse = adresseTF.text, adresse.count >= 0 else { return }
+        guard let codePostal = codePostalTF.text, codePostal.count >= 0 else { return }
+        guard let ville = villeTF.text, ville.count >= 0 else { return }
+        guard let telephone = telephoneTF.text, telephone.count >= 0 else { return }
         guard let email = emailTF.text, email.count > 0 else { return }
         
         let fileId = NSUUID().uuidString
@@ -132,6 +132,9 @@ class InfoTVController: UITableViewController, UITextFieldDelegate {
         
             let userValues = ["name": nom, "secondName": prenom, "username": pseudo, "address": adresse, "codePostal": codePostal, "city": ville, "phoneNumber": telephone, "email": email, "imageUrl": profilImageUrl]
         let values = [userId: userValues]
+            
+            let currentUser = User(id: userId ,username: pseudo, mail: email, imageUrl: profilImageUrl, name: nom, prenom: prenom, adresse: adresse, phoneNumber: telephone, codePostal: codePostal, ville: ville)
+            UserInfo.shared.userInfo = currentUser
     
         Database.database().reference().child("users").updateChildValues(values) { (error, ref) in
             if let error = error {
