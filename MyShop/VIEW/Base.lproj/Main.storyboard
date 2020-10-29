@@ -584,7 +584,7 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GBT-i8-ETm">
                                             <rect key="frame" x="10" y="5" width="355" height="35"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mes Informations" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NbT-Vb-N1t">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mes Données Personnelles" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NbT-Vb-N1t">
                                                     <rect key="frame" x="10" y="5" width="335" height="25"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                     <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -783,7 +783,7 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0rM-bV-L8Z">
                                             <rect key="frame" x="10" y="5" width="355" height="35"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mode de Paiement" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="peS-Sc-mhE">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mode de Paiement" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="peS-Sc-mhE">
                                                     <rect key="frame" x="10" y="5" width="335" height="25"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                     <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -816,6 +816,51 @@
                                 <connections>
                                     <outlet property="labelView" destination="0rM-bV-L8Z" id="htO-PE-3kt"/>
                                     <outlet property="titleLabel" destination="peS-Sc-mhE" id="gju-vw-ijO"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="RecapitulatifCell" rowHeight="45" id="59p-Uh-9cH" customClass="LabelTVCell" customModule="MyShop" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="312" width="375" height="45"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="59p-Uh-9cH" id="Kkq-aI-vN2">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="45"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eOS-du-sln">
+                                            <rect key="frame" x="10" y="5" width="355" height="35"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Récapitulatif commande" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2KZ-xM-o3h">
+                                                    <rect key="frame" x="10" y="5" width="335" height="25"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            <constraints>
+                                                <constraint firstItem="2KZ-xM-o3h" firstAttribute="leading" secondItem="eOS-du-sln" secondAttribute="leading" constant="10" id="Ctu-y4-3Og"/>
+                                                <constraint firstAttribute="trailing" secondItem="2KZ-xM-o3h" secondAttribute="trailing" constant="10" id="P2h-9E-ghI"/>
+                                                <constraint firstAttribute="bottom" secondItem="2KZ-xM-o3h" secondAttribute="bottom" constant="5" id="SE8-WY-K3g"/>
+                                                <constraint firstItem="2KZ-xM-o3h" firstAttribute="top" secondItem="eOS-du-sln" secondAttribute="top" constant="5" id="nXZ-FO-5AO"/>
+                                            </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                    <integer key="value" value="10"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </view>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstItem="eOS-du-sln" firstAttribute="leading" secondItem="Kkq-aI-vN2" secondAttribute="leading" constant="10" id="WeS-UZ-IWg"/>
+                                        <constraint firstItem="eOS-du-sln" firstAttribute="top" secondItem="Kkq-aI-vN2" secondAttribute="top" constant="5" id="ZYl-JS-fug"/>
+                                        <constraint firstAttribute="trailing" secondItem="eOS-du-sln" secondAttribute="trailing" constant="10" id="oQI-Mb-oHV"/>
+                                        <constraint firstAttribute="bottom" secondItem="eOS-du-sln" secondAttribute="bottom" constant="5" id="x54-Mh-pbg"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="labelView" destination="eOS-du-sln" id="ceA-hR-cgF"/>
+                                    <outlet property="titleLabel" destination="2KZ-xM-o3h" id="1ek-00-khp"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

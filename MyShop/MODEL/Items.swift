@@ -26,3 +26,7 @@ struct Item {
     var promo: Bool
 }
 
+struct Section {
+    var categories: String
+    var name: [String]
+}
