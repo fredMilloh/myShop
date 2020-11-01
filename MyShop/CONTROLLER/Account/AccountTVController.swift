@@ -17,6 +17,7 @@ class AccountTVController: UITableViewController {
     
     var connexion = ""
     var reception = ""
+    var payment = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,7 +52,7 @@ class AccountTVController: UITableViewController {
         case 0: return 1
         case 1: return 1
         case 2: return 2
-        case 3: return 1
+        case 3: return 2
         case 4: return 1
         default: return 0
         }
@@ -92,31 +93,31 @@ class AccountTVController: UITableViewController {
         case 2:
             switch indexPath.row {
             case 0:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "ActionCell", for: indexPath) as! ActionTVCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "CollectCell", for: indexPath) as! ChoiceTVCell
             if reception == "livraison" {
-                cell.connectState.backgroundColor = .red
+                cell.choiceState.backgroundColor = .red
             } else if reception == "click" {
-                cell.connectState.backgroundColor = .green
+                cell.choiceState.backgroundColor = .green
             } else {
-                cell.connectState.backgroundColor = .systemGray5 }
-            cell.stateLabel.text = "Click & Collect"
-            cell.connexionBt.setTitle("choisir", for: .normal)
-            cell.stateButton = { self.reception = "click"
+                cell.choiceState.backgroundColor = .systemGray5 }
+            //cell.stateLabel.text = "Click & Collect"
+                //cell.connexionBt.setTitle("choisir", for: .normal)
+            cell.button = { self.reception = "click"
                                 self.tableView.reloadData()
                                 print("click & collect") }
             return cell
             
             case 1:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "ActionCell", for: indexPath) as! ActionTVCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "DeliveryCell", for: indexPath) as! ChoiceTVCell
             if reception == "click" {
-                cell.connectState.backgroundColor = .red
+                cell.choiceState.backgroundColor = .red
             } else if reception == "livraison" {
-                cell.connectState.backgroundColor = .green
+                cell.choiceState.backgroundColor = .green
             } else {
-                cell.connectState.backgroundColor = .systemGray5 }
-                cell.stateLabel.text = "Livraison à domicile"
-                cell.connexionBt.setTitle("choisir", for: .normal)
-                cell.stateButton = {
+                cell.choiceState.backgroundColor = .systemGray5 }
+                //cell.choiceLabel.text = "Livraison à domicile"
+                //cell.connexionBt.setTitle("choisir", for: .normal)
+                cell.button = {
                     if self.connexion == "on" {
                         guard let nom = UserInfo.shared.userInfo.name else { return }
                         guard let prenom = UserInfo.shared.userInfo.prenom else { return }
@@ -144,7 +145,32 @@ class AccountTVController: UITableViewController {
         case 3:
             switch indexPath.row {
             case 0:
-                let cell = tableView.dequeueReusableCell(withIdentifier: "PaymentCell", for: indexPath)
+                let cell = tableView.dequeueReusableCell(withIdentifier: "CarteCell", for: indexPath) as! ChoiceTVCell
+                if reception == "paypal" {
+                    cell.choiceState.backgroundColor = .red
+                } else if reception == "carte" {
+                    cell.choiceState.backgroundColor = .green
+                } else {
+                    cell.choiceState.backgroundColor = .systemGray5 }
+                //cell.stateLabel.text = "Carte  Bancaire"
+                //cell.connexionBt.setTitle("choisir", for: .normal)
+                cell.button = { self.reception = "carte"
+                                    self.tableView.reloadData()
+                                    print("carte bancaire") }
+                return cell
+            case 1:
+                let cell = tableView.dequeueReusableCell(withIdentifier: "PaypalCell", for: indexPath) as! ChoiceTVCell
+                if reception == "carte" {
+                    cell.choiceState.backgroundColor = .red
+                } else if reception == "paypal" {
+                    cell.choiceState.backgroundColor = .green
+                } else {
+                    cell.choiceState.backgroundColor = .systemGray5 }
+                //cell.stateLabel.text = "PayPal"
+                //cell.connexionBt.setTitle("choisir", for: .normal)
+                cell.button = { self.reception = "paypal"
+                                    self.tableView.reloadData()
+                                    print("Paypal") }
                 return cell
             default:
                 fatalError()
@@ -191,7 +217,8 @@ class AccountTVController: UITableViewController {
             }
         case 3:
             switch indexPath.row {
-            case 0: print("choix paiement")
+            case 0: print("choix carte bancaire")
+            case 1: print("choix Paypal")
             default: fatalError()
             }
         case 4:
@@ -205,9 +232,9 @@ class AccountTVController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let view = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 20))
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 30))
         view.backgroundColor = .black
-        let label = UILabel(frame: CGRect(x: 15, y: 0, width: view.frame.width - 15, height: 20))
+        let label = UILabel(frame: CGRect(x: 15, y: 0, width: view.frame.width - 15, height: 30))
         label.text = sections[section].categories
         label.textColor = .white
         view.addSubview(label)
@@ -215,7 +242,7 @@ class AccountTVController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 20
+        return 30
     }
     /*
     // Override to support conditional editing of the table view.
