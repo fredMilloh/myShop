@@ -100,9 +100,7 @@ class AccountTVController: UITableViewController {
                 cell.choiceState.backgroundColor = .green
             } else {
                 cell.choiceState.backgroundColor = .systemGray5 }
-            //cell.stateLabel.text = "Click & Collect"
-                //cell.connexionBt.setTitle("choisir", for: .normal)
-            cell.button = { self.reception = "click"
+                cell.button = { self.reception = "click"
                                 self.tableView.reloadData()
                                 print("click & collect") }
             return cell
@@ -115,8 +113,6 @@ class AccountTVController: UITableViewController {
                 cell.choiceState.backgroundColor = .green
             } else {
                 cell.choiceState.backgroundColor = .systemGray5 }
-                //cell.choiceLabel.text = "Livraison à domicile"
-                //cell.connexionBt.setTitle("choisir", for: .normal)
                 cell.button = {
                     if self.connexion == "on" {
                         guard let nom = UserInfo.shared.userInfo.name else { return }
@@ -152,9 +148,7 @@ class AccountTVController: UITableViewController {
                     cell.choiceState.backgroundColor = .green
                 } else {
                     cell.choiceState.backgroundColor = .systemGray5 }
-                //cell.stateLabel.text = "Carte  Bancaire"
-                //cell.connexionBt.setTitle("choisir", for: .normal)
-                cell.button = { self.reception = "carte"
+                    cell.button = { self.reception = "carte"
                                     self.tableView.reloadData()
                                     print("carte bancaire") }
                 return cell
@@ -166,9 +160,7 @@ class AccountTVController: UITableViewController {
                     cell.choiceState.backgroundColor = .green
                 } else {
                     cell.choiceState.backgroundColor = .systemGray5 }
-                //cell.stateLabel.text = "PayPal"
-                //cell.connexionBt.setTitle("choisir", for: .normal)
-                cell.button = { self.reception = "paypal"
+                    cell.button = { self.reception = "paypal"
                                     self.tableView.reloadData()
                                     print("Paypal") }
                 return cell
@@ -178,7 +170,8 @@ class AccountTVController: UITableViewController {
         case 4:
             switch indexPath.row {
             case 0:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "RecapitulatifCell", for: indexPath)
+            let cell = tableView.dequeueReusableCell(withIdentifier: "RecapitulatifCell", for: indexPath) as! RecapTVCell
+                
             return cell
         default:
             fatalError()

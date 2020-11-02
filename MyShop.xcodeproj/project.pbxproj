@@ -37,6 +37,7 @@
 		B692CF04251D026100A2943B /* WhishListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B692CF03251D026100A2943B /* WhishListViewController.swift */; };
 		B692CF08251D0B9500A2943B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B692CF07251D0B9500A2943B /* HomeViewController.swift */; };
 		B6BF9600254F3FF60064FF5B /* ChoiceTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6BF95FF254F3FF60064FF5B /* ChoiceTVCell.swift */; };
+		B6BF9603255072500064FF5B /* RecapTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6BF9602255072500064FF5B /* RecapTVCell.swift */; };
 		B6DF24162542CEAA00D2CD0C /* InscriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6DF24152542CEAA00D2CD0C /* InscriptionViewController.swift */; };
 		B6DF253B2546CAAE00D2CD0C /* AccountTVController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6DF253A2546CAAE00D2CD0C /* AccountTVController.swift */; };
 		B6DF253E2546CF1300D2CD0C /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6DF253D2546CF1300D2CD0C /* UserInfo.swift */; };
@@ -80,6 +81,7 @@
 		B692CF03251D026100A2943B /* WhishListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhishListViewController.swift; sourceTree = "<group>"; };
 		B692CF07251D0B9500A2943B /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		B6BF95FF254F3FF60064FF5B /* ChoiceTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceTVCell.swift; sourceTree = "<group>"; };
+		B6BF9602255072500064FF5B /* RecapTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecapTVCell.swift; sourceTree = "<group>"; };
 		B6DF24152542CEAA00D2CD0C /* InscriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InscriptionViewController.swift; sourceTree = "<group>"; };
 		B6DF253A2546CAAE00D2CD0C /* AccountTVController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTVController.swift; sourceTree = "<group>"; };
 		B6DF253D2546CF1300D2CD0C /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
@@ -225,6 +227,7 @@
 				B6DF254C254732AE00D2CD0C /* LabelTVCell.swift */,
 				B6DF25522548691D00D2CD0C /* RoundedTextField.swift */,
 				B6BF95FF254F3FF60064FF5B /* ChoiceTVCell.swift */,
+				B6BF9602255072500064FF5B /* RecapTVCell.swift */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -355,6 +358,7 @@
 			files = (
 				B692CEE9251CF9A700A2943B /* AppDelegate.swift in Sources */,
 				B62A2AB42530E95A009D7C6C /* BasketTableViewCell.swift in Sources */,
+				B6BF9603255072500064FF5B /* RecapTVCell.swift in Sources */,
 				B6BF9600254F3FF60064FF5B /* ChoiceTVCell.swift in Sources */,
 				B62A2AB82531C72D009D7C6C /* UIButtonExtension.swift in Sources */,
 				B62A2AAE2530D9FD009D7C6C /* BasketTableViewController.swift in Sources */,

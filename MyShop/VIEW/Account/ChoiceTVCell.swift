@@ -11,8 +11,6 @@ import UIKit
 class ChoiceTVCell: UITableViewCell {
     
     @IBOutlet var choiceState: UIView!
-    //@IBOutlet var choiceLabel: UILabel!
-    //@IBOutlet var choiceButton: UIButton!
     @IBOutlet var choiceView: UIView!
     
     var button: (() -> Void)? = nil
