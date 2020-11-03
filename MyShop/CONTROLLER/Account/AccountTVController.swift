@@ -23,6 +23,9 @@ class AccountTVController: UITableViewController {
         super.viewDidLoad()
         tableView.reloadData()
     }
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
+    }
     
      func logOut() {
         do {
@@ -172,7 +175,7 @@ class AccountTVController: UITableViewController {
             case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "RecapitulatifCell", for: indexPath) as! RecapTVCell
                 cell.montantPanier.text = String(format: "%.2f", ItemsService.shared.BasketMontant / 1.196) + " €"
-                if reception == "livraison" {
+                if reception == "livraison" && ItemsService.shared.BasketMontant < 70 {
                     cell.fraisLivraison.text = String("23") + " €"
                     let montantHT = (ItemsService.shared.BasketMontant / 1.196) + 23
                     cell.tva.text = String(format: "%.2f", montantHT * 0.196) + " €"

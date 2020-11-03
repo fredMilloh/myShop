@@ -26,10 +26,6 @@ class BasketTableViewController: UITableViewController {
          self.navigationItem.rightBarButtonItem = self.editButtonItem
        
     }
-    override func viewWillAppear(_ animated: Bool) {
-        tableView.reloadData()
-        calculateTotal()
-    }
     
     @IBAction func ValidateBasket(_ sender: UIButton) {}
     

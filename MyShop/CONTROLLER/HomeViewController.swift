@@ -10,7 +10,7 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
-    var infoPromo = "Profitez de la livraison gratuite dès 50 € d'achats"
+    var infoPromo = "Profitez de la livraison gratuite dès 70 € d'achats"
     var infoPromoImage2: String { return "EspacePub4"}
     
     @IBOutlet var HeaderView: HeaderView!
@@ -24,6 +24,7 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        HomeTableView.reloadData()
         ItemsService.shared.fetchCategories()
         promoHomeItems()
         
