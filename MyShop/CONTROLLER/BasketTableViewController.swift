@@ -27,6 +27,11 @@ class BasketTableViewController: UITableViewController {
        
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
+        calculateTotal()
+    }
+    
     @IBAction func ValidateBasket(_ sender: UIButton) {}
     
 // MARK: - Calculate Method
@@ -59,12 +64,13 @@ class BasketTableViewController: UITableViewController {
         cell.authorLabel.text = item.auteur
         cell.nameLabel.text = item.nom
         cell.priceLabel.text = String(format: "%.2f", (item.prix)) + "€"
-        cell.quantityLabel.text = "1"
-        cell.totalLabel.text = String(format: "%.2f", (item.prix)) + "€"
+        cell.quantityLabel.text = String(item.quantite)
+        cell.totalLabel.text = String(format: "%.2f", (item.montant)) + "€"
         cell.plusButtonPressed = {
             if let quantityLabel = cell.quantityLabel.text, var quantityValue = Int(quantityLabel) {
                 quantityValue += 1
                     cell.quantityLabel.text = "\(quantityValue)"
+                ItemsService.shared.BasketItems[indexPath.row].quantite = quantityValue
                 let totalLine = (Double(quantityValue) * item.prix)
                 cell.totalLabel.text = String(format: "%.2f", totalLine) + "€"
                 ItemsService.shared.BasketItems[indexPath.row].montant = totalLine
@@ -77,6 +83,7 @@ class BasketTableViewController: UITableViewController {
                 if quantityValue > 0 {
                     quantityValue -= 1
                     cell.quantityLabel.text = "\(quantityValue)"
+                    ItemsService.shared.BasketItems[indexPath.row].quantite = quantityValue
                     let totalLine = (Double(quantityValue) * item.prix)
                     cell.totalLabel.text = String(format: "%.2f", totalLine) + "€"
                     ItemsService.shared.BasketItems[indexPath.row].montant = totalLine
