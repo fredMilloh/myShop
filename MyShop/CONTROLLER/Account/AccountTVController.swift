@@ -171,6 +171,18 @@ class AccountTVController: UITableViewController {
             switch indexPath.row {
             case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "RecapitulatifCell", for: indexPath) as! RecapTVCell
+                cell.montantPanier.text = String(format: "%.2f", ItemsService.shared.BasketMontant / 1.196) + " €"
+                if reception == "livraison" {
+                    cell.fraisLivraison.text = String("23") + " €"
+                    let montantHT = (ItemsService.shared.BasketMontant / 1.196) + 23
+                    cell.tva.text = String(format: "%.2f", montantHT * 0.196) + " €"
+                    cell.totalAPayer.text = String(format: "%.2f", montantHT * 1.196) + " €"
+                } else {
+                    cell.fraisLivraison.text = String("0.00") + " €"
+                    let montantHT = (ItemsService.shared.BasketMontant / 1.196)
+                    cell.tva.text = String(format: "%.2f", montantHT * 0.196) + " €"
+                    cell.totalAPayer.text = String(format: "%.2f", montantHT * 1.196) + " €"
+                }
                 
             return cell
         default:

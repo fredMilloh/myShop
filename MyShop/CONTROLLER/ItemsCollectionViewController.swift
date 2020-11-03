@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseFirestore
 
 class ItemsCollectionViewController: UICollectionViewController {
     
@@ -18,8 +19,11 @@ class ItemsCollectionViewController: UICollectionViewController {
     // var to collect cell category name from tableView
     var itemsCategory = ""
     
+    private var db = Firestore.firestore()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         selectItemsCategory()
 
         // Register cell classes - desactice sinon plante
@@ -27,7 +31,32 @@ class ItemsCollectionViewController: UICollectionViewController {
     }
 
 // MARK: - Sort items by category
-
+    /*
+    func fetchItemsByCategoriy() {
+        
+        db.collection("categories/biscuit/biscuits").addSnapshotListener { (querySnapshot, error) in
+            guard let documents = querySnapshot?.documents else { print("NoDoc")
+                return }
+            ItemsService.shared.CategoriesItems = documents.map({ (queryDocumentSnapshot) -> Item in
+                let data = queryDocumentSnapshot.data()
+                
+                let nom = data["nom"] as? String ?? ""
+                let auteur = data["auteur"] as? String ?? ""
+                let prix = data["prix"] as? Double ?? 0.00
+                let montant = data["montant"] as? Double ?? 0.00
+                let description = data["description"] as? String ?? ""
+                let allergens = data["allergens"] as? String ?? ""
+                let siteWeb = data["siteWeb"] as? String ?? ""
+                
+                
+                
+                return Item(auteur: auteur, nom: nom, categorie: "", prix: prix, montant: montant, description: description, allergens: allergens, photo: "", siteWeb: siteWeb, promo: false)
+            })
+            print(ItemsService.shared.CategoriesItems)
+        }
+    }
+ */
+        
         func selectItemsCategory() {
             ItemsService.shared.CategoriesItems = [Item]() //remise a zéro pour ne pas cumuler les catégories
             for pastry in ItemsService.shared.pastries {
@@ -36,6 +65,7 @@ class ItemsCollectionViewController: UICollectionViewController {
                }
            }
         }
+        
 
 // MARK: UICollectionViewDataSource
 

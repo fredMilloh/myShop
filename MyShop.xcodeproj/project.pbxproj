@@ -166,7 +166,6 @@
 		B692CEFC251CF9CE00A2943B /* CONTROLLER */ = {
 			isa = PBXGroup;
 			children = (
-				B6DF25372546CA6700D2CD0C /* Account */,
 				B692CF07251D0B9500A2943B /* HomeViewController.swift */,
 				B6314D012523A38F00AE15C8 /* AllCategoriesViewController.swift */,
 				B62A2A9E252DFD3F009D7C6C /* ItemsCollectionViewController.swift */,
@@ -174,6 +173,7 @@
 				B62A2AAD2530D9FD009D7C6C /* BasketTableViewController.swift */,
 				B692CF03251D026100A2943B /* WhishListViewController.swift */,
 				B62A2AF5253CAD19009D7C6C /* SearchResultTVController.swift */,
+				B6DF25372546CA6700D2CD0C /* Account */,
 				B6DF24152542CEAA00D2CD0C /* InscriptionViewController.swift */,
 			);
 			path = CONTROLLER;

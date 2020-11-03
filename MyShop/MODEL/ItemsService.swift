@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import FirebaseFirestore
 
 class ItemsService {
 
@@ -16,6 +17,22 @@ class ItemsService {
     var addPanierIcon: String {
         return "panierIcon"
     }
+    
+    private var db = Firestore.firestore()
+    
+    func fetchCategories() {
+        db.collection("categories").addSnapshotListener { (querySnapshot, error) in
+            guard let documents = querySnapshot?.documents else { print("NoDoc")
+                return }
+            self.AllCategoriesDB = documents.map({ (queryDocumentSnapshot) -> CategoryDB in
+                let data = queryDocumentSnapshot.data()
+                
+                let name = data["name"] as? String ?? ""
+                
+                return CategoryDB(name: name)
+            })
+        }
+    }
 
     private(set) var AllCategories = ["Biscuit", "Cake", "Chocolat", "Choux", "Entremet", "Individuel", "Tartelettes", "Tartes"]
     
@@ -24,6 +41,8 @@ class ItemsService {
     var CategoriesItems = [Item]()
     
     var BasketItems = [Item]()
+    
+    var BasketMontant = 0.00
     
     var WhishListItems = [Item]()
     

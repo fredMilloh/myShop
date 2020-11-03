@@ -7,15 +7,11 @@
 //
 
 import UIKit
-import FirebaseFirestore
-
 
 class HomeViewController: UIViewController {
     
     var infoPromo = "Profitez de la livraison gratuite dès 50 € d'achats"
     var infoPromoImage2: String { return "EspacePub4"}
-    
-    private var db = Firestore.firestore()
     
     @IBOutlet var HeaderView: HeaderView!
     @IBOutlet var HomeItemLeftView: UIView!
@@ -28,10 +24,9 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        fetchCategories()
+        ItemsService.shared.fetchCategories()
         promoHomeItems()
-        HomeItemLeftView.addShadow()
-        HomeItemRightView.addShadow()
+        
         homeLeftViewTapGesture()
         homeRightViewTapGesture()
         animPromoView()
@@ -40,48 +35,13 @@ class HomeViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-    fetchCategories()
+        super.viewWillAppear(true)
+        HomeTableView.reloadData()
+        ItemsService.shared.fetchCategories()
+        animPromoView()
+        animEspacePubView()
     }
-    
-// MARK: - Fetch categoriesDB
-    // Méthode pour récupérer les catégories de firestore
-    func fetchCategories() {
         
-        db.collection("categories").addSnapshotListener { (querySnapshot, error) in
-            guard let documents = querySnapshot?.documents else { print("NoDoc")
-                return }
-            ItemsService.shared.AllCategoriesDB = documents.map({ (queryDocumentSnapshot) -> CategoryDB in
-                let data = queryDocumentSnapshot.data()
-                
-                let name = data["name"] as? String ?? ""
-                
-                return CategoryDB(name: name)
-            })
-        }
-        
-        /*
-        ItemsService.shared.AllCategoriesDB = [CategoryDB]()
-        
-        categoriesCollectionRef.getDocuments { (snapshot, error) in
-            if let err = error {
-                debugPrint("error fetching docs : \(err)")
-            } else {
-                guard let snap = snapshot else { return }
-                for document in snap.documents {
-                    let categorie = document.data()
-                    let categorieName = categorie["name"] as? String ?? ""
-                    let id = categorie["id"] as? String ?? ""
-                    let newCategory = CategoryDB(id: id, name: categorieName)
-                    
-                    ItemsService.shared.AllCategoriesDB.append(newCategory)
-                }
-                self.HomeTableView.reloadData()
-            }
-        }
- */
-    }
-
-    
 // MARK: - SearchBar
     
     func searchBar () {
@@ -103,11 +63,13 @@ class HomeViewController: UIViewController {
         HeaderView.HomeItemLeftName.text = itemPromo[0].nom
         HeaderView.HomeItemLeftAuthor.text = itemPromo[0].auteur
         HeaderView.HomeItemLeftImage.image = UIImage(named: itemPromo[0].photo)
+        HomeItemLeftView.addShadow()
 
         HeaderView.HomeItemRightName.text = itemPromo[1].nom
         HeaderView.HomeItemRightAuthor.text = itemPromo[1].auteur
         HeaderView.HomeItemRightImage.image = UIImage(named: itemPromo[1].photo)
-
+        HomeItemRightView.addShadow()
+        
         HeaderView.InfoPromo.text = infoPromo
     }
 
@@ -194,7 +156,7 @@ extension HomeViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 6
-        //return ItemsService.shared.AllCategories.count
+        //return ItemsService.shared.AllCategoriesDB.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

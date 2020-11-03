@@ -40,6 +40,7 @@ class BasketTableViewController: UITableViewController {
                 montantTotal += BasketItem.montant
             }
         BasketFooterView.montantTotal.text = String(format: "%.2f", self.montantTotal) + "€"
+        ItemsService.shared.BasketMontant = montantTotal
     }
 
 // MARK: - Table view data source
