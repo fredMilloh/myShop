@@ -33,7 +33,6 @@ class ItemsService {
             })
         }
     }
-
     private(set) var AllCategories = ["Biscuit", "Cake", "Chocolat", "Choux", "Entremet", "Individuel", "Tartelettes", "Tartes"]
     
     var AllCategoriesDB = [CategoryDB]()

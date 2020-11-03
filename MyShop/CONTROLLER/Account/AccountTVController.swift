@@ -142,25 +142,25 @@ class AccountTVController: UITableViewController {
             switch indexPath.row {
             case 0:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "CarteCell", for: indexPath) as! ChoiceTVCell
-                if reception == "paypal" {
+                if payment == "paypal" {
                     cell.choiceState.backgroundColor = .red
-                } else if reception == "carte" {
+                } else if payment == "carte" {
                     cell.choiceState.backgroundColor = .green
                 } else {
                     cell.choiceState.backgroundColor = .systemGray5 }
-                    cell.button = { self.reception = "carte"
+                    cell.button = { self.payment = "carte"
                                     self.tableView.reloadData()
                                     print("carte bancaire") }
                 return cell
             case 1:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "PaypalCell", for: indexPath) as! ChoiceTVCell
-                if reception == "carte" {
+                if payment == "carte" {
                     cell.choiceState.backgroundColor = .red
-                } else if reception == "paypal" {
+                } else if payment == "paypal" {
                     cell.choiceState.backgroundColor = .green
                 } else {
                     cell.choiceState.backgroundColor = .systemGray5 }
-                    cell.button = { self.reception = "paypal"
+                    cell.button = { self.payment = "paypal"
                                     self.tableView.reloadData()
                                     print("Paypal") }
                 return cell
