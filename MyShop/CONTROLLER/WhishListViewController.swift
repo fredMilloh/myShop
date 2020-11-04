@@ -14,10 +14,23 @@ class WhishListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if ItemsService.shared.WhishListItems.count == 0 {
+            panierVide()
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         WhishListTableView.reloadData()
+        
+    }
+    
+    func panierVide() {
+        let alert = UIAlertController(title: "Mon panier est vide,", message: "voir les patisseries, miam miam ....", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "j'y vais....", style: .default, handler: { (action) in
+            let home = self.storyboard?.instantiateViewController(identifier: "Home") as! HomeViewController
+            self.navigationController?.pushViewController(home, animated: true)
+        }))
+        self.present(alert, animated: true, completion: nil)
     }
 
 }

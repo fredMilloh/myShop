@@ -20,6 +20,8 @@ class AllCategoriesViewController: UIViewController {
 // MARK: - Extensions
 
 extension AllCategoriesViewController: UITableViewDataSource {
+    
+    @IBAction func unwindToAllCategories(segue: UIStoryboardSegue) { }
 
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1

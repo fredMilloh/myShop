@@ -1532,7 +1532,7 @@
         <!--MyShop-->
         <scene sceneID="Ol7-Kg-Kv6">
             <objects>
-                <viewController id="QZy-G7-kjo" customClass="HomeViewController" customModule="MyShop" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Home" id="QZy-G7-kjo" customClass="HomeViewController" customModule="MyShop" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tMz-gj-X6E">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

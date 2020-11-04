@@ -12,6 +12,7 @@ import FirebaseAuth
 class AccountTVController: UITableViewController {
     
     @IBAction func unwindToAccount(segue: UIStoryboardSegue) { }
+    
     // titre de section de la tableView
     var sections = [Section(categories: "Etat Connexion", name: ["e"]), Section(categories: "Mon Compte", name: ["a"]), Section(categories: "Mode de Livraison", name: ["b"]), Section(categories: "Mode de Paiement", name: ["c"]), Section(categories: "Récapitulatif", name: ["d"])]
     
