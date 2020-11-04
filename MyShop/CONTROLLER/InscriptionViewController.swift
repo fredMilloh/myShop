@@ -217,7 +217,9 @@ class InscriptionViewController: UIViewController, UIImagePickerControllerDelega
         
         Auth.auth().signIn(withEmail: email, password: password) { (authResult, error) in
             if let error = error {
-                
+                let alert = UIAlertController(title: "erreur lors de l'authentification", message: "vérifier bien l'orthographe de l'adresse mail et du mot de passe", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "ok", style: .default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
                 print("erreur lors de l'authentification", error.localizedDescription)
             } else {
                 let ref = Database.database().reference()
