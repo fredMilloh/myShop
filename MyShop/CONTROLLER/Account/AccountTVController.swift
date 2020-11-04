@@ -35,8 +35,14 @@ class AccountTVController: UITableViewController {
             connexion = "off"
             tableView.reloadData()
         } catch {
+            let alert = UIAlertController(title: "erreur lors de la déconnexion", message: " ", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "ok", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
           print("erreur de déconnexion")
         }
+        let alert = UIAlertController(title: "Vous êtes déconnecté", message: "à bientôt", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "ok", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
         print("Vous êtes déconnecté")
     }
     
@@ -130,6 +136,9 @@ class AccountTVController: UITableViewController {
                             self.tableView.reloadData()
                             print("livraison à domicile")
                         } else {
+                            let alert = UIAlertController(title: "Informations Personnelles", message: "Compléter tous les champs necessaires à la livraison à domicile", preferredStyle: .alert)
+                            alert.addAction(UIAlertAction(title: "ok", style: .default, handler: nil))
+                            self.present(alert, animated: true, completion: nil)
                             print("complèter tous les champs")
                             let infoVC = self.storyboard?.instantiateViewController(identifier: "InfoTV") as! InfoTVController
                             self.navigationController?.pushViewController(infoVC, animated: true) }

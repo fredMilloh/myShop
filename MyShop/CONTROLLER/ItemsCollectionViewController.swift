@@ -26,12 +26,12 @@ class ItemsCollectionViewController: UICollectionViewController {
         
         selectItemsCategory()
 
-        // Register cell classes - desactice sinon plante
+        // Register cell classes - desactive sinon plante
         //self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
     }
 
 // MARK: - Sort items by category
-    /*
+    /* // test pour fetch items from Firebase
     func fetchItemsByCategoriy() {
         
         db.collection("categories/biscuit/biscuits").addSnapshotListener { (querySnapshot, error) in
