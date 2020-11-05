@@ -25,6 +25,7 @@ struct Item {
     var photo: String
     var siteWeb: String
     var promo: Bool
+    var cart: Bool
 }
 
 struct Section {

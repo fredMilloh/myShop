@@ -86,12 +86,8 @@ class ItemsCollectionViewController: UICollectionViewController {
         cell.ItemsCollectionDescription.text = item.description
         cell.ItemsCollectionImage.image = UIImage(named: item.photo)
         cell.ItemsCollectionName.text = item.nom
-        cell.addButtonPressed = {
-            ItemsService.shared.BasketItems.append(item)
-        }
-        cell.whishButtonPressed = {
-            ItemsService.shared.WhishListItems.append(item)
-        }
+        cell.addButtonPressed = { ItemsService.shared.addBasket(item: item) }
+        cell.whishButtonPressed = { ItemsService.shared.WhishListItems.append(item) }
         return cell
     }
     
