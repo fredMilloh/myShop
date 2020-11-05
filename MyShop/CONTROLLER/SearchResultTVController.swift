@@ -9,38 +9,54 @@
 import UIKit
 
 class SearchResultTVController: UITableViewController {
-
+    
+    var searchController: UISearchController!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        searchBar()
+       
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
-
-    // MARK: - Table view data source
+    
+    func searchBar () {
+        searchController = UISearchController(searchResultsController: nil)
+        self .navigationItem.searchController = searchController
+        searchController.searchResultsUpdater = self
+    }
+    func filterContent(for searchText: String) {
+        ItemsService.shared.searchResults = ItemsService.shared.pastries.filter({ (item) -> Bool in
+            let nom = item.nom
+            let isMatch = nom.localizedCaseInsensitiveContains(searchText)
+            return isMatch
+        })
+    }
+    
+// MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return ItemsService.shared.searchResults.count
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ResultCell", for: indexPath)
+        let item = ItemsService.shared.searchResults[indexPath.row]
+        cell.textLabel?.text = item.nom
+        //cell.whishlistAuthor.text = item.auteur
+        //cell.whishlistPrice.text = String(format: "%.2f", (item.prix)) + "€"
+        //cell.whishlistImage.image = UIImage(named: item.photo)
 
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.
@@ -86,5 +102,13 @@ class SearchResultTVController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
 }
+extension SearchResultTVController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        if let searchText = searchController.searchBar.text {
+            filterContent(for: searchText)
+            tableView.reloadData()
+        }
+    }
+}
+

@@ -23,11 +23,15 @@ class ItemsCollectionViewController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         selectItemsCategory()
 
         // Register cell classes - desactive sinon plante
         //self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super .viewWillAppear(true)
+        selectItemsCategory()
     }
 
 // MARK: - Sort items by category
@@ -48,15 +52,12 @@ class ItemsCollectionViewController: UICollectionViewController {
                 let allergens = data["allergens"] as? String ?? ""
                 let siteWeb = data["siteWeb"] as? String ?? ""
                 
-                
-                
                 return Item(auteur: auteur, nom: nom, categorie: "", prix: prix, montant: montant, description: description, allergens: allergens, photo: "", siteWeb: siteWeb, promo: false)
             })
             print(ItemsService.shared.CategoriesItems)
         }
     }
  */
-        
         func selectItemsCategory() {
             ItemsService.shared.CategoriesItems = [Item]() //remise a zéro pour ne pas cumuler les catégories
             for pastry in ItemsService.shared.pastries {
@@ -66,7 +67,6 @@ class ItemsCollectionViewController: UICollectionViewController {
            }
         }
         
-
 // MARK: UICollectionViewDataSource
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {

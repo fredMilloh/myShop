@@ -11,8 +11,6 @@ import UIKit
 
 class HeaderView: UIView {
 
-    @IBOutlet var searchTextField: UITextField!
-
 // MARK: - leftViewItem
 
     @IBOutlet var HomeItemLeftImage: UIImageView!

@@ -20,7 +20,6 @@ class HomeViewController: UIViewController {
     @IBOutlet var FooterView: FooterView!
     
     var tapGesture = UITapGestureRecognizer()
-    var searchController: UISearchController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +31,6 @@ class HomeViewController: UIViewController {
         homeRightViewTapGesture()
         animPromoView()
         animEspacePubView()
-        searchBar()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -42,17 +40,11 @@ class HomeViewController: UIViewController {
         animPromoView()
         animEspacePubView()
     }
-        
-// MARK: - SearchBar
     
-    func searchBar () {
-         let resultsController = storyboard!.instantiateViewController(identifier: "SearchResult") as? SearchResultTVController
-        searchController = UISearchController(searchResultsController: resultsController)
-        self .navigationItem.searchController = searchController
-    }
-    
-    func filterContent(for searchText: String) {
+    @IBAction func searchButton(_ sender: UIButton) {
+        guard let resultsController = storyboard!.instantiateViewController(identifier: "SearchResult") as? SearchResultTVController else { return }
         
+        self.navigationController?.pushViewController(resultsController, animated: true)
     }
     
 // MARK: - Select item for ItemsView and give them value

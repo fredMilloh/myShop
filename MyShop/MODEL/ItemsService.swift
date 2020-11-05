@@ -49,14 +49,6 @@ class ItemsService {
             }
         }
     }
-    func createCart() {
-        BasketItems = [Item]()
-        for pastry in pastries {
-            if pastry.cart == true {
-                BasketItems.append(pastry)
-            }
-        }
-    }
     
     var CategoriesItems = [Item]()
     
@@ -76,7 +68,7 @@ class ItemsService {
        }
     }
     
-    
+    var searchResults = [Item]()
 
     var pastries = [
         Item(auteur: "Cédric Grolet", nom: "Fleur Coco Noir", categorie: "Biscuit", prix: 15.00, quantite: 0, montant: 15.00, description: "Praliné coco, gel coco avec fine coque de chocolat non conché Alain Ducasse", allergens: "Fruits à coque, Lactose", photo: "FleurCocoNoir", siteWeb: "https://cedric-grolet.com/meurice/produit/fleur-coco-noir/", promo: false, cart: false),
