@@ -75,7 +75,7 @@ class SearchResultTVController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let itemTable = self.storyboard?.instantiateViewController(withIdentifier: "ItemTableView") as! ItemTableViewController
-        let itemSelected = ItemsService.shared.searchResults[indexPath.row]
+        let itemSelected = (searchController.isActive) ? ItemsService.shared.searchResults[indexPath.row] : ItemsService.shared.pastries[indexPath.row]
         itemTable.itemSelected = itemSelected
         self.navigationController?.pushViewController(itemTable, animated: true)
         searchController.dismiss(animated: true)
