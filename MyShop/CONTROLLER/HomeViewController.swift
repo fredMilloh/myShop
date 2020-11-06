@@ -42,9 +42,10 @@ class HomeViewController: UIViewController {
     }
     
     @IBAction func searchButton(_ sender: UIButton) {
-        guard let resultsController = storyboard!.instantiateViewController(identifier: "SearchResult") as? SearchResultTVController else { return }
+        let resultsController = self.storyboard?.instantiateViewController(identifier: "SearchResult") as! SearchResultTVController
         
         self.navigationController?.pushViewController(resultsController, animated: true)
+        
     }
     
 // MARK: - Select item for ItemsView and give them value
