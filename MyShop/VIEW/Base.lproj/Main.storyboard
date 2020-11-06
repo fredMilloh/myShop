@@ -1471,7 +1471,7 @@
         <!--accueil-->
         <scene sceneID="T9m-cU-Stg">
             <objects>
-                <navigationController id="Azz-NW-qbe" sceneMemberID="viewController">
+                <navigationController hidesBarsOnSwipe="YES" id="Azz-NW-qbe" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="accueil" image="house" catalog="system" id="AHo-C7-cVc"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Xsi-YY-EEy">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
