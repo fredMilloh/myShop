@@ -31,6 +31,12 @@ class SearchResultTVController: UITableViewController {
         tableView.tableHeaderView = searchController.searchBar
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
+        // personnalisation de la serachBar
+        searchController.searchBar.placeholder = "rechercher une patisserie ou un créateur ...."
+        searchController.searchBar.barTintColor = .white
+        searchController.searchBar.tintColor = .systemPink //couleur curseur
+        searchController.searchBar.searchTextField.textColor = .systemPink //couleur text
+        searchController.searchBar.searchTextField.backgroundColor = .white
         
     }
     func filterContent(for searchText: String) {
