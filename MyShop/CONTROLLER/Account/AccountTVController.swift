@@ -14,7 +14,7 @@ class AccountTVController: UITableViewController {
     @IBAction func unwindToAccount(segue: UIStoryboardSegue) { }
     
     // titre de section de la tableView
-    var sections = [Section(categories: "Etat Connexion", name: ["e"]), Section(categories: "Mon Compte", name: ["a"]), Section(categories: "Mode de Livraison", name: ["b"]), Section(categories: "Mode de Paiement", name: ["c"]), Section(categories: "Récapitulatif", name: ["d"])]
+    var sections = [Section(categories: "Etat Connexion", name: ["e"]), Section(categories: "Mon Compte", name: ["a"]), Section(categories: "Mode de Livraison", name: ["b"]), Section(categories: "Mode de Paiement", name: ["c"]), Section(categories: "Récapitulatif", name: ["d"]), Section(categories: "Conditions de Paiement", name: ["e"])]
     
     var connexion = ""
     var reception = ""
@@ -64,6 +64,7 @@ class AccountTVController: UITableViewController {
         case 2: return 2
         case 3: return 2
         case 4: return 1
+        case 5: return 1
         default: return 0
         }
     }
@@ -201,6 +202,15 @@ class AccountTVController: UITableViewController {
         default:
             fatalError()
         }
+        case 5:
+            switch indexPath.row {
+            case 0:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ConditionsPayCell", for: indexPath) as! LabelTVCell
+                cell.infoDetail.text = "Le(s) produit(s) commandé(s) seront livré(s) en contre partie de votre paiement par carte de crédit (Master Card, Visa, American Express), paiement via paypal, virement bancaire."
+            return cell
+        default: fatalError()
+            }
+            
         default:
             fatalError()
         }
@@ -242,6 +252,11 @@ class AccountTVController: UITableViewController {
         case 4:
             switch indexPath.row {
             case 0: print("récapitulatif")
+            default: fatalError()
+            }
+        case 5:
+            switch indexPath.row {
+            case 0: print("Conditions de paiement")
             default: fatalError()
             }
         default: fatalError()

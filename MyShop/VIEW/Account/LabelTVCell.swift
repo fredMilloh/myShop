@@ -12,6 +12,7 @@ class LabelTVCell: UITableViewCell {
     
     @IBOutlet var labelView: UIView!
     @IBOutlet var titleLabel: UILabel!
+    @IBOutlet var infoDetail: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()
