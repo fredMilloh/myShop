@@ -30,7 +30,7 @@ class ItemsCollectionViewController: UICollectionViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        super .viewWillAppear(true)
+        super .viewWillAppear(animated)
         selectItemsCategory()
     }
 

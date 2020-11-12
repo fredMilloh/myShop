@@ -31,10 +31,13 @@ class HomeViewController: UIViewController {
         homeRightViewTapGesture()
         animPromoView()
         animEspacePubView()
+        
+        print("view did load")
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
+        super.viewWillAppear(animated)
+        print("view will appear")
         HomeTableView.reloadData()
         ItemsService.shared.fetchCategories()
         animPromoView()
@@ -116,7 +119,7 @@ class HomeViewController: UIViewController {
     
 // MARK: - Animation Footer
     
-    func animPromoView() -> Void {
+    func animPromoView() {
         
         let secondImageView = UIImageView(image: UIImage(named: "EspacePub4"))
         secondImageView.clipsToBounds = FooterView.imagePromoImage.clipsToBounds
@@ -133,7 +136,7 @@ class HomeViewController: UIViewController {
         })
     }
     
-    func animEspacePubView() -> Void {
+    func animEspacePubView() {
         UIView.animate(withDuration: 2, delay: 1.0, options: [.repeat], animations: {
             self.FooterView.espacePubLabel.alpha = 0
         }, completion: nil)
